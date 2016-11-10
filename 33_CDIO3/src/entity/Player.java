@@ -82,6 +82,15 @@ public class Player {
 	}
 	
 	/**
+	 * Method getPlayerHasLost returns true if the player has lost.
+	 * @return True if the player hast lost the game.
+	 */
+	public boolean getPlayerHasLost()
+	{
+		return hasLost;
+	}
+	
+	/**
 	 * Method setPlayerDecision sets the pay decision of the player.
 	 * @param playerPayDecision The pay decision of the player.
 	 */
