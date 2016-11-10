@@ -6,6 +6,7 @@ public class Player {
 
 	private String playerName;
 	private Account account = new Account();
+	private boolean hasLost;
 
 	/** 
 	 * Player constructor sets the player's name to the parameter value.
@@ -14,6 +15,7 @@ public class Player {
 	public Player(String playerName)
 	{
 		this.playerName = playerName;
+		hasLost = false;
 	}
 	
 	/** 
