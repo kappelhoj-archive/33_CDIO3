@@ -60,15 +60,15 @@ public class GameText {
 /*(210)*/	"Tower has a price of 6000, and a rent of 3200",
 /*(211)*/	"Castle has a price of 8000, and a rent of 4000",
 /*(212)*/	"When you land on the Walled city you receive a bonus of 5000",
-/*(213)*/	"When you land on the Monastery you receive a bonus of 5000",
-/*(214)*/	"2500",
-/*(215)*/	"2500",
-/*(216)*/	"-2000(tax)",
-/*(217)*/	"-4000(tax)",
-/*(218)*/	"4000",
-/*(219)*/	"4000",
-/*(220)*/	"4000",
-/*(221)*/	"4000"};
+/*(213)*/	"When you land on the Monastery you receive a bonus of 500",
+/*(214)*/	"Huts in the mountain is labor camp. Roll the dice and pay 100 times what you roll.",
+/*(215)*/	"The pit is labor camp. Roll the dice and pay 100 times what you roll.",
+/*(216)*/	"If you land on the Goldmine you have to pay 2000 or 10% og your fortune to the owner.",
+/*(217)*/	"If you land on the Caravan you have to pay 4000 or 10% og your fortune to the owner.",
+/*(218)*/	"When you land on Second sail you have to pay between 500-400 in rent, dependent on how many fleets the owner has.",
+/*(219)*/	"When you land on Sea Grover you have to pay between 500-400 in rent, dependent on how many fleets the owner has.",
+/*(220)*/	"When you land on The Buccaneers you have to pay between 500-400 in rent, dependent on how many fleets the owner has.",
+/*(221)*/	"When you land on Privateer armade you have to pay between 500-400 in rent, dependent on how many fleets the owner has."};
 	
 	
 	/**
@@ -89,7 +89,7 @@ public class GameText {
 	
 	public static String welcomeText()
 	{	
-		return "Welcome to 'A Tale of Tales' \n";
+		return "Welcome to 'Rodatam' \n";
 	}
 	
 	
@@ -102,10 +102,13 @@ public class GameText {
 		String gameRules = "";
 		gameRules = "The game rules are as follows: \n";
 		gameRules = gameRules 
-			      + "- All players start with 1000 gold coins. \n"
-				  + "- The first player to achieve 3000 gold coins wins the game. \n"
-				  + "- A players funds are affected each turn. The amount depends on which field you land on in the current turn. \n"
-				  + "- A player always lands on the field number corresponding to the sum of the dice. \n";
+			      + "- All players start with 30000 money. \n"
+				  + "- When you lose all your money you are out of the game. \n"
+				  + "- The last remaining player has won the game.\n"
+				  + "- You start a turn by rolling the dice. You then move forward by the amount you rolled.\n"
+				  + "- There are 5 different types of fields."  
+				  + "- ";
+			
 		return gameRules;
 	}
 	
