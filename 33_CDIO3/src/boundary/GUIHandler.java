@@ -88,16 +88,9 @@ public class GUIHandler {
 		//Place a new car on the new position.
 		GUI.setCar(position, playerName);
 	}
-	/**
-	 * Alerts the player of whose turn it is.
-	 * @param playerName
-	 * @param extraTurn
-	 */
-	public void startTurn(String playerName,boolean extraTurn){
-		if(extraTurn)
-			GUI.getUserButtonPressed(GameText.extraTurnText(playerName)+"\n\n\n\n\n\n","Roll");
-		else
-			GUI.getUserButtonPressed(GameText.turnText(playerName)+"\n\n\n\n\n\n","Roll");
+	
+	public void showTurnStart(String playerName){
+		GUI.getUserButtonPressed(GameText.turnText(playerName), GameText.getButtonText("OK"));
 	}
 	
 	/**
@@ -107,16 +100,29 @@ public class GUIHandler {
 	 * @param playerPosition
 	 * @param currentDice
 	 */
-	public void getTurn(String playerName,int playerBalance,int playerPosition,int[] currentDice){	
+	
+	public void showRoll(String playerName,int playerPosition,int[] currentDice){	
 		//Set the dice face values. 
 		GUI.setDice(currentDice[0],1+varians(),4+varians(), currentDice[1],2+varians(),7+varians());
 		//Moves the player to the new position
-		movePlayer(playerName,playerPosition-1);
+		movePlayer(playerName,playerPosition);
 		//Gives the user some text.
-		GUI.getUserButtonPressed(GameText.rollText(playerName, currentDice)+"\n"+GameText.fieldDescription[playerPosition-2]+"\n","Ok");
-		//Change the balance.
-		GUI.setBalance(playerName, playerBalance);
+		GUI.getUserButtonPressed(GameText.rollText(playerName, currentDice)+"\n"+GameText.landText(playerPosition)+"\n",GameText.getButtonText("OK"));	
+	}
+	
+	public void askPlayerBuyField(int playerPosition,String playerName){
+		GUI.getUserLeftButtonPressed(GameText.buyfieldText(playerName, GameText.fieldTitles[playerPosition],  GameText.fieldSubText[playerPosition]), GameText.getButtonText("yes"),GameText.getButtonText("no"));
 		
+	}
+	public void boughtField(String playerName,int playerPosition){
+		GUI.getUserButtonPressed(GameText.boughtFieldText(playerName,GameText.fieldTitles[playerPosition]) ,GameText.getButtonText("OK"));	
+	}
+	
+	public void changePlayerBalance(String playerName,int playerBalance){
+	//Change the balance.
+			GUI.setBalance(playerName, playerBalance);
+			
+			
 	}
 	/**
 	 * Gives a random value between -1 and 1. Used to make the dice rolls appear random.
