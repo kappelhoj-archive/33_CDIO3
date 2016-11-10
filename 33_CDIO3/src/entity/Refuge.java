@@ -10,5 +10,10 @@ public class Refuge extends Field {
 		super(fieldName);
 		this.bonus = bonus;
 	}
+	
+	public void landOnField(Player player)
+	{
+		player.changeAccountBalance(bonus);
+	}
 }
 
