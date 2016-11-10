@@ -8,6 +8,7 @@ public class GameBoard {
 	
 	public GameBoard()
 	{
+		
 		int[] price = {1000,1500,2000,3000,4000,4300,4750,5000,5500,6000,8000};
 		
 		int[] rent = {100,300,500,700,1000,1300,1600,2000,2600,3200,4000};
@@ -29,8 +30,8 @@ public class GameBoard {
 
 		//Laborcamp
 		
-		fields[14] = new Laborcamp(GameText.fieldTitles[14],100, null);	
-		fields[15] = new Laborcamp(GameText.fieldTitles[15],100, null);	
+		fields[14] = new LaborCamp(GameText.fieldTitles[14],100, null);	
+		fields[15] = new LaborCamp(GameText.fieldTitles[15],100, null);	
 
 		//Tax
 		
