@@ -16,18 +16,22 @@ public class Account {
 	 * Method to calculate the new balance based on the int fieldValue.
 	 * @param Field's gold value.
 	 */
-	public boolean changeBalance(int fieldValue) {
+	public boolean changeBalance(int rent) {
 		/**
 		 * This part of the method simply adds or subtracts the field value from
 		 * the player' balance.
 		 */
-		balance = balance + fieldValue;
-		if (balance < 0) {
-			balance = 0;
+		if(balance + rent < balance){
+			return true;
+		}
+		else if(balance < 0) {
+			balance = -1;
 			return false;
-		} else if (balance > 3000)
-			balance = 3000;
-		return true;
+		}
+		else {
+			balance = balance + rent;
+			return true;
+		}
 	}
 
 }
