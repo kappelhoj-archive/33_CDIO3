@@ -4,8 +4,9 @@ import entity.Account;
 
 public class Player {
 
+	//Instance variables
 	private String playerName;
-	private Account account = new Account(30000);
+	private Account account;
 	private boolean hasLost;
 	private int amountOfFleets;
 	private int amountOfLaborCamps;
@@ -19,6 +20,7 @@ public class Player {
 	public Player(String playerName)
 	{
 		this.playerName = playerName;
+		account = new Account(30000);
 		hasLost = false;
 		amountOfFleets = 0;
 		amountOfLaborCamps = 0;
