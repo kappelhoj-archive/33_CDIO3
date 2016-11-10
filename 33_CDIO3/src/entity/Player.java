@@ -19,6 +19,7 @@ public class Player {
 		this.playerName = playerName;
 		hasLost = false;
 		amountOfFleets = 0;
+		amountOfLaborCamps = 0;
 	}
 	
 	/** 
