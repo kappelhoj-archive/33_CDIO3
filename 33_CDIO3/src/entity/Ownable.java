@@ -60,7 +60,7 @@ public abstract class Ownable extends Field
 	 */
 	public boolean buyField(Player player)
 	{
-		if (player.getAccountBalance() > price) //Checks if the player has enough money to buy the field.
+		if (player.getAccountBalance() > price)  //Checks if the player has enough money to buy the field.
 		{
 			player.changeAccountBalance(-price); //Subtracts the price of the field from the player account balance.
 			owner = player;                      //Sets the player to be the owner of the field.
