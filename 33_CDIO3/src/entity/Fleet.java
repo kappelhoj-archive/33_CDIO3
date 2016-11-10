@@ -26,7 +26,7 @@ public class Fleet extends Ownable
 			break;
 		case 4: rent = RENT_4;
 			break;
-		default: System.out.println("There is no such amount of fleets.");
+		default: rent = 0;
 		}
 		return rent;
 	}
