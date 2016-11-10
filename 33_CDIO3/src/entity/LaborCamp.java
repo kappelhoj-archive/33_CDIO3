@@ -3,6 +3,7 @@ package entity;
 public class LaborCamp extends Ownable
 {
 	private int baseRent;
+	private int diceSum;
 	
 	public LaborCamp(String fieldName, int price) {
 		super(fieldName, price);
@@ -12,15 +13,16 @@ public class LaborCamp extends Ownable
 	public int getRent()
 	{
 		int amountOfLaborCamps = super.getOwner().getAmountOfLaborCamps();
-		int rent;
-		//diceSum skal ændres
-		int diceSum = 0;
 		
-		rent = baseRent * amountOfLaborCamps * diceSum;
+		int rent = baseRent * diceSum * amountOfLaborCamps;
 		
 		return rent;
 	}
 	
+	public void setDiceSum(int diceSum)
+	{
+		this.diceSum = diceSum;
+	}
 	
 	
 	
