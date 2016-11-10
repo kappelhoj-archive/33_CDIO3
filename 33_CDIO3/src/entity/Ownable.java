@@ -46,7 +46,13 @@ public abstract class Ownable extends Field
 		{
 			return false;
 		}
-		
-		
+	}
+	
+	public void landOnField(Player player)
+	{
+		if (!getOwner().getPlayerName().equals(player.getPlayerName()))
+		{
+			player.payRent(getOwner(), this.getRent());
+		}
 	}
 }
