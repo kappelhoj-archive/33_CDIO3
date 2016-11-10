@@ -174,7 +174,7 @@ public class GameText {
 	 * @param price(int) of the mattering field.
 	 * @return String
 	 */
-	public static String buyfieldText(String playerName, String fieldName, int price)
+	public static String buyfieldText(String playerName, String fieldName, String price)
 	{
 		return "Do you " + playerName + " want to buy "+ fieldName +" for "+ price +" ? \n";
 	}
@@ -187,7 +187,7 @@ public class GameText {
 	 */
 	public static String cantBuyFieldText(String playerName, String fieldName)
 	{
-		return "you " + playerName + " can't afford to buy "+ fieldName +". \n";
+		return "You " + playerName + " can't afford to buy "+ fieldName +". \n";
 	}
 	
 	/**
