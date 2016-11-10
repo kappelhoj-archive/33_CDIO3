@@ -8,7 +8,7 @@ public class TUI {
 		System.out.println("Please specify number of players: ");
 
 		int numbPlayer = 0;
-		int[] numberPlayerArray;
+		String[] playerNames;
 		
 		/**
 		 * Error-detection method.
@@ -29,10 +29,13 @@ public class TUI {
 		/**
 		 * Adding number of players into an array called "numberPlayerArray".
 		 */
-
+			playerNames = new String[numbPlayer];
+			
 		for (int i = 0; i < numbPlayer; i++){
-			numberPlayerArray p = new numberPlayerArray();
-			numberPlayerArray.add(p);
+			String playerName;
+			
+			/* Henter spiller navn fra tastatur. */
+			playerNames[i]=playerName;
 		}
 	}
 }
