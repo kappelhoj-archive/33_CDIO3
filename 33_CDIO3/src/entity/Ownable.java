@@ -5,11 +5,11 @@ public abstract class Ownable extends Field
 	private int price;
 	private Player owner;
 	
-	public Ownable(String fieldName, int price, Player owner) 
+	public Ownable(String fieldName, int price) 
 	{
 		super(fieldName);
 		this.price = price;
-		this.owner = owner;
+		this.owner = null;
 	}
 
 	public int getRent()
@@ -22,5 +22,37 @@ public abstract class Ownable extends Field
 		return owner;
 	}
 	
+	public boolean isFieldOwned()
+	{
+		if (owner == null)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
 	
+	public boolean buyField(Player player)
+	{
+		if (player.getAccountBalance() > price)
+		{
+			player.changeAccountBalance(-price);
+			owner = player;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	public void landOnField(Player player)
+	{
+		if (!getOwner().getPlayerName().equals(player.getPlayerName()))
+		{
+			player.payRent(getOwner(), this.getRent());
+		}
+	}
 }

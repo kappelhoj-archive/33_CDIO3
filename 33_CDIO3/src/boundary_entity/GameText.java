@@ -23,6 +23,12 @@ public class GameText {
 /*(019)*/	"Sea Grover",
 /*(020)*/	"The Buccaneers",
 /*(021)*/	"Privateer armade"};
+	
+	/**
+	 * The method  returns a String of the button text.
+	 * @param button name.
+	 * @return String
+	 */
 	public static String[] fieldSubText={
 /*(101)*/	"1000",
 /*(102)*/	"1500",
@@ -75,8 +81,7 @@ public class GameText {
 	 * The method enterPlayerNames returns a string Which asks the players to enter their names.
 	 * @param  The number of the player
 	 * @return String
-	 */
-	
+	 */	
 	public static String enterPlayerNameText(int number)
 	{
 		return "Please enter the name of player " + number;
@@ -86,13 +91,11 @@ public class GameText {
 	 * The method welcomeText returns a string which contains the welcome text of the game.
 	 * @return String
 	 */
-	
 	public static String welcomeText()
 	{	
 		return "Welcome to 'Rodatam' \n";
 	}
-	
-	
+		
 	/**
 	 * The method gameRules returns a string which contains the game rules.
 	 * @return String
@@ -163,4 +166,117 @@ public class GameText {
 	{
 		return "Congratulations " + playerName + " has won the game! \n";
 	}
+
+	/**
+	 * The method buyfieldText returns a String which asks if you want to buy a field.
+	 * @param playerName The name of the player. 
+	 * @param fieldName of the mattering field.
+	 * @param price(int) of the mattering field.
+	 * @return String
+	 */
+	public static String buyfieldText(String playerName, String fieldName, int price)
+	{
+		return "Do you " + playerName + " want to buy "+ fieldName +" for "+ price +" ? \n";
+	}
+	
+	/**
+	 * The method cantBuyFieldText returns a String that tells you cant afford this field.
+	 * @param playerName The name of the player.
+	 * @param fieldName of the mattering field.
+	 * @return String
+	 */
+	public static String cantBuyFieldText(String playerName, String fieldName)
+	{
+		return "you " + playerName + " can't afford to buy "+ fieldName +". \n";
+	}
+	
+	/**
+	 * The method invalidPlayerNumberText returns a string which tells the player number is invalid.
+	 * @return String
+	 */
+	public static String invalidPlayerNumberText()
+	{
+		return "This is not a valid number of players, please try again with a number within 2-6 \n";
+	}
+	
+	/**
+	 * The method buyfieldText returns a String which asks if you want to buy a field.
+	 * @param playerName The name of the player.
+	 * @return String
+	 */
+	public static String invalidInputText()
+	{
+		return "This is not a valid input. Please try again \n";
+	}
+	
+	/**
+	 * The method getButtonText returns a String of the button text.
+	 * @param button name.
+	 * @return String
+	 */
+	public static String getButtonText(String m)
+	{
+		switch(m)
+		{
+		case "yes":
+			return "Yes";
+		case "no":
+			return "No";
+		case "%":
+			return "%";
+		case "int":
+			return "int";
+		case "ok":
+			return "ok";
+		}
+		return "";
+	
+	
+	}
+	
+	/**
+	 * The method playerNameTakenText returns a String which tells the name is taken.
+	 * @param playerName.
+	 * @return String
+	 */
+	public static String playerNameTakenText(String playerName)
+	{
+		return "This player name "+ playerName +" is already taken, try again \n";
+	}	
+	
+	/**
+	 * The method boughtFieldText returns a String which tells you you bought that field.
+	 * @param plyerName, fieldName.
+	 * @return String
+	 */
+	public static String boughtFieldText(String playerName, String fieldName)
+	{
+		return "Congratulation "+ playerName +"bought " + fieldName +" \n" ;
+	}	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
