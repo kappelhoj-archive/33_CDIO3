@@ -7,9 +7,9 @@ public class Fleet extends Ownable
 	final private int RENT_3 = 2000;
 	final private int RENT_4 = 4000;
 	
-	public Fleet(String fieldName, int price, Player owner)
+	public Fleet(String fieldName, int price)
 	{
-		super(fieldName, price, owner);
+		super(fieldName, price);
 	}
 
 	public int getRent()
@@ -29,5 +29,13 @@ public class Fleet extends Ownable
 		default: rent = 0;
 		}
 		return rent;
+	}
+	
+	public void landOnField(Player player)
+	{
+		if (!super.getOwner().getPlayerName().equals(player.getPlayerName()))
+		{
+			player.payRent(super.getOwner(), this.getRent());
+		}
 	}
 }

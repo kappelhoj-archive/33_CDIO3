@@ -20,7 +20,7 @@ public class GameBoard {
 		for(int i = 0 ; i < 10 ; i++)
 		{
 			// Add a field in every element of fields array with rent and price.
-			fields[i] = new Territory(GameText.fieldTitles[i],rent[i],null, price[i]);			
+			fields[i] = new Territory(GameText.fieldTitles[i],rent[i], price[i]);			
 		}
 		
 		//Refuge
@@ -30,8 +30,8 @@ public class GameBoard {
 
 		//Laborcamp
 		
-		fields[14] = new LaborCamp(GameText.fieldTitles[14],100, null);	
-		fields[15] = new LaborCamp(GameText.fieldTitles[15],100, null);	
+		fields[14] = new LaborCamp(GameText.fieldTitles[14],100);	
+		fields[15] = new LaborCamp(GameText.fieldTitles[15],100);	
 
 		//Tax
 		
@@ -41,35 +41,7 @@ public class GameBoard {
 		
 		for(int j = 0; j < 3 ; j++)
 		{
-			fields[j] = new Fleet(GameText.fieldTitles[j],400, null);	
+			fields[j] = new Fleet(GameText.fieldTitles[j],400);	
 		}
-	}
-	
-	/**
-	 * Method getFieldPrice returns the Price of a specific field.
-	 * @param Field's index in the array.
-	 * @return Price of a field.
-	 */
-	public int getFieldPrice(int fieldIndex)
-	{
-		return fields[fieldIndex].getPrice();
-	}
-	
-	/**
-	 * Method getFieldRent returns the Rent of a specific field.
-	 * @param Field's index in the array.
-	 * @return Rent of a field.
-	 */
-	public int getFieldRent(int fieldIndex)
-	{
-		return fields[fieldIndex].getRent();
-	}
-	
-	
-	
-	
-	
-	
-	
-	
+	}	
 }
