@@ -1,7 +1,7 @@
 package entity;
 
-public class Account {
-
+public class Account 
+{
 	//Instance variables
 	private double balance;
 	
