@@ -3,11 +3,11 @@ package entity;
 public abstract class Field 
 {
 
-	private String name;
+	private String fieldName;
 	
-	public Field(String name)
+	public Field(String fieldName)
 	{
-		this.name = name;
+		this.fieldName = fieldName;
 	}
 	
 	public void landOnField(Player player)
