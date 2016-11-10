@@ -5,7 +5,7 @@ import entity.Account;
 public class Player {
 
 	private String playerName;
-	private Account account = new Account();
+	private Account account = new Account(30000);
 	private boolean hasLost;
 	private int amountOfFleets;
 	private int amountOfLaborCamps;
