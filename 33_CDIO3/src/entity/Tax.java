@@ -2,13 +2,12 @@ package entity;
 
 public class Tax extends Field{
 	
+	private int taxRate;
 	private int taxAmount;
 	
-	private int taxRate;
-	
-	public Tax (String name, int taxAmount, int taxRate){
+	public Tax (String fieldName, int taxAmount, int taxRate){
 		
-		super(name);
+		super(fieldName);
 		
 		this.taxAmount = taxAmount;
 		
