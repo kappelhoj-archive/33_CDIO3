@@ -235,7 +235,7 @@ public class GameText {
 	}
 	
 	/**
-	 * The method playerNameTakenText returns a String wich tells the name is taken.
+	 * The method playerNameTakenText returns a String which tells the name is taken.
 	 * @param playerName.
 	 * @return String
 	 */
@@ -244,7 +244,15 @@ public class GameText {
 		return "This player name "+ playerName +" is already taken, try again \n";
 	}	
 	
-	
+	/**
+	 * The method boughtFieldText returns a String which tells you you bought that field.
+	 * @param plyerName, fieldName.
+	 * @return String
+	 */
+	public static String boughtFieldText(String playerName, String fieldName)
+	{
+		return "Congratulation "+ playerName +"bought " + fieldName +" \n" ;
+	}	
 	
 	
 	
