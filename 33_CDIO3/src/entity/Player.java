@@ -7,6 +7,7 @@ public class Player {
 	private String playerName;
 	private Account account = new Account();
 	private boolean hasLost;
+	private int amountOfFleets;
 
 	/** 
 	 * Player constructor sets the player's name to the parameter value.
@@ -16,6 +17,7 @@ public class Player {
 	{
 		this.playerName = playerName;
 		hasLost = false;
+		amountOfFleets = 0;
 	}
 	
 	/** 
@@ -40,5 +42,9 @@ public class Player {
 	 */
 	public int getAccountBalance(){
 		return account.getBalance();
+	}
+	
+	public int getAmountOfFleets(){
+		return amountOfFleets;
 	}
 }
