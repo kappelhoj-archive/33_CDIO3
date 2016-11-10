@@ -8,6 +8,7 @@ public class Player {
 	private Account account = new Account();
 	private boolean hasLost;
 	private int amountOfFleets;
+	private int amountOfLaborCamps;
 
 	/** 
 	 * Player constructor sets the player's name to the parameter value.
@@ -46,5 +47,9 @@ public class Player {
 	
 	public int getAmountOfFleets(){
 		return amountOfFleets;
+	}
+	
+	public int getAmountOfLaborCamps() {
+		return amountOfLaborCamps;
 	}
 }
