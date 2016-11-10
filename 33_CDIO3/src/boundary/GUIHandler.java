@@ -100,7 +100,6 @@ public class GUIHandler {
 	 * @param playerPosition
 	 * @param currentDice
 	 */
-	
 	public void showRoll(String playerName,int playerPosition,int[] currentDice){	
 		//Set the dice face values. 
 		GUI.setDice(currentDice[0],1+varians(),4+varians(), currentDice[1],2+varians(),7+varians());
