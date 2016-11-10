@@ -23,7 +23,4 @@ public class LaborCamp extends Ownable
 	{
 		this.diceSum = diceSum;
 	}
-	
-	
-	
 }
