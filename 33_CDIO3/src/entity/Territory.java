@@ -14,12 +14,4 @@ public class Territory extends Ownable
 	{
 		return rent;
 	}
-	
-	public void landOnField(Player player)
-	{
-		if (!super.getOwner().getPlayerName().equals(player.getPlayerName()))
-		{
-			player.payRent(super.getOwner(), this.getRent());
-		}
-	}
 }
