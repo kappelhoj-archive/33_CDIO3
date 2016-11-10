@@ -10,8 +10,8 @@ public class Fleet extends Ownable
 	
 	/**
 	 * Object Fleet constructor.
-	 * @param fieldName The name of the field.
-	 * @param price The price of the field.
+	 * @param fieldName The name of the fleet field.
+	 * @param price The price of the fleet field.
 	 */
 	public Fleet(String fieldName, int price)
 	{

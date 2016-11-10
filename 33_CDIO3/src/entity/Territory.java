@@ -7,9 +7,9 @@ public class Territory extends Ownable
 	
 	/**
 	 * Object Territory constructor
-	 * @param fieldName The name of the field
-	 * @param price The price of the field
-	 * @param rent The rent it costs to land on the field if the field is owned.
+	 * @param fieldName The name of the territory field
+	 * @param price The price of the territory field
+	 * @param rent The rent it costs to land on the territory field if the field is owned.
 	 */
 	public Territory(String fieldName, int price, int rent)
 	{
