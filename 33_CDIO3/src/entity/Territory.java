@@ -1,5 +1,5 @@
 package entity;
 
-public class Territory extends Ownerable {
+public class Territory extends Ownable {
 	private int rent;
 }
