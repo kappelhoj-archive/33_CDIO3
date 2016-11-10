@@ -9,6 +9,8 @@ public class Player {
 	private boolean hasLost;
 	private int amountOfFleets;
 	private int amountOfLaborCamps;
+	private int fortune;
+	private boolean payDecision; //True if player chooses to pay 10 % of his fortune, false otherwise.
 
 	/** 
 	 * Player constructor sets the player's name to the parameter value.
@@ -20,6 +22,7 @@ public class Player {
 		hasLost = false;
 		amountOfFleets = 0;
 		amountOfLaborCamps = 0;
+		fortune = this.getAccountBalance();
 	}
 	
 	/** 
@@ -30,11 +33,32 @@ public class Player {
 		return playerName;
 	}
 	
+	public int getPlayerFortune()
+	{
+		return fortune;
+	}
+	
+	public void setPlayerFortune(int value)
+	{
+		fortune = fortune + value;
+	}
+	
+	public boolean getPlayerPayDecision()
+	{
+		return payDecision;
+	}
+	
+	public void setPayDecision(boolean playerPayDecision)
+	{
+		payDecision = playerPayDecision;
+	}
+	
+	
 	/** 
 	 * Method changeAccountBalance changes the account balance value of the player.
 	 * @param Field's gold value.
 	 */
-	public void changeAccountBalance(int fieldValue){
+	public void changeAccountBalance(double fieldValue){
 		account.changeBalance(fieldValue);
 	}
 	
@@ -59,11 +83,14 @@ public class Player {
 		if(account.getBalance() > rent)
 		{
 			owner.changeAccountBalance(rent);
+			owner.setPlayerFortune(rent);
 			account.changeBalance(-rent);
+			fortune = fortune - rent;
 		}
 		else
 		{
 			owner.changeAccountBalance(account.getBalance());
+			owner.setPlayerFortune(account.getBalance());
 			setPlayerHasLost(true);
 		}
 	}
