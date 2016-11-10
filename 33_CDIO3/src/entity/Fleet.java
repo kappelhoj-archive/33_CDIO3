@@ -9,7 +9,7 @@ public class Fleet extends Ownable
 	
 	public Fleet(String name, int price, Player owner)
 	{
-		super(price,owner);
+		super(name, price, owner);
 		
 	}
 }
