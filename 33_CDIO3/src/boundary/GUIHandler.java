@@ -107,15 +107,15 @@ public class GUIHandler {
 		//Moves the player to the new position
 		movePlayer(playerName,playerPosition);
 		//Gives the user some text.
-		GUI.getUserButtonPressed(GameText.rollText(playerName, currentDice)+"\n"+GameText.landText(playerPosition)+"\n",GameText.getButtonText("OK"));	
+		GUI.getUserButtonPressed(GameText.rollText(playerName, currentDice)+"\n"+GameText.landText(playerPosition)+"\n",GameText.getButtonText("ok"));	
 	}
 	
-	public void askPlayerBuyField(int playerPosition,String playerName){
-		GUI.getUserLeftButtonPressed(GameText.buyfieldText(playerName, GameText.fieldTitles[playerPosition],  GameText.fieldSubText[playerPosition]), GameText.getButtonText("yes"),GameText.getButtonText("no"));
+	public boolean askPlayerBuyField(int playerPosition,String playerName){
+		return GUI.getUserLeftButtonPressed(GameText.buyfieldText(playerName, GameText.fieldTitles[playerPosition],  GameText.fieldSubText[playerPosition]), GameText.getButtonText("yes"),GameText.getButtonText("no"));
 		
 	}
 	public void boughtField(String playerName,int playerPosition){
-		GUI.getUserButtonPressed(GameText.boughtFieldText(playerName,GameText.fieldTitles[playerPosition]) ,GameText.getButtonText("OK"));	
+		GUI.getUserButtonPressed(GameText.boughtFieldText(playerName,GameText.fieldTitles[playerPosition]) ,GameText.getButtonText("ok"));	
 	}
 	
 	public void changePlayerBalance(String playerName,int playerBalance){
