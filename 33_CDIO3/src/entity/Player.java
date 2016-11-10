@@ -52,4 +52,22 @@ public class Player {
 	public int getAmountOfLaborCamps() {
 		return amountOfLaborCamps;
 	}
+	
+	public void payRent(Player owner, int rent)
+	{
+		if(account.getBalance() > rent)
+		{
+			owner.changeAccountBalance(rent);
+			account.changeBalance(-rent);
+		}
+		else
+		{
+			owner.changeAccountBalance(account.getBalance());
+			setPlayerHasLost(true);
+		}
+	}
+	
+	public void setPlayerHasLost(boolean condition) {
+		hasLost = condition;
+	}
 }
