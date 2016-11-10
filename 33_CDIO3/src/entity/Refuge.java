@@ -5,7 +5,9 @@ public class Refuge extends Field {
 
 	private int bonus;
 
-	public int fieldValue = bonus;
-
+	public Refuge(String fieldName, int bonus){
+		super(fieldName);
+		this.bonus=bonus;
+	}
 }
 
