@@ -9,4 +9,9 @@ public class Territory extends Ownable
 		super(fieldName, price, owner);
 		this.rent = rent;
 	}
+	
+	public int getRent()
+	{
+		return rent;
+	}
 }
