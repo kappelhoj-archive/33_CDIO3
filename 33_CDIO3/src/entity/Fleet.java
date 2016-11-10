@@ -7,10 +7,9 @@ public class Fleet extends Ownable
 	final private int RENT_3 = 2000;
 	final private int RENT_4 = 4000;
 	
-	public Fleet(String name, int price, Player owner)
+	public Fleet(String fieldName, int price, Player owner)
 	{
-		super(name, price, owner);
-		
+		super(fieldName, price, owner);
 	}
 
 	public int getRent()
