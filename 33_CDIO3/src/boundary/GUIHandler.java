@@ -96,13 +96,7 @@ public class GUIHandler {
 		//Set the dice face values. 
 		GUI.setDice(currentDice[0],1+varians(),4+varians(), currentDice[1],2+varians(),7+varians());
 	}	
-	/**
-	 *  Gets information on the current turn and updates the GUI. 
-	 * @param playerName
-	 * @param playerBalance
-	 * @param playerPosition
-	 * @param currentDice
-	 */
+
 	public void landOnField(String playerName,int playerPosition,int[] currentDice,String fieldType){	
 		showRoll(currentDice);
 		//Moves the player to the new position
@@ -116,8 +110,16 @@ public class GUIHandler {
 		GUI.getUserButtonPressed(out+"\n",GameText.getButtonText("ok"));	
 	}
 	
-	public void landOnOwnedField(String playerName,int playerPosition,int[] currentDice,String fieldType){	
-	vssv	
+	public void landOnOwnedField(String playerName,int playerPosition,int[] currentDice,String fieldType,String fieldOwner,int rent){	
+		showRoll(currentDice);
+		//Moves the player to the new position
+		movePlayer(playerName,playerPosition);
+		//Gives the user some text.
+		String out=GameText.rollText(playerName, currentDice);
+		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition]);
+		GameText.ownedFieldText(playerName,fieldType,fieldOwner,rent);
+		
+		GUI.getUserButtonPressed(out+"\n",GameText.getButtonText("ok"));
 	}
 	
 	public boolean askPlayerBuyField(String playerName,int playerPosition){
