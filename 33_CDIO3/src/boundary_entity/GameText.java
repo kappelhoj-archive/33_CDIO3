@@ -75,7 +75,35 @@ public class GameText {
 /*(219)*/	"When you land on Sea Grover you have to pay between 500-400 in rent, dependent on how many fleets the owner has.",
 /*(220)*/	"When you land on The Buccaneers you have to pay between 500-400 in rent, dependent on how many fleets the owner has.",
 /*(221)*/	"When you land on Privateer armade you have to pay between 500-400 in rent, dependent on how many fleets the owner has."};
+
 	
+	//####################################################################################
+	// Begin game texts
+	//####################################################################################
+	/**
+	 * The method welcomeText returns a string which contains the welcome text of the game.
+	 * @return String
+	 */
+	public static String welcomeText()
+	{	
+		return "Welcome to 'Rodatam' \n";
+	}
+	/**
+	 * The method invalidPlayerNumberText returns a string which tells the player number is invalid.
+	 * @return String
+	 */
+	public static String invalidPlayerNumberText()
+	{
+		return "This is not a valid number of players, please try again with a number within 2-6 \n";
+	}
+	/**
+	 * The method invalidInputText returns a String that tells you that the input was wrong.
+	 * @return String
+	 */
+	public static String invalidInputText()
+	{
+		return "This is not a valid input. Please try again \n";
+	}
 	
 	/**
 	 * The method enterPlayerNames returns a string Which asks the players to enter their names.
@@ -86,16 +114,17 @@ public class GameText {
 	{
 		return "Please enter the name of player " + number;
 	}
-	
 	/**
-	 * The method welcomeText returns a string which contains the welcome text of the game.
+	 * The method playerNameTakenText returns a String which tells the name is taken.
+	 * @param playerName.
 	 * @return String
 	 */
-	public static String welcomeText()
-	{	
-		return "Welcome to 'Rodatam' \n";
+	public static String playerNameTakenText(String playerName)
+	{
+		return "This player name "+ playerName +" is already taken, try again \n";
 	}
-		
+	
+	
 	/**
 	 * The method gameRules returns a string which contains the game rules.
 	 * @return String
@@ -115,6 +144,8 @@ public class GameText {
 		return gameRules;
 	}
 	
+	
+	
 	/**
 	 * The firstTurn method returns a string which contains which player has 
 	 * been randomly selected to start the game. 
@@ -126,6 +157,9 @@ public class GameText {
 		return "A player has been randomly selected to start the game. \n"; 
 	}
 	
+	//####################################################################################
+	// On going game texts
+	//####################################################################################
 	/**
 	 * The method turn returns a string which contains whose turn it is.
 	 * @param playerName The name of the player
@@ -136,15 +170,15 @@ public class GameText {
 		return "It is " + playerName + "'s turn \n";
 	}
 	
-	/**
-	 * The method extraTurn returns a string which tell who has got an extra turn.
-	 * @param playerName The name of the player
-	 * @return String
-	 */
-	public static String extraTurnText(String playerName)
-	{
-		return playerName + " has gained an extra turn \n";
-	}
+//	/**
+//	 * The method extraTurn returns a string which tell who has got an extra turn.
+//	 * @param playerName The name of the player
+//	 * @return String
+//	 */
+//	public static String extraTurnText(String playerName)
+//	{
+//		return playerName + " has gained an extra turn \n";
+//	}
 	
 	/**
 	 * The method rollText returns a String which contains what a particular player has rolled with the dice.
@@ -157,15 +191,7 @@ public class GameText {
 		return playerName + " has rolled a " + value[0] + " and a " + value[1] + "."+ "\n";
 	}
 	
-	/**
-	 * The method winnerText returns a String which contains which player has won the game
-	 * @param playerName The name of the player.
-	 * @return String
-	 */
-	public static String winnerText(String playerName)
-	{
-		return "Congratulations " + playerName + " has won the game! \n";
-	}
+	
 
 	/**
 	 * The method buyfieldText returns a String which asks if you want to buy a field.
@@ -190,23 +216,8 @@ public class GameText {
 		return "You " + playerName + " can't afford to buy "+ fieldName +". \n";
 	}
 	
-	/**
-	 * The method invalidPlayerNumberText returns a string which tells the player number is invalid.
-	 * @return String
-	 */
-	public static String invalidPlayerNumberText()
-	{
-		return "This is not a valid number of players, please try again with a number within 2-6 \n";
-	}
+
 	
-	/**
-	 * The method invalidInputText returns a String that tells you that the input was wrong.
-	 * @return String
-	 */
-	public static String invalidInputText()
-	{
-		return "This is not a valid input. Please try again \n";
-	}
 	
 	/**
 	 * The method getButtonText returns a String of the button text.
@@ -231,15 +242,7 @@ public class GameText {
 		return "";
 	}
 	
-	/**
-	 * The method playerNameTakenText returns a String which tells the name is taken.
-	 * @param playerName.
-	 * @return String
-	 */
-	public static String playerNameTakenText(String playerName)
-	{
-		return "This player name "+ playerName +" is already taken, try again \n";
-	}	
+	
 	
 	/**
 	 * The method boughtFieldText returns a String which tells you that you bought the field.
@@ -276,14 +279,6 @@ public class GameText {
 		return playerName +" landed on " + fieldName + " you will have to pay tax, you can choose to pay "+ tax +" or pay 10% of your fortune \n";
 	}
 	
-	/**
-	 * The method firstPlayerText returns a string which tells you to type in the first player name.
-	 * @return String
-	 */
-	public static String firstPlayerText()
-	{
-		return "Please type in the 1st player name: \n";
-	}
 	
 	/**
 	 * The method fleetText returns a String which tells you, landed on a fleet field.
@@ -308,6 +303,9 @@ public class GameText {
 		return playerName + "landed on "+fieldOwner+"s field, you wil have you pay "+ rent +" in rent, for landing on "+fieldOwner+"s field. \n";
 	}	
 	
+	//####################################################################################
+	//End game Text
+	//####################################################################################
 	/**
 	 * The method lostText returns a String which tells you that you lost.
 	 * @param playerName The name of the player.
@@ -317,5 +315,15 @@ public class GameText {
 	{
 		return playerName + "lost and is out of this game, like the rest of the world #Trump \n";
 	}		
+	
+	/**
+	 * The method winnerText returns a String which contains which player has won the game
+	 * @param playerName The name of the player.
+	 * @return String
+	 */
+	public static String winnerText(String playerName)
+	{
+		return "Congratulations " + playerName + " has won the game! \n";
+	}
 	
 }
