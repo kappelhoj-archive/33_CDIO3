@@ -205,7 +205,7 @@ public class GameText {
 	 */
 	public static String buyfieldText(String playerName, String fieldName, String price)
 	{
-		return "Do you " + playerName + " want to buy "+ fieldName +" for "+ price +" ? \n";
+		return "Do you, " + playerName + ", want to buy "+ fieldName +" for "+ price +"? \n";
 	}
 	
 	/**
