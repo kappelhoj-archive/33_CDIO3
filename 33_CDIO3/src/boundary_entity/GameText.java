@@ -112,7 +112,7 @@ public class GameText {
 	 */	
 	public static String enterPlayerNameText(int number)
 	{
-		return "Please enter the name of player " + number;
+		return "Please enter the name of player " + number+"\n";
 	}
 	/**
 	 * The method playerNameTakenText returns a String which tells the name is taken.
@@ -138,7 +138,7 @@ public class GameText {
 				  + "- When you lose all your money you are out of the game. \n"
 				  + "- The last remaining player has won the game.\n"
 				  + "- You start a turn by rolling the dice. You then move forward by the amount you rolled.\n"
-				  + "- There are 5 different types of fields."  
+				  + "- There are 5 different types of fields.\n"  
 				  + "- ";
 			
 		return gameRules;
@@ -193,6 +193,9 @@ public class GameText {
 	
 	
 
+	//####################################################################################
+	//Field buying texts
+	//####################################################################################
 	/**
 	 * The method buyfieldText returns a String which asks if you want to buy a field.
 	 * @param playerName The name of the player. 
@@ -216,33 +219,6 @@ public class GameText {
 		return "You " + playerName + " can't afford to buy "+ fieldName +". \n";
 	}
 	
-
-	
-	
-	/**
-	 * The method getButtonText returns a String of the button text.
-	 * @param button name.
-	 * @return String
-	 */
-	public static String getButtonText(String m)
-	{
-		switch(m)
-		{
-		case "yes":
-			return "Yes";
-		case "no":
-			return "No";
-		case "10%":
-			return "10%";
-		case "int":
-			return "int";
-		case "ok":
-			return "ok";
-		}
-		return "";
-	}
-	
-	
 	
 	/**
 	 * The method boughtFieldText returns a String which tells you that you bought the field.
@@ -262,6 +238,10 @@ public class GameText {
 	 * @param amount The amount the player will receive on this field.
 	 * @return String
 	 */
+	
+	//####################################################################################
+	//Land on field texts
+	//####################################################################################
 	public static String refugeText(String playerName, String fieldName, int amount)
 	{
 		return playerName +" landed on " + fieldName + " this is a Refuge field, and you will now recive "+ amount +"  \n" ;
@@ -286,11 +266,20 @@ public class GameText {
 	 * @param fieldName The name of the field.
 	 * @return String
 	 */
-	public static String fleetText(String playerName, String fieldName)
+	public static String landOnFieldText(String playerName, String fieldName)
 	{
 		return playerName + "landed on "+fieldName+" \n";
 	}
 	
+	public static String fieldNotOwnedText(String fieldType,String fieldName)
+	{
+		return fieldName+" is a "+fieldType+". \n";
+	}
+	
+	
+	//####################################################################################
+	//Pay rent to owner texts
+	//####################################################################################
 	/**
 	 * The method ownedFieldText returns a String which tells you that you landed on a owned field.
 	 * @param plyerName The name of the player.
@@ -298,10 +287,26 @@ public class GameText {
 	 * @param rent The rent of the field.
 	 * @return String
 	 */
-	public static String ownedFieldText(String playerName,String fieldOwner,int rent)
+	public static String ownedFieldText(String playerName,String fieldType,String fieldOwner,int rent)
 	{
-		return playerName + "landed on "+fieldOwner+"s field, you wil have you pay "+ rent +" in rent, for landing on "+fieldOwner+"s field. \n";
+		String out=fieldOwner+" owns this field. This field is a "+fieldType+"\n";
+		switch(fieldType){
+		case "Territory":
+			out+="You now have to pay "+rent+" to "+fieldOwner+".\n";
+			break;
+		case "Fleet":
+			out+="You now have to pay "+rent+" to "+fieldOwner+". because of how many fleets he has.\n";
+			break;
+		case "Labor Camp":
+			out+="You now have to to roll the dice and pay a hundred times the amount you roll to "+fieldOwner+". You have to pay twice that if "+fieldOwner+" has two labor camps.\n";
+			break;
+		}
+		return out;		
 	}	
+	
+	public static String ownedLaborCampAfterRoll(String fieldOwner,int rent){
+		return "You now have to pay"+ rent+" to "+fieldOwner+".\n";
+	}
 	
 	//####################################################################################
 	//End game Text
@@ -324,6 +329,32 @@ public class GameText {
 	public static String winnerText(String playerName)
 	{
 		return "Congratulations " + playerName + " has won the game! \n";
+	}
+	
+	//####################################################################################
+	//Misc. methods
+	//####################################################################################
+	/**
+	 * The method getButtonText returns a String of the button text.
+	 * @param button name.
+	 * @return String
+	 */
+	public static String getButtonText(String m)
+	{
+		switch(m)
+		{
+		case "yes":
+			return "Yes";
+		case "no":
+			return "No";
+		case "10%":
+			return "10%";
+		case "int":
+			return "int";
+		case "ok":
+			return "ok";
+		}
+		return "";
 	}
 	
 }
