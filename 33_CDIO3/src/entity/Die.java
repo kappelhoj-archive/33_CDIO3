@@ -2,52 +2,57 @@ package entity;
 
 public class Die 
 {
-
-	public final int MAX_VALUE;
+	//Constants
+	public final int MAX_VALUE; //The max value of a die.
+	
+	//Instance variables
 	private int value;
 
 	/**
-	 * Constructor Die creates a 6 sided die, with a random face value between 1-6.
+	 * Object Die constructor.
+	 * Constructs a 6 sided die.
 	 */
 	public Die() 
 	{
 		MAX_VALUE = 6;
 		value = rollDie();
 	}
+
 	/**
-	 * Constructor Die creates a n-sided die, with a random face value between 1-n.
-	 * If the parameter gives is less than 1, the constructor constructs a 6-sided die.
-	 * If the parameter overflows, the constructor constructs a 6-sided die.
-	 * @param The amount of sides you want the die to have.
+	 * Object die constructor.
+	 * Constructs a n sided die. 
+	 * If the parameter given is less than 1, the constructor constructs a
+	 * 6-sided die. If the parameter overflows, the constructor constructs a
+	 * 6-sided die.
+	 * @param sides The amount of sides you want the die to have.
 	 */
-	public Die(int n) 
+	public Die(int sides) 
 	{
-		if ( n < 1)
+		if (sides < 1) 
 		{
 			MAX_VALUE = 6;
 			value = rollDie();
-		}
-		else
+		} 
+		else 
 		{
-			MAX_VALUE = n;
+			MAX_VALUE = sides;
 			value = rollDie();
 		}
 	}
 
 	/**
 	 * Method rollDie sets the face value of the die to a random integer between 1-MAX_VALUE.
-	 * @return Retunerer terningens værdi (int).
+	 * @return Returns the newly rolled value of the die.
 	 */
 	public int rollDie() 
 	{
-		// generates a random value between 1-MAX_VALUE.
-		value = (int) (Math.random() * MAX_VALUE + 1);
+		value = (int) (Math.random() * MAX_VALUE + 1); // generates a random value between 1-MAX_VALUE.
 		return value;
 	}
 
 	/**
 	 * Method getValue returns the face value of the die.
-	 * @return The current face value of the die.
+	 * @return Returns the current face value of the die.
 	 */
 	public int getValue() 
 	{
@@ -61,12 +66,14 @@ public class Die
 	{
 		return "The value of the die is: " + value;
 	}
-	
+
 	/**
-	 * Method setValue sets the face value of the die.
-	 * NB: This method is only used when testing the Die class and is therefore not seen in the diagrams.
+	 * Method setValue sets the face value of the die. NB: This method is only
+	 * used when testing the Die class and is therefore not seen in the
+	 * diagrams.
+	 * @param value The face value to be set.
 	 */
-	public void setValue(int value)
+	public void setValue(int value) 
 	{
 		this.value = value;
 	}
