@@ -130,24 +130,33 @@ public class GUIHandler {
 	}
 	
 	
+	
+	
 	public void changePlayerBalance(String playerName,int playerBalance){
 	//Change the balance.
 			GUI.setBalance(playerName, playerBalance);
 			
 			
 	}
-	/**
-	 * Gives a random value between -1 and 1. Used to make the dice rolls appear random.
-	 */
-	public int varians(){
-		return (int)(Math.round(Math.random()*2-1));
-	}
+
 	
+	
+	
+	public void loseGame(String playerName){
+		GUI.getUserButtonPressed(GameText.lostText(playerName),GameText.getButtonText("ok")); 
+	}
 	/**
 	 * A message that appear when the game ends.
 	 * @param playerName
 	 */
     public void endGame(String playerName){	
     	GUI.getUserButtonPressed(GameText.winnerText(playerName),"X"); 
+	}
+    
+	/**
+	 * Gives a random value between -1 and 1. Used to make the dice rolls appear random.
+	 */
+	public int varians(){
+		return (int)(Math.round(Math.random()*2-1));
 	}
 }
