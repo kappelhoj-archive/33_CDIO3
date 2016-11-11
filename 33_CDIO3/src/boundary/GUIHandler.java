@@ -121,6 +121,12 @@ public class GUIHandler {
 		
 		GUI.getUserButtonPressed(out+"\n",GameText.getButtonText("ok"));
 	}
+	public void showLaborCampResult(String playerName,int[] currentDice,String fieldOwner,int rent){
+		showRoll(currentDice);
+		String out=GameText.rollText(playerName, currentDice);
+		out+=GameText.ownedLaborCampAfterRoll(fieldOwner,rent);
+		GUI.getUserButtonPressed(out,GameText.getButtonText("ok"));
+	}
 	
 	public boolean askPlayerBuyField(String playerName,int playerPosition){
 		return GUI.getUserLeftButtonPressed(GameText.buyfieldText(playerName, GameText.fieldTitles[playerPosition],  GameText.fieldSubText[playerPosition]), GameText.getButtonText("yes"),GameText.getButtonText("no"));
