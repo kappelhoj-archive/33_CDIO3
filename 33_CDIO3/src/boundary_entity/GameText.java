@@ -88,6 +88,12 @@ public class GameText {
 	{	
 		return "Welcome to 'Rodatam' \n";
 	}
+	
+	
+	public static String playerNumberText()
+	{
+		return "Enter the number of player to play the game.\n";
+	}
 	/**
 	 * The method invalidPlayerNumberText returns a string which tells the player number is invalid.
 	 * @return String
