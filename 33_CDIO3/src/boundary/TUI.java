@@ -108,7 +108,7 @@ public class TUI {
 			}
 
 			// Checks if the number is correctly between 2 and 6.
-			if (numbPlayer > 2 || numbPlayer > 6) {
+			if (numbPlayer < 2 || numbPlayer > 6) {
 				System.out.println(GameText.invalidPlayerNumberText());
 			}
 
