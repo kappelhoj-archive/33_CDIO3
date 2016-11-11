@@ -18,7 +18,7 @@ public class GUIHandler {
 	GUIHandler(String[] players) {
 		//Creates 11 fields
 		for (int i = 0; i < 21; i++)
-			fields[i] = new Street.Builder()
+			fields[i] = new Street.Builder() 
 			.setTitle(GameText.fieldTitles[i])
 			.setSubText(GameText.fieldSubText[i])
 			.setDescription(GameText.fieldShortDescription[i])
@@ -92,7 +92,10 @@ public class GUIHandler {
 	public void showTurnStart(String playerName){
 		GUI.getUserButtonPressed(GameText.turnText(playerName), GameText.getButtonText("OK"));
 	}
-	
+	private void showRoll(int[] currentDice){
+		//Set the dice face values. 
+		GUI.setDice(currentDice[0],1+varians(),4+varians(), currentDice[1],2+varians(),7+varians());
+	}	
 	/**
 	 *  Gets information on the current turn and updates the GUI. 
 	 * @param playerName
@@ -100,14 +103,21 @@ public class GUIHandler {
 	 * @param playerPosition
 	 * @param currentDice
 	 */
-	public void showRoll(String playerName,int playerPosition,int[] currentDice){	
-		//Set the dice face values. 
-		GUI.setDice(currentDice[0],1+varians(),4+varians(), currentDice[1],2+varians(),7+varians());
+	public void landOnField(String playerName,int playerPosition,int[] currentDice,String fieldType){	
+		showRoll(currentDice);
 		//Moves the player to the new position
 		movePlayer(playerName,playerPosition);
 		//Gives the user some text.
-		GUI.getUserButtonPressed(GameText.rollText(playerName, currentDice)+"\n",GameText.getButtonText("ok"));	
-		Something about where we landed.
+		String out=GameText.rollText(playerName, currentDice);
+		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition]);
+		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition]);
+		out+=GameText.fieldNotOwnedText(fieldType, GameText.fieldTitles[playerPosition]);
+		
+		GUI.getUserButtonPressed(out+"\n",GameText.getButtonText("ok"));	
+	}
+	
+	public void landOnOwnedField(String playerName,int playerPosition,int[] currentDice,String fieldType){	
+	vssv	
 	}
 	
 	public boolean askPlayerBuyField(String playerName,int playerPosition){
