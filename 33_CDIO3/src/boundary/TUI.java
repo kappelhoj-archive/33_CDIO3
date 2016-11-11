@@ -2,7 +2,6 @@ package boundary;
 
 import java.util.Scanner;
 
-
 import boundary_entity.GameText;
 
 public class TUI {
@@ -79,21 +78,19 @@ public class TUI {
 	// }
 	// }
 	// }
+	private Scanner keyb = new Scanner(System.in);
 
-	
-	public String[] gameStart(){
+	public String[] gameStart() {
 		System.out.println(GameText.welcomeText());
-		int numbPlayer=askNumberOfPlayers();
-		String[] playerNames=getPlayerNames(numbPlayer);
-		
+		String[] playerNames = getPlayerNames(askNumberOfPlayers());
+
 		System.out.println(GameText.gameRulesText());
 		return playerNames;
-		
+
 	}
-	
+
 	public int askNumberOfPlayers() {
-		// Create a scanner
-		Scanner keyb = new Scanner(System.in);
+
 		// Ask for the amount of players
 		System.out.println(GameText.playerNumberText());
 
@@ -101,11 +98,8 @@ public class TUI {
 
 		while (numbPlayer < 2 || numbPlayer > 6) {
 			// Checks if the input is correctly an integer.
-
-			numbPlayer = keyb.nextInt();
-			if (!keyb.hasNextInt()) {
-				System.out.println(GameText.invalidInputText());
-			}
+			if (keyb.hasNext())
+				numbPlayer = keyb.nextInt();
 
 			// Checks if the number is correctly between 2 and 6.
 			if (numbPlayer < 2 || numbPlayer > 6) {
@@ -113,17 +107,17 @@ public class TUI {
 			}
 
 		}
-		keyb.close();
+
 		return numbPlayer;
 	}
 
 	public String[] getPlayerNames(int numbPlayer) {
 		String[] playerNames;
-		Scanner keya = new Scanner(System.in);
 		playerNames = new String[numbPlayer];
 
 		System.out.println(GameText.enterPlayerNameText(1));
-		playerNames[0] = keya.nextLine();
+		keyb.nextLine();
+		playerNames[0] = keyb.nextLine();
 
 		for (int i = 1; i < numbPlayer; i++) {
 			System.out.println(GameText.enterPlayerNameText(i + 1));
@@ -131,7 +125,7 @@ public class TUI {
 			playerNames[i] = null;
 
 			while (nameEqual) {
-				playerNames[i] = keya.nextLine();
+				playerNames[i] = keyb.nextLine();
 				for (int j = 0; j < i; j++) {
 					if (playerNames[j].equals(playerNames[i])) {
 						System.out.println(GameText.playerNameTakenText(playerNames[i]));
@@ -143,7 +137,7 @@ public class TUI {
 				}
 			}
 		}
-		keya.close();
+		keyb.close();
 		return playerNames;
 	}
 }
