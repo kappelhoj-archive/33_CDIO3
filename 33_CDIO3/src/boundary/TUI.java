@@ -34,7 +34,7 @@ public class TUI {
 		 * Adding number of players into an array called "numberPlayerArray".
 		 */
 		playerNames = new String[numbPlayer];
-
+		
 		for (int i = 0; i < numbPlayer; i++) {
 			String playerName;
 			Scanner keyb = new Scanner(System.in);
