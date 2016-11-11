@@ -4,44 +4,52 @@ import boundary_entity.GameText;
 
 public class GameBoard {
 
+	//Instance variables
 	public Field[] fields;
 	
+	/**
+	 * Object gameBoard constructor.
+	 * Constructs a gameBoard with 21 fields. 
+	 * 11 Territory fields, 2 refuge fields, 2 labor camps, 2 tax fields and 4 fleets.
+	 */
 	public GameBoard()
 	{
-		
+		//Price array for the territory fields listed as in the assignment.
 		int[] price = {1000,1500,2000,3000,4000,4300,4750,5000,5500,6000,8000};
-		
+		//Rent array for the territory fields listed as in the assignment.
 		int[] rent = {100,300,500,700,1000,1300,1600,2000,2600,3200,4000};
 		
-		// Create fields array with 21 elements.
+		// Creates a Field array with 21 fields.
 		fields = new Field[21];
 		
+		//Territory fields created.
+		//Those are created from the price array and the rent array and the gameText class.
 		
-		for(int i = 0 ; i < 10 ; i++)
+		for(int i = 0 ; i < 11 ; i++)
 		{
-			// Add a field in every element of fields array with rent and price.
 			fields[i] = new Territory(GameText.fieldTitles[i],rent[i], price[i]);			
 		}
 		
-		//Refuge
+		//Refuge fields created.
 		
-		fields[1] = new Refuge(GameText.fieldTitles[1],5000);	
-		fields[2] = new Refuge(GameText.fieldTitles[2],500);	
+		fields[11] = new Refuge(GameText.fieldTitles[11],5000);	
+		fields[12] = new Refuge(GameText.fieldTitles[12],500);	
 
-		//Laborcamp
+		//LaborCamp fields created.
 		
-		fields[14] = new LaborCamp(GameText.fieldTitles[14],100);	
-		fields[15] = new LaborCamp(GameText.fieldTitles[15],100);	
+		fields[13] = new LaborCamp(GameText.fieldTitles[13],2500);	
+		fields[14] = new LaborCamp(GameText.fieldTitles[14],2500);	
 
-		//Tax
+		//Tax fields created.
 		
-		fields[16] = new Tax(GameText.fieldTitles[16],2000, 10);
-		fields[17] = new Tax(GameText.fieldTitles[17],4000, 10);
+		fields[15] = new Tax(GameText.fieldTitles[15],2000, 10);
+		fields[16] = new Tax(GameText.fieldTitles[16],4000, 10);
 
+		//Fleet fields created.
 		
-		for(int j = 0; j < 3 ; j++)
+		for(int j = 0; j < 4 ; j++)
 		{
-			fields[j] = new Fleet(GameText.fieldTitles[j],400);	
+			fields[17+j] = new Fleet(GameText.fieldTitles[17+j],4000);	
 		}
 	}	
 }
