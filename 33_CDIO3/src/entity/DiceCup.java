@@ -4,11 +4,13 @@ import entity.Die;
 
 public class DiceCup 
 {	
+	//Instance variables
 	private Die d1;
 	private Die d2;
 	
 	/**
-	 * DiceCup constructor. The diceCup object contains two dice.
+	 * Object DiceCup constructor. 
+	 * The diceCup object contains two die Objects.
 	 */
 	public DiceCup()
 	{
@@ -25,10 +27,9 @@ public class DiceCup
 		d2.rollDie();
 	}
 
-
 	/**
 	 * Method getDiceValue returns the value of the rolled dice as a integer array.
-	 * @return Array with the two dice values.
+	 * @return Returns the array with the two dice values.
 	 */
 	public int[] getDiceValue()
 	{
