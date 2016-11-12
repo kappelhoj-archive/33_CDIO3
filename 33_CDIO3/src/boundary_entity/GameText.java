@@ -234,7 +234,7 @@ public class GameText {
 	 */
 	public static String boughtFieldText(String playerName, String fieldName)
 	{
-		return "Congratulation "+ playerName +"bought " + fieldName +" \n" ;
+		return "Congratulation "+ playerName +" bought " + fieldName +" \n" ;
 	}	
 	
 	/**
@@ -274,7 +274,7 @@ public class GameText {
 	 */
 	public static String landOnFieldText(String playerName, String fieldName)
 	{
-		return playerName + "landed on "+fieldName+" \n";
+		return playerName + " landed on "+fieldName+" \n";
 	}
 	
 	public static String fieldNotOwnedText(String fieldType,String fieldName)
