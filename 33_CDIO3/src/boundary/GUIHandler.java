@@ -105,8 +105,8 @@ public class GUIHandler {
 		movePlayer(playerName,playerPosition);
 		//Gives the user some text.
 		String out=GameText.rollText(playerName, currentDice);
-		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition]);
-		out+=GameText.fieldNotOwnedText(fieldType, GameText.fieldTitles[playerPosition]);
+		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition-1]);
+		out+=GameText.fieldNotOwnedText(fieldType, GameText.fieldTitles[playerPosition-1]);
 		
 		GUI.getUserButtonPressed(out+"\n",GameText.getButtonText("ok"));	
 	}
@@ -117,7 +117,7 @@ public class GUIHandler {
 		movePlayer(playerName,playerPosition);
 		//Gives the user some text.
 		String out=GameText.rollText(playerName, currentDice);
-		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition]);
+		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition-1]);
 		GameText.ownedFieldText(playerName,fieldType,fieldOwner,rent);
 		
 		GUI.getUserButtonPressed(out+"\n",GameText.getButtonText("ok"));
@@ -130,22 +130,22 @@ public class GUIHandler {
 	}
 	
 	public boolean askPlayerBuyField(String playerName,int playerPosition){
-		return GUI.getUserLeftButtonPressed(GameText.buyfieldText(playerName, GameText.fieldTitles[playerPosition],  GameText.fieldSubText[playerPosition]), GameText.getButtonText("yes"),GameText.getButtonText("no"));
+		return GUI.getUserLeftButtonPressed(GameText.buyfieldText(playerName, GameText.fieldTitles[playerPosition-1],  GameText.fieldSubText[playerPosition]), GameText.getButtonText("yes"),GameText.getButtonText("no"));
 		
 	}
 	public void boughtField(String playerName,int playerPosition,int playerBalance){
 		changePlayerBalance(playerName, playerBalance);
-		GUI.getUserButtonPressed(GameText.boughtFieldText(playerName,GameText.fieldTitles[playerPosition]) ,GameText.getButtonText("ok"));	
+		GUI.getUserButtonPressed(GameText.boughtFieldText(playerName,GameText.fieldTitles[playerPosition-1]) ,GameText.getButtonText("ok"));	
 	}
 	public void cantAffordField(String playerName,int playerPosition){
-		GUI.getUserButtonPressed(GameText.cantBuyFieldText(playerName,GameText.fieldTitles[playerPosition]) ,GameText.getButtonText("ok"));	
+		GUI.getUserButtonPressed(GameText.cantBuyFieldText(playerName,GameText.fieldTitles[playerPosition-1]) ,GameText.getButtonText("ok"));	
 
 	}
 	public void tellRefuge(String playerName,int playerPosition,int amount){
-		GUI.getUserButtonPressed(GameText.refugeText(playerName,GameText.fieldTitles[playerPosition],amount) ,GameText.getButtonText("ok"));	
+		GUI.getUserButtonPressed(GameText.refugeText(playerName,GameText.fieldTitles[playerPosition-1],amount) ,GameText.getButtonText("ok"));	
 	}
 	public boolean tellTax(String playerName,int playerPosition,int tax,int playerFortune){
-		return GUI.getUserLeftButtonPressed(GameText.taxText(playerName, GameText.fieldTitles[playerPosition],tax), GameText.getButtonText("10%")+playerFortune*0.01,tax+"");
+		return GUI.getUserLeftButtonPressed(GameText.taxText(playerName, GameText.fieldTitles[playerPosition-1],tax), GameText.getButtonText("10%")+playerFortune*0.01,tax+"");
 	}
 	
 	
