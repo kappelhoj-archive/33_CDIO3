@@ -9,7 +9,7 @@ import desktop_resources.GUI;
 import boundary_entity.GameText;
 
 public class GUIHandler {
-	Field[] fields = new Field[11];
+	Field[] fields = new Field[21];
 	 
 	/**
 	 * Intialize the board on the screen
@@ -31,7 +31,7 @@ public class GUIHandler {
 		for(int i=0;i<players.length;i++)
 			GUI.addPlayer(players[i],30000,cars[i]);
 		//Sets the dice to some random value
-		GUI.setDice(1,1+varians(),5+varians(), 1,2+varians(),7+varians());
+		GUI.setDice(1,1);
 	}
 	/**
 	 * Creates 2 cars one for each player.
@@ -90,11 +90,13 @@ public class GUIHandler {
 	}
 	
 	public void showTurnStart(String playerName){
-		GUI.getUserButtonPressed(GameText.turnText(playerName), GameText.getButtonText("OK"));
+		GUI.getUserButtonPressed(GameText.turnText(playerName), GameText.getButtonText("ok"));
 	}
 	private void showRoll(int[] currentDice){
+		
 		//Set the dice face values. 
-		GUI.setDice(currentDice[0],1+varians(),4+varians(), currentDice[1],2+varians(),7+varians());
+		GUI.setDice(currentDice[0],currentDice[1]);
+		//GUI.setDice(currentDice[0],1+varians(),4+varians(), currentDice[1],2+varians(),7+varians());
 	}	
 
 	public void landOnField(String playerName,int playerPosition,int[] currentDice,String fieldType){	
@@ -103,7 +105,6 @@ public class GUIHandler {
 		movePlayer(playerName,playerPosition);
 		//Gives the user some text.
 		String out=GameText.rollText(playerName, currentDice);
-		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition]);
 		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition]);
 		out+=GameText.fieldNotOwnedText(fieldType, GameText.fieldTitles[playerPosition]);
 		
