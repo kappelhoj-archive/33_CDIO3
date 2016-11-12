@@ -360,7 +360,7 @@ public class GameText {
 		case "ok":
 			return "ok";
 		}
-		return "";
+		return "BUTTON ERROR";
 	}
 	
 }
