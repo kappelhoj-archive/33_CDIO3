@@ -15,7 +15,7 @@ public class GUIHandler {
 	 * Intialize the board on the screen
 	 * @param players
 	 */
-	GUIHandler(String[] players) {
+	public GUIHandler(String[] players) {
 		//Creates 11 fields
 		for (int i = 0; i < 21; i++)
 			fields[i] = new Street.Builder() 
