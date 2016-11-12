@@ -116,8 +116,7 @@ public class TUI {
 		playerNames = new String[numbPlayer];
 
 		System.out.println(GameText.enterPlayerNameText(1));
-		keyb.nextLine();
-		playerNames[0] = keyb.nextLine();
+		playerNames[0] = keyb.next();
 
 		for (int i = 1; i < numbPlayer; i++) {
 			System.out.println(GameText.enterPlayerNameText(i + 1));
@@ -125,7 +124,7 @@ public class TUI {
 			playerNames[i] = null;
 
 			while (nameEqual) {
-				playerNames[i] = keyb.nextLine();
+				playerNames[i] = keyb.next();
 				for (int j = 0; j < i; j++) {
 					if (playerNames[j].equals(playerNames[i])) {
 						System.out.println(GameText.playerNameTakenText(playerNames[i]));
