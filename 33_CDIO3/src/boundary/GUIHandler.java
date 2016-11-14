@@ -141,8 +141,8 @@ public class GUIHandler {
 				GameText.getButtonText("ok"));
 	}
 
-	public void cantAffordField(String playerName, int playerPosition) {
-		GUI.getUserButtonPressed(GameText.cantBuyFieldText(playerName, GameText.fieldTitles[playerPosition - 1]),
+	public void cantAffordField(int playerPosition) {
+		GUI.getUserButtonPressed(GameText.cantBuyFieldText(GameText.fieldTitles[playerPosition - 1]),
 				GameText.getButtonText("ok"));
 
 	}
