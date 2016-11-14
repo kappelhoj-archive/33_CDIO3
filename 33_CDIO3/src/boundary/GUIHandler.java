@@ -18,7 +18,7 @@ public class GUIHandler {
 	GUIHandler(String[] players) {
 		//Creates 11 fields
 		for (int i = 0; i < 21; i++)
-			fields[i] = new Street.Builder()
+			fields[i] = new Street.Builder() 
 			.setTitle(GameText.fieldTitles[i])
 			.setSubText(GameText.fieldSubText[i])
 			.setDescription(GameText.fieldShortDescription[i])
@@ -92,30 +92,63 @@ public class GUIHandler {
 	public void showTurnStart(String playerName){
 		GUI.getUserButtonPressed(GameText.turnText(playerName), GameText.getButtonText("OK"));
 	}
-	
-	/**
-	 *  Gets information on the current turn and updates the GUI. 
-	 * @param playerName
-	 * @param playerBalance
-	 * @param playerPosition
-	 * @param currentDice
-	 */
-	public void showRoll(String playerName,int playerPosition,int[] currentDice){	
+	private void showRoll(int[] currentDice){
 		//Set the dice face values. 
 		GUI.setDice(currentDice[0],1+varians(),4+varians(), currentDice[1],2+varians(),7+varians());
+	}	
+
+	public void landOnField(String playerName,int playerPosition,int[] currentDice,String fieldType){	
+		showRoll(currentDice);
 		//Moves the player to the new position
 		movePlayer(playerName,playerPosition);
 		//Gives the user some text.
-		GUI.getUserButtonPressed(GameText.rollText(playerName, currentDice)+"\n"+GameText.landText(playerPosition)+"\n",GameText.getButtonText("ok"));	
+		String out=GameText.rollText(playerName, currentDice);
+		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition]);
+		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition]);
+		out+=GameText.fieldNotOwnedText(fieldType, GameText.fieldTitles[playerPosition]);
+		
+		GUI.getUserButtonPressed(out+"\n",GameText.getButtonText("ok"));	
 	}
 	
-	public boolean askPlayerBuyField(int playerPosition,String playerName){
+	public void landOnOwnedField(String playerName,int playerPosition,int[] currentDice,String fieldType,String fieldOwner,int rent){	
+		showRoll(currentDice);
+		//Moves the player to the new position
+		movePlayer(playerName,playerPosition);
+		//Gives the user some text.
+		String out=GameText.rollText(playerName, currentDice);
+		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition]);
+		GameText.ownedFieldText(playerName,fieldType,fieldOwner,rent);
+		
+		GUI.getUserButtonPressed(out+"\n",GameText.getButtonText("ok"));
+	}
+	public void showLaborCampResult(String playerName,int[] currentDice,String fieldOwner,int rent){
+		showRoll(currentDice);
+		String out=GameText.rollText(playerName, currentDice);
+		out+=GameText.ownedLaborCampAfterRoll(fieldOwner,rent);
+		GUI.getUserButtonPressed(out,GameText.getButtonText("ok"));
+	}
+	
+	public boolean askPlayerBuyField(String playerName,int playerPosition){
 		return GUI.getUserLeftButtonPressed(GameText.buyfieldText(playerName, GameText.fieldTitles[playerPosition],  GameText.fieldSubText[playerPosition]), GameText.getButtonText("yes"),GameText.getButtonText("no"));
 		
 	}
-	public void boughtField(String playerName,int playerPosition){
+	public void boughtField(String playerName,int playerPosition,int playerBalance){
+		changePlayerBalance(playerName, playerBalance);
 		GUI.getUserButtonPressed(GameText.boughtFieldText(playerName,GameText.fieldTitles[playerPosition]) ,GameText.getButtonText("ok"));	
 	}
+	public void cantAffordField(String playerName,int playerPosition){
+		GUI.getUserButtonPressed(GameText.cantBuyFieldText(playerName,GameText.fieldTitles[playerPosition]) ,GameText.getButtonText("ok"));	
+
+	}
+	public void tellRefuge(String playerName,int playerPosition,int amount){
+		GUI.getUserButtonPressed(GameText.refugeText(playerName,GameText.fieldTitles[playerPosition],amount) ,GameText.getButtonText("ok"));	
+	}
+	public boolean tellTax(String playerName,int playerPosition,int tax,int playerFortune){
+		return GUI.getUserLeftButtonPressed(GameText.taxText(playerName, GameText.fieldTitles[playerPosition],tax), GameText.getButtonText("10%")+playerFortune*0.01,tax+"");
+	}
+	
+	
+	
 	
 	public void changePlayerBalance(String playerName,int playerBalance){
 	//Change the balance.
@@ -123,18 +156,25 @@ public class GUIHandler {
 			
 			
 	}
-	/**
-	 * Gives a random value between -1 and 1. Used to make the dice rolls appear random.
-	 */
-	public int varians(){
-		return (int)(Math.round(Math.random()*2-1));
-	}
+
 	
+	
+	
+	public void loseGame(String playerName){
+		GUI.getUserButtonPressed(GameText.lostText(playerName),GameText.getButtonText("ok")); 
+	}
 	/**
 	 * A message that appear when the game ends.
 	 * @param playerName
 	 */
     public void endGame(String playerName){	
     	GUI.getUserButtonPressed(GameText.winnerText(playerName),"X"); 
+	}
+    
+	/**
+	 * Gives a random value between -1 and 1. Used to make the dice rolls appear random.
+	 */
+	public int varians(){
+		return (int)(Math.round(Math.random()*2-1));
 	}
 }
