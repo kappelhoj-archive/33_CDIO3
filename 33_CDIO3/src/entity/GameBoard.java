@@ -1,6 +1,12 @@
 package entity;
 
 import boundary_entity.GameText;
+import entity.fields.Field;
+import entity.fields.Fleet;
+import entity.fields.LaborCamp;
+import entity.fields.Refuge;
+import entity.fields.Tax;
+import entity.fields.Territory;
 
 public class GameBoard {
 

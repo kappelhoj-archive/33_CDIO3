@@ -1,7 +1,5 @@
 package entity;
 
-import entity.Account;
-
 public class Player {
 
 	//Instance variables
