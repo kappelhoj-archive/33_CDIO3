@@ -358,7 +358,7 @@ public class GameText {
 		case "int":
 			return "int";
 		case "ok":
-			return "ok";
+			return "OK";
 		}
 		return "BUTTON ERROR";
 	}
