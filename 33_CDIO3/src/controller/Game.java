@@ -37,7 +37,7 @@ public class Game {
 	}
 	public void movePlayer(){
 		int sum=dice.getDiceValue()[0]+dice.getDiceValue()[1];
-		if(players[turn].getPosition()+sum<21){
+		if(players[turn].getPosition()+sum<=21){
 			players[turn].setPosition(players[turn].getPosition()+sum);
 		}
 		else{
