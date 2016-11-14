@@ -1,4 +1,6 @@
-package entity;
+package entity.fields;
+
+import entity.Player;
 
 public abstract class Field 
 {

@@ -1,4 +1,4 @@
-package entity;
+package entity.fields;
 
 public class Fleet extends Ownable
 {
