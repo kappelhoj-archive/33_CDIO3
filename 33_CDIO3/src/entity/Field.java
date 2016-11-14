@@ -19,8 +19,6 @@ public abstract class Field
 	 * A method to be overridden by subclasses.
 	 * @param player The player to land on the field.
 	 */
-	public void landOnField(Player player)
-	{
-	}
+	abstract public void landOnField(Player player);
 	
 }
