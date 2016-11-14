@@ -324,7 +324,7 @@ public class GameText {
 	 */
 	public static String lostText(String playerName)
 	{
-		return playerName + "lost and is out of this game, like the rest of the world #Trump \n";
+		return playerName + " lost and is out of this game, like the rest of the world #Trump \n";
 	}		
 	
 	/**
