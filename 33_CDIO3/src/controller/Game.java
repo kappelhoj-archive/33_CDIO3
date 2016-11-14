@@ -36,6 +36,7 @@ public class Game {
 	}
 
 	public void movePlayer() {
+		dice.shakeCup();
 		int sum = dice.getDiceValue()[0] + dice.getDiceValue()[1];
 		if (players[turn].getPosition() + sum <= 21) {
 			players[turn].setPosition(players[turn].getPosition() + sum);
@@ -46,7 +47,6 @@ public class Game {
 	}
 
 	public void playTurn() {
-		dice.shakeCup();
 		movePlayer();
 		gui.landOnOwnable(players[turn].getPlayerName(), players[turn].getPosition(), dice.getDiceValue(), "Territory");
 	}
