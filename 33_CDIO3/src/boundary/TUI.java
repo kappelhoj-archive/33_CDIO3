@@ -18,7 +18,7 @@ public class TUI {
 
 	}
 
-	public int askNumberOfPlayers() {
+	private int askNumberOfPlayers() {
 
 		// Ask for the amount of players
 		System.out.println(GameText.playerNumberText());
@@ -40,7 +40,7 @@ public class TUI {
 		return numbPlayer;
 	}
 
-	public String[] getPlayerNames(int numbPlayer) {
+	private String[] getPlayerNames(int numbPlayer) {
 		String[] playerNames;
 		playerNames = new String[numbPlayer];
 		System.out.println(GameText.enterPlayerNameText(1));

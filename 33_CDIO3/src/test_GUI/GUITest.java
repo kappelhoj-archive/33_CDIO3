@@ -35,6 +35,7 @@ public class GUITest {
 		gui.askPlayerBuyField("Bo", 1);
 		gui.boughtField("Bo", 1, 5000);
 		gui.cantAffordField(1);
+		gui.setOwnerOfField("Bo", 1);
 		
 		//Lose and win game
 		gui.loseGame("Bo");
