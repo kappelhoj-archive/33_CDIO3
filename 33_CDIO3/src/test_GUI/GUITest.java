@@ -34,9 +34,11 @@ public class GUITest {
 		//Buy Field Messages
 		gui.askPlayerBuyField("Bo", 1);
 		gui.boughtField("Bo", 1, 5000);
-		gui.boughtField("Bo", 1, 5000);
 		gui.cantAffordField(1);
 		
+		//Lose and win game
+		gui.loseGame("Bo");
+		gui.endGame("Bo");
 		// More to come
 
 	}
