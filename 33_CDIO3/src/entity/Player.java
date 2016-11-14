@@ -10,6 +10,7 @@ public class Player {
 	private int amountOfLaborCamps;  //Amount of labor camp fields the player owns.
 	private double fortune;  	     //Sum of player's balance and the value of all the player's field.
 	private boolean payDecision;     //True if player chooses to pay 10 % of his fortune, false otherwise.
+	private int position;
 
 	/** 
 	 * Object Player constructor.
@@ -23,6 +24,7 @@ public class Player {
 		amountOfFleets = 0;
 		amountOfLaborCamps = 0;
 		fortune = this.getAccountBalance();
+		position=0;
 	}
 	
 	/** 
@@ -144,5 +146,13 @@ public class Player {
 			owner.changePlayerFortune(account.getBalance());  //Adds the object's balance to the balance of the owner.
 			setPlayerHasLost(true);                           //Sets the object's hasLost condition to true.
 		}
+	}
+
+	public int getPosition() {
+		return position;
+	}
+
+	public void setPosition(int position) {
+		this.position = position;
 	}
 }
