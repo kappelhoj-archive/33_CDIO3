@@ -117,7 +117,7 @@ public class GUIHandler {
 	public boolean landOnTax(String playerName, int playerPosition, int tax, int playerFortune, int[] currentDice) {
 		String out = landOnInitial(playerName, playerPosition, currentDice);
 		out += GameText.taxText(playerName, GameText.fieldTitles[playerPosition - 1], tax);
-		return GUI.getUserLeftButtonPressed(out, GameText.getButtonText("10%") + playerFortune * 0.01, tax + "");
+		return GUI.getUserLeftButtonPressed(out, GameText.getButtonText("10%") +" " + playerFortune * 0.01, tax + "");
 	}
 
 	public void showLaborCampResult(String playerName, int[] currentDice, String fieldOwner, int rent) {
