@@ -301,7 +301,7 @@ public class GameText {
 			out+="You now have to pay "+rent+" to "+fieldOwner+".\n";
 			break;
 		case "Fleet":
-			out+="You now have to pay "+rent+" to "+fieldOwner+". because of how many fleets he has.\n";
+			out+="You now have to pay "+rent+" to "+fieldOwner+". Because of how many fleets they have.\n";
 			break;
 		case "Labor Camp":
 			out+="You now have to to roll the dice and pay a hundred times the amount you roll to "+fieldOwner+". You have to pay twice that if "+fieldOwner+" has two labor camps.\n";
@@ -311,7 +311,7 @@ public class GameText {
 	}	
 	
 	public static String ownedLaborCampAfterRoll(String fieldOwner,int rent){
-		return "You now have to pay"+ rent+" to "+fieldOwner+".\n";
+		return "You now have to pay "+ rent+" to "+fieldOwner+".\n";
 	}
 	
 	//####################################################################################
