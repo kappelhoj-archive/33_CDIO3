@@ -18,6 +18,9 @@ public class GUITest {
 		gui.landOnField(names[i],d.getDiceValue()[0]+d.getDiceValue()[1],d.getDiceValue(),"Territory");
 		}
 		
+		
+		//Check to see if we can change the balance
+		gui.changePlayerBalance("Bo", 2000);
 		//More to come
 		
 	}
