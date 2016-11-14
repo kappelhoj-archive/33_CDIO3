@@ -118,7 +118,7 @@ public class GUIHandler {
 		//Gives the user some text.
 		String out=GameText.rollText(playerName, currentDice);
 		out+=GameText.landOnFieldText(playerName, GameText.fieldTitles[playerPosition-1]);
-		GameText.ownedFieldText(playerName,fieldType,fieldOwner,rent);
+		out+=GameText.ownedFieldText(playerName,fieldType,fieldOwner,rent);
 		
 		GUI.getUserButtonPressed(out+"\n",GameText.getButtonText("ok"));
 	}
