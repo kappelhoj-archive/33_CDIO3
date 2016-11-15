@@ -27,5 +27,11 @@ public class Refuge extends Field
 	{
 		player.changeAccountBalance(bonus); //Gives the player a bonus to his balance.
 	}
+	
+	@Override
+	public int getRent(){
+		return -1;
+	}
+	
 }
 

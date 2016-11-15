@@ -33,29 +33,29 @@ public class GameBoard {
 		
 		for(int i = 0 ; i < 11 ; i++)
 		{
-			fields[i] = new Territory(GameText.fieldTitles[i],rent[i], price[i]);			
+			fields[i] = new Territory("Territory",rent[i], price[i]);			
 		}
 		
 		//Refuge fields created.
 		
-		fields[11] = new Refuge(GameText.fieldTitles[11],5000);	
-		fields[12] = new Refuge(GameText.fieldTitles[12],500);	
+		fields[11] = new Refuge("Refuge",5000);	
+		fields[12] = new Refuge("Refuge",500);	
 
 		//LaborCamp fields created.
 		
-		fields[13] = new LaborCamp(GameText.fieldTitles[13],2500);	
-		fields[14] = new LaborCamp(GameText.fieldTitles[14],2500);	
+		fields[13] = new LaborCamp("Labor Camp",2500);	
+		fields[14] = new LaborCamp("Labor Camp",2500);	
 
 		//Tax fields created.
 		
-		fields[15] = new Tax(GameText.fieldTitles[15],2000, 10);
-		fields[16] = new Tax(GameText.fieldTitles[16],4000, 10);
+		fields[15] = new Tax("Tax",2000, 10);
+		fields[16] = new Tax("Tax",4000, 10);
 
 		//Fleet fields created.
 		
 		for(int j = 0; j < 4 ; j++)
 		{
-			fields[17+j] = new Fleet(GameText.fieldTitles[17+j],4000);	
+			fields[17+j] = new Fleet("Fleet",4000);	
 		}
 	}	
 }

@@ -40,4 +40,9 @@ public class Tax extends Field
 			player.changePlayerFortune(-taxAmount);                   //Subtracts the rent from the fortune of the player.
 		}
 	}
+	
+	@Override
+	public int getRent(){
+		return -1;
+	}
 }

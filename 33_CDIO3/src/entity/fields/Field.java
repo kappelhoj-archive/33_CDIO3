@@ -5,15 +5,20 @@ import entity.Player;
 public abstract class Field 
 {
 	//Instance variables
-	private String fieldName;
+
+	private String type;
 	
 	/**
 	 * Object Field constructor
 	 * @param fieldName The name of the field.
 	 */
-	public Field(String fieldName)
+	public Field(String type)
 	{
-		this.fieldName = fieldName;
+		this.type = type;
+	}
+
+	public String getType(){
+		return type;
 	}
 	
 	/**
@@ -22,5 +27,11 @@ public abstract class Field
 	 * @param player The player to land on the field.
 	 */
 	abstract public void landOnField(Player player);
+	/**
+	 * The method getRent returns the rent to be paid by the player who lands on the Ownable field.
+	 * A method to be overridden by subclasses.
+	 * @return Returns the rent to be paid.
+	 */
+	public abstract int getRent();
 	
 }

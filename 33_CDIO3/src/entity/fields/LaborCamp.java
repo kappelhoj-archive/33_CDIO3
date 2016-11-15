@@ -11,8 +11,8 @@ public class LaborCamp extends Ownable
 	 * @param fieldName The name of the labor camp field.
 	 * @param price The price of the labor camp field.
 	 */
-	public LaborCamp(String fieldName, int price) {
-		super(fieldName, price);
+	public LaborCamp(String type, int price) {
+		super(type, price);
 		this.baseRent = 100;
 	}
 
