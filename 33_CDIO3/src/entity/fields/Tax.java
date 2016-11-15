@@ -25,6 +25,7 @@ public class Tax extends Field
 	 * Method landOnField decides what to be done when player lands on a Tax Field.
 	 * @param player The player to land on the tax field.
 	 */
+	@Override
 	public void landOnField(Player player)
 	{
 		if (player.getPlayerPayDecision()) //Checks if the player wants to pay taxrate or fixed taxAmount. True if he want to pay taxRate

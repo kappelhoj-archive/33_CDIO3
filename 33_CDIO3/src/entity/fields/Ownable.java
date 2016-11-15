@@ -25,10 +25,7 @@ public abstract class Ownable extends Field
 	 * A method to be overridden by subclasses.
 	 * @return Returns the rent to be paid.
 	 */
-	public int getRent()
-	{
-		return 0;
-	}
+	public abstract int getRent();
 	
 	/**
 	 * Method getOwner returns the owner of the field.
@@ -79,6 +76,7 @@ public abstract class Ownable extends Field
 	 * Method landOnField decides what to be done when player lands on a Ownable Field.
 	 * @param player The player to land on the field.
 	 */
+	@Override
 	public void landOnField(Player player)
 	{
 		if (!getOwner().getPlayerName().equals(player.getPlayerName())) //Checks if the owner of the field and the player who landed on the field isn't the same
