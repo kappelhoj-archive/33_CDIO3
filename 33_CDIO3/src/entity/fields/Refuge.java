@@ -22,6 +22,7 @@ public class Refuge extends Field
 	 * Method landOnField decides what to be done when player lands on a refuge Field.
 	 * @param player The player to land on the field.
 	 */
+	@Override
 	public void landOnField(Player player)
 	{
 		player.changeAccountBalance(bonus); //Gives the player a bonus to his balance.
