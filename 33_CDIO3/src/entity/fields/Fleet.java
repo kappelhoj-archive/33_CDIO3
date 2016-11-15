@@ -22,6 +22,7 @@ public class Fleet extends Ownable
 	 * The method getRent returns the rent to be paid by the player who lands on the fleet field.
 	 * @return Returns the rent to be paid.
 	 */
+	@Override
 	public int getRent()
 	{
 		int amountOfFleets = super.getOwner().getAmountOfFleets(); //The amount of fleet fields the owner of the fleet field owns.
