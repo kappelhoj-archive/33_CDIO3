@@ -25,10 +25,7 @@ public abstract class Ownable extends Field
 	 * A method to be overridden by subclasses.
 	 * @return Returns the rent to be paid.
 	 */
-	public int getRent()
-	{
-		return 0;
-	}
+	public abstract int getRent();
 	
 	/**
 	 * Method getOwner returns the owner of the field.
