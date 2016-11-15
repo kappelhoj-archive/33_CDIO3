@@ -8,7 +8,7 @@ public class Player {
 	private boolean hasLost;         //Tells if the player has lost the game.
 	private int amountOfFleets;      //Amount of fleet fields the player owns.
 	private int amountOfLaborCamps;  //Amount of labor camp fields the player owns.
-	private double fortune;  	     //Sum of player's balance and the value of all the player's field.
+	private int fortune;  	     //Sum of player's balance and the value of all the player's field.
 	private boolean payDecision;     //True if player chooses to pay 10 % of his fortune, false otherwise.
 	private int position;
 
@@ -58,7 +58,7 @@ public class Player {
 	 * Method getAccountBalance returns the balance of the player's account.
 	 * @return Returns the account balance value of the player.
 	 */
-	public double getAccountBalance()
+	public int getAccountBalance()
 	{
 		return account.getBalance();
 	}
@@ -112,7 +112,7 @@ public class Player {
 	 * Method changeAccountBalance changes balance of the player's account with the parameter value.
 	 * @param The value the balance should be changed with.
 	 */
-	public void changeAccountBalance(double value)
+	public void changeAccountBalance(int value)
 	{
 		account.changeBalance(value);
 	}
@@ -121,7 +121,7 @@ public class Player {
 	 * Method changePlayerFortune changes the fortune of the player with the parameter value.
 	 * @param value The value the fortune should be changed with.
 	 */
-	public void changePlayerFortune(double value)
+	public void changePlayerFortune(int value)
 	{
 		fortune = fortune + value;
 	}

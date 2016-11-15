@@ -3,13 +3,13 @@ package entity;
 public class Account 
 {
 	//Instance variables
-	private double balance;
+	private int balance;
 	
 	/**
 	 * Object Account constructor.
 	 * @param balance The balance which the account should start with.
 	 */
-	public Account(double balance)
+	public Account(int balance)
 	{
 		this.balance = balance;
 	}
@@ -18,7 +18,7 @@ public class Account
 	 * Method getBalance returns the balance of the Account.
 	 * @return balance balance of an account.
 	 */
-	public double getBalance() 
+	public int getBalance() 
 	{
 		return balance;
 	}
@@ -30,7 +30,7 @@ public class Account
 	 * If the parameter is negative the method substracts value from balance.
 	 * @return The method return true if the change of balance succeeded. False otherwise.
 	 */
-	public boolean changeBalance(double value) 
+	public boolean changeBalance(int value) 
 	{
 		if(balance + value < balance) //Checks if the balance overflows
 		{

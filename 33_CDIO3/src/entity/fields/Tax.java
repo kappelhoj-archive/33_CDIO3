@@ -29,7 +29,7 @@ public class Tax extends Field
 	{
 		if (player.getPlayerPayDecision()) //Checks if the player wants to pay taxrate or fixed taxAmount. True if he want to pay taxRate
 		{
-			double rent = 0.01 * taxRate * player.getPlayerFortune(); //The rent to be paid
+			int rent = (int)(0.01 * taxRate * player.getPlayerFortune()); //The rent to be paid
 			player.changeAccountBalance(-rent);						  //Subtracts the rent from the balance of the player.
 			player.changePlayerFortune(-taxAmount);					  //Subtracts the rent from the fortune of the player.
 		}
