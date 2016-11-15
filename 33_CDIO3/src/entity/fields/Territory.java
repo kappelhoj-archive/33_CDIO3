@@ -21,6 +21,7 @@ public class Territory extends Ownable
 	 * The method getRent returns the rent to be paid by the player who lands on the territory field.
 	 * @return Returns the rent to be paid.
 	 */
+	@Override
 	public int getRent()
 	{
 		return rent;

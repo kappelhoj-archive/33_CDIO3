@@ -20,6 +20,7 @@ public class LaborCamp extends Ownable
 	 * The method getRent returns the rent to be paid by the player who lands on the Labor camp field.
 	 * @return Returns the rent to be paid.
 	 */
+	@Override
 	public int getRent()
 	{
 		int amountOfLaborCamps = super.getOwner().getAmountOfLaborCamps();
