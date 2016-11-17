@@ -1,6 +1,12 @@
 package boundary_entity;
 
 public class GameText {
+	
+	/**
+	 * The method  returns a String of the field title.
+	 * @param field name.
+	 * @return String
+	 */
 	public static String[] fieldTitles={
 /*(001)*/	"Tribe Encampment",
 /*(002)*/	"Crater",
@@ -52,7 +58,11 @@ public class GameText {
 /*(120)*/	"4000",
 /*(121)*/	"4000"};
 	
-
+	/**
+	 * The method  returns a String of the field description.
+	 * @param description name.
+	 * @return String
+	 */
 	public static String[] fieldShortDescription={
 /*(201)*/	"Tribe Encampment has a price of 1000, and a rent of 100",
 /*(202)*/	"Crater has a price of 1500, and a rent of 300",
@@ -76,10 +86,12 @@ public class GameText {
 /*(220)*/	"When you land on The Buccaneers you have to pay between 500-400 in rent, dependent on how many fleets the owner has.",
 /*(221)*/	"When you land on Privateer armade you have to pay between 500-400 in rent, dependent on how many fleets the owner has."};
 
-	
 	//####################################################################################
 	// Begin game texts
 	//####################################################################################
+
+	
+	
 	/**
 	 * The method welcomeText returns a string which contains the welcome text of the game.
 	 * @return String
@@ -89,19 +101,26 @@ public class GameText {
 		return "Welcome to 'Rodatam' \n";
 	}
 	
-	
+	/**
+	 * The method PlayerNumberText returns a string which tells you player number.
+	 * @return String
+	 */
 	public static String playerNumberText()
 	{
 		return "Enter the number of player to play the game.\n";
 	}
+	
 	/**
+
 	 * The method invalidPlayerNumberText returns a string which tells the player number is invalid.
 	 * @return String
 	 */
 	public static String invalidPlayerNumberText()
+
 	{
 		return "This is not a valid number of players, please try again with a number within 2-6 \n";
 	}
+	
 	/**
 	 * The method invalidInputText returns a String that tells you that the input was wrong.
 	 * @return String
@@ -120,6 +139,7 @@ public class GameText {
 	{
 		return "Please enter the name of player " + number+"\n";
 	}
+	
 	/**
 	 * The method playerNameTakenText returns a String which tells the name is taken.
 	 * @param playerName.
@@ -129,7 +149,6 @@ public class GameText {
 	{
 		return "This player name "+ playerName +" is already taken, try again \n";
 	}
-	
 	
 	/**
 	 * The method gameRules returns a string which contains the game rules.
@@ -150,10 +169,8 @@ public class GameText {
 		return gameRules;
 	}
 	
-	
-	
 	/**
-	 * The firstTurn method returns a string which contains which player has 
+	 * The method firstTurn returns a string which contains which player has 
 	 * been randomly selected to start the game. 
 	 * @param playerName The name of the player
 	 * @return String
@@ -166,6 +183,9 @@ public class GameText {
 	//####################################################################################
 	// On going game texts
 	//####################################################################################
+
+	
+	
 	/**
 	 * The method turn returns a string which contains whose turn it is.
 	 * @param playerName The name of the player
@@ -175,16 +195,6 @@ public class GameText {
 	{
 		return "It is " + playerName + "'s turn \n";
 	}
-	
-//	/**
-//	 * The method extraTurn returns a string which tell who has got an extra turn.
-//	 * @param playerName The name of the player
-//	 * @return String
-//	 */
-//	public static String extraTurnText(String playerName)
-//	{
-//		return playerName + " has gained an extra turn \n";
-//	}
 	
 	/**
 	 * The method rollText returns a String which contains what a particular player has rolled with the dice.
@@ -197,11 +207,12 @@ public class GameText {
 		return playerName + " has rolled a " + value[0] + " and a " + value[1] + "."+ "\n";
 	}
 	
-	
-
 	//####################################################################################
 	//Field buying texts
 	//####################################################################################
+
+	
+	
 	/**
 	 * The method buyfieldText returns a String which asks if you want to buy a field.
 	 * @param playerName The name of the player. 
@@ -224,8 +235,7 @@ public class GameText {
 	{
 		return "You can't afford to buy "+ fieldName +". \n";
 	}
-	
-	
+		
 	/**
 	 * The method boughtFieldText returns a String which tells you that you bought the field.
 	 * @param plyerName.
@@ -237,6 +247,12 @@ public class GameText {
 		return "Congratulation "+ playerName +" bought " + fieldName +" \n" ;
 	}	
 	
+	//####################################################################################
+	//Land on field texts
+	//####################################################################################
+
+	
+	
 	/**
 	 * The method refugeText returns a String which tells you, you landed on a refuge field.
 	 * @param plyerName The name of the player.
@@ -244,10 +260,6 @@ public class GameText {
 	 * @param amount The amount the player will receive on this field.
 	 * @return String
 	 */
-	
-	//####################################################################################
-	//Land on field texts
-	//####################################################################################
 	public static String refugeText(String playerName, String fieldName, int amount)
 	{
 		return playerName +" landed on " + fieldName + " this is a Refuge field, and you will now recive "+ amount +"  \n" ;
@@ -264,12 +276,12 @@ public class GameText {
 	{
 		return playerName +" landed on " + fieldName + " you will have to pay tax, you can choose to pay "+ tax +" or pay 10% of your fortune \n";
 	}
-	
-	
+		
 	/**
-	 * The method fleetText returns a String which tells you, landed on a fleet field.
+	 * The method ownedFieldText returns a String which tells you that you landed on a owned field.
 	 * @param plyerName The name of the player.
 	 * @param fieldName The name of the field.
+	 * @param rent The rent of the field.
 	 * @return String
 	 */
 	public static String landOnFieldText(String playerName, String fieldName)
@@ -277,19 +289,28 @@ public class GameText {
 		return playerName + " landed on "+fieldName+" \n";
 	}
 	
+	/**
+	 * The method fieldNotOwnedText returns a String which tells you, you landed on a owned field.
+	 * @param fieldType The type of the field.
+	 * @param fieldName The name of the field.
+	 * @return String
+	 */
 	public static String fieldNotOwnedText(String fieldType,String fieldName)
 	{
 		return fieldName+" is a "+fieldType+". \n";
 	}
 	
-	
 	//####################################################################################
 	//Pay rent to owner texts
 	//####################################################################################
+
+	
+	
 	/**
-	 * The method ownedFieldText returns a String which tells you that you landed on a owned field.
+	 * The method ownedFieldText returns a String which tells you that you landed on a owned field, with a switchcase depending on what filed your on.
 	 * @param plyerName The name of the player.
 	 * @param fieldName The name of the field.
+	 * @param fieldOwner The owner of the field.
 	 * @param rent The rent of the field.
 	 * @return String
 	 */
@@ -310,6 +331,12 @@ public class GameText {
 		return out;		
 	}	
 	
+	/**
+	 * The method lostText returns a String which tells you that you lost.
+	 * @param playerName The name of the player.
+	 * @param rent the rent of the laborcamp .
+	 * @return String
+	 */
 	public static String ownedLaborCampAfterRoll(String fieldOwner,int rent){
 		return "You now have to pay "+ rent+" to "+fieldOwner+".\n";
 	}
@@ -317,6 +344,9 @@ public class GameText {
 	//####################################################################################
 	//End game Text
 	//####################################################################################
+
+	
+	
 	/**
 	 * The method lostText returns a String which tells you that you lost.
 	 * @param playerName The name of the player.
@@ -340,6 +370,9 @@ public class GameText {
 	//####################################################################################
 	//Misc. methods
 	//####################################################################################
+	
+	
+	
 	/**
 	 * The method getButtonText returns a String of the button text.
 	 * @param button name.
@@ -362,5 +395,6 @@ public class GameText {
 		}
 		return "BUTTON ERROR";
 	}
+	
 	
 }
