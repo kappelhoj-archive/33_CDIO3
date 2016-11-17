@@ -7,6 +7,10 @@ public class Refuge extends Field
 	//Instance variables
 	private int bonus;
 
+	public int getBonus() {
+		return bonus;
+	}
+
 	/**
 	 * Object refuge constructor
 	 * @param fieldName The name of the refuge field
