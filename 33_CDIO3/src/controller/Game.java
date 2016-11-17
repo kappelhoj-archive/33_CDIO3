@@ -16,8 +16,8 @@ public class Game {
 	public Game() {
 		// Creates a DiceCup
 		dice = new DiceCup();
-		//Creates the game board
-		gameBoard=new GameBoard();
+		// Creates the game board
+		gameBoard = new GameBoard();
 		// Start the TUI
 		this.tui = new TUI();
 		// Ask for the player names
@@ -54,8 +54,11 @@ public class Game {
 		}
 	}
 
+	
 	public void changeTurn() {
-		turn = (turn + 1) % players.length;
+		do{
+			turn = (turn + 1) % players.length;
+		}while (players[turn].getPlayerHasLost());
 	}
 
 	public void movePlayer() {
@@ -69,11 +72,31 @@ public class Game {
 		}
 	}
 
+	public void updateAllFieldOwners() {
+		for (int i = 0; i < 21; i++) {
+			if (gameBoard.getField(i + 1).getType().equals("Territory")
+					|| gameBoard.getField(i + 1).getType().equals("Fleet")
+					|| gameBoard.getField(i + 1).getType().equals("Labor Camp"))
+				updateFieldOwner(i + 1, (Ownable) gameBoard.getField(i + 1));
+		}
+	}
+
+	public void updateFieldOwner(int position, Ownable field) {
+
+		gui.setOwnerOfField(field.getOwner().getPlayerName(), position);
+	}
+
 	public void playTurn() {
 		movePlayer();
 		showLandText(gameBoard.getField(players[turn].getPosition()));
-		//GameLogic.landOnField(players[turn], gameBoard.getField(players[turn].getPosition()), this);
+		GameLogic.landOnField(players[turn],gameBoard.getField(players[turn].getPosition()), this);
 
+		if (players[turn].getPlayerHasLost()) {
+			gameBoard.removeAllPlayerFields(players[turn].getPlayerName());
+			updateAllFieldOwners();
+			gui.loseGame(players[turn].getPlayerName());
+		}
+		gui.changePlayerBalance(players[turn].getPlayerName(), players[turn].getAccountBalance());
 	}
 
 	public void runGame() {
