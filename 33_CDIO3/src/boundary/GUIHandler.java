@@ -130,7 +130,7 @@ public class GUIHandler {
 	public boolean askPlayerBuyField(String playerName, int playerPosition) {
 		return GUI.getUserLeftButtonPressed(
 				GameText.buyfieldText(playerName, GameText.fieldTitles[playerPosition - 1],
-						GameText.fieldSubText[playerPosition]),
+						GameText.fieldSubText[playerPosition-1]),
 				GameText.getButtonText("yes"), GameText.getButtonText("no"));
 
 	}

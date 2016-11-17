@@ -33,7 +33,7 @@ public class GameLogic
 			if (!((Ownable)field).isFieldOwned())
 			{
 				//Ask the given player if he wants to buy the field that is not owned.
-				boolean buyField = game.askForDecision("buy", 0);
+				boolean buyField = game.askForDecision("Buy", 0);
 				
 				//Checks if the player wants to buy the field.
 				if(buyField)
