@@ -59,6 +59,7 @@ public class Game {
 		do{
 			turn = (turn + 1) % players.length;
 		}while (players[turn].getPlayerHasLost());
+		gui.showTurnStart(players[turn].getPlayerName());
 	}
 
 	public void movePlayer() {
@@ -89,8 +90,17 @@ public class Game {
 	public void playTurn() {
 		movePlayer();
 		showLandText(gameBoard.getField(players[turn].getPosition()));
-		GameLogic.landOnField(players[turn],gameBoard.getField(players[turn].getPosition()), this);
-
+		String message =GameLogic.landOnField(players[turn],gameBoard.getField(players[turn].getPosition()), this);
+		if(message.equals("Bought"))
+			gui.boughtField(players[turn].getPlayerName(), players[turn].getPosition(), players[turn].getAccountBalance());
+		else if(message.equals("Not bought"))
+			gui.cantAffordField(players[turn].getPosition());
+		else if(message.equals("")){}
+		else{
+			gui.showLaborCampResult(players[turn].getPlayerName(),dice.getDiceValue() , ((Ownable)gameBoard.getField(players[turn].getPosition())).getOwner().getPlayerName(), Integer.parseInt(message));
+		}
+			
+		
 		if (players[turn].getPlayerHasLost()) {
 			gameBoard.removeAllPlayerFields(players[turn].getPlayerName());
 			updateAllFieldOwners();
