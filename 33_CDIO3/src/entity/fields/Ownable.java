@@ -96,7 +96,11 @@ public abstract class Ownable extends Field
 		}
 	}
 	
-	public void removeOwner(){
-		owner=null;
+	/**
+	 * Method removeOwner sets the owner of the field to null.
+	 */
+	public void removeOwner()
+	{
+		owner = null;
 	}
 }
