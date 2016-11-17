@@ -1,4 +1,4 @@
-package gameLogic;
+package controller;
 import entity.Player;
 import entity.fields.Field;
 
