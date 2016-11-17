@@ -1,4 +1,4 @@
-package boundary_entity;
+package boundary.entity;
 
 public class GameText {
 	

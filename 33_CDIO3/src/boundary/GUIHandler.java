@@ -2,11 +2,11 @@ package boundary;
 
 import java.awt.Color;
 
+import boundary.entity.GameText;
 import desktop_codebehind.Car;
 import desktop_fields.Field;
 import desktop_fields.Street;
 import desktop_resources.GUI;
-import boundary_entity.GameText;
 
 public class GUIHandler {
 	Field[] fields = new Field[21];
