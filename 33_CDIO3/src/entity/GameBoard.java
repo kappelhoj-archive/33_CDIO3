@@ -50,22 +50,28 @@ public class GameBoard {
 			fields[17 + j] = new Fleet("Fleet", 4000);
 		}
 	}
-/**
+
+	/**
 	 * Method getField returns the field at the given position.
-	 * @param position The position to be set.
+	 * 
+	 * @param position
+	 *            The position to be set.
 	 * @return The field at position.
 	 */
 	public Field getField(int position) {
 		return fields[position - 1];
 	}
-/**
-	 * Method removeAllPlayerFields removes ownership of all fields 
-	 * who is owned by the player with the given player name.
-	 * @param playerName The given name.
+
+	/**
+	 * Method removeAllPlayerFields removes ownership of all fields who is owned
+	 * by the player with the given player name.
+	 * 
+	 * @param playerName
+	 *            The given name.
 	 */
 	public void removeAllPlayerFields(String playerName) {
 		for (int i = 0; i < fields.length; i++) {
-			if ((fields[i].getType() != "Refuge" && fields[i].getType() != "Tax"))
+			if (!fields[i].getType().equals("Refuge") && !fields[i].getType().equals("Tax"))
 				if (((Ownable) fields[i]).getOwner() != null)
 					if (((Ownable) fields[i]).getOwner().getPlayerName().equals(playerName))
 						((Ownable) fields[i]).removeOwner();

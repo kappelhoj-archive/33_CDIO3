@@ -74,12 +74,12 @@ public class Game {
 	}
 
 	public void updateAllFieldOwners() {
-		for (int i = 0; i < 21; i++) {
-			if ((gameBoard.getField(i).getType() != "Refuge" && gameBoard.getField(i).getType() != "Tax"))
+		for (int i = 1; i < 22; i++) {
+			if (!gameBoard.getField(i).getType().equals("Refuge") && !gameBoard.getField(i).getType().equals("Tax"))
 				if (((Ownable) gameBoard.getField(i)).getOwner() != null)
 					if (((Ownable) gameBoard.getField(i)).getOwner().getPlayerName()
 							.equals(players[turn].getPlayerName()))
-						updateFieldOwner(players[turn].getPosition(), (Ownable) gameBoard.getField(i), true);
+						updateFieldOwner(i, (Ownable) gameBoard.getField(i), true);
 		}
 	}
 
@@ -110,8 +110,9 @@ public class Game {
 		}
 
 		if (players[turn].getPlayerHasLost()) {
-			gameBoard.removeAllPlayerFields(players[turn].getPlayerName());
 			updateAllFieldOwners();
+			gameBoard.removeAllPlayerFields(players[turn].getPlayerName());
+
 			gui.loseGame(players[turn].getPlayerName());
 		}
 		updatePlayerBalances();
