@@ -13,9 +13,9 @@ public abstract class Ownable extends Field
 	 * @param fieldName The name of the field.
 	 * @param price The price of the Ownable field.
 	 */
-	public Ownable(String fieldName, int price) 
+	public Ownable(String fieldType, int price) 
 	{
-		super(fieldName);
+		super(fieldType);
 		this.price = price;
 		this.owner = null;
 	}
@@ -72,6 +72,7 @@ public abstract class Ownable extends Field
 			{
 				player.changeAmountOfLaborCamps();
 			}
+
 			return true;
 		}
 		else
