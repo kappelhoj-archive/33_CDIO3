@@ -148,11 +148,21 @@ public class Player {
 		}
 	}
 
-	public int getPosition() {
+	/**
+	 * Method getPosition returns the position of the player
+	 * @return Returns the position ofthe player
+	 */
+	public int getPosition() 
+	{
 		return position;
 	}
 
-	public void setPosition(int position) {
+	/**
+	 * Method setPosition sets the position of the player.
+	 * @param position The position to be set.
+	 */
+	public void setPosition(int position) 
+	{
 		this.position = position;
 	}
 }
