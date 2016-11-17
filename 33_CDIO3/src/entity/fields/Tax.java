@@ -50,7 +50,8 @@ public class Tax extends Field
 	}
 	
 	/**
-	 * Method getRent
+	 * Method getRent is not used.
+	 * The getRent has to be implemented because the super class has the abstract method getRent().
 	 */
 	@Override
 	public int getRent(){
