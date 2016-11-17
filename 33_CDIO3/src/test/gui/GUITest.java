@@ -44,7 +44,6 @@ public class GUITest {
 		
 		// Set field owned , set field not owned
 		gui.setOwnerOfField("Bo", 1);
-		gui.removeOwnerOfField(1);
 		gui.setOwnerOfField("Bo", 2);
 		gui.removeOwnerOfField(2);
 
