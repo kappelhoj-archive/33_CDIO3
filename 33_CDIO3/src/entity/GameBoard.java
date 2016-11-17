@@ -58,4 +58,8 @@ public class GameBoard {
 		return fields[position-1];
 	}
 	
+	public void removeAllPlayerFields(String playerName){
+		fwewe
+	}
+	
 }
