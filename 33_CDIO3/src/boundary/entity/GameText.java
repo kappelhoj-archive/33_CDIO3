@@ -365,7 +365,13 @@ public class GameText {
 	 */
 	public static String winnerText(String playerName)
 	{
-		return "Congratulations " + playerName + " has won the game! \n";
+		return "Congratulations " + playerName + " has won the game! \n" +
+				"__  __           _       __            ______ \n" +
+				"\\ \\/ /___  __  _| |     / /___  ____  / / / / \n" +
+				" \\  / __ \\/ / / / | /| / / __ \\/ __ \\/ / / /  \n" +
+				" / / /_/ / /_/ /| |/ |/ / /_/ / / / /_/_/_/  \n" +
+				"/_/\\____/\\____/ |__/|__/\\____/_/ /_(_|_|_)  \n";
+		
 	}
 	
 	//####################################################################################
