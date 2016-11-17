@@ -32,6 +32,7 @@ public abstract class Field
 	 * @param player The player to land on the field.
 	 */
 	abstract public void landOnField(Player player);
+	
 	/**
 	 * The method getRent returns the rent to be paid by the player who lands on the Ownable field.
 	 * A method to be overridden by subclasses.
