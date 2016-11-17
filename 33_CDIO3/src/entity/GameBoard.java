@@ -1,6 +1,16 @@
 package entity;
 
+<<<<<<< HEAD
 import entity.fields.*;
+=======
+
+import entity.fields.Field;
+import entity.fields.Fleet;
+import entity.fields.LaborCamp;
+import entity.fields.Refuge;
+import entity.fields.Tax;
+import entity.fields.Territory;
+>>>>>>> branch 'implement' of https://github.com/ArvidLangsoe/33_CDIO3.git
 
 public class GameBoard {
 

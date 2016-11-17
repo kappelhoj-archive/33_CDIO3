@@ -85,16 +85,12 @@ public class GameText {
 /*(219)*/	"When you land on Sea Grover you have to pay between 500-400 in rent, dependent on how many fleets the owner has.",
 /*(220)*/	"When you land on The Buccaneers you have to pay between 500-400 in rent, dependent on how many fleets the owner has.",
 /*(221)*/	"When you land on Privateer armade you have to pay between 500-400 in rent, dependent on how many fleets the owner has."};
-		
-	/**
-	 * The method enterPlayerNames returns a string Which asks the players to enter their names.
-	 * @param  The number of the player
-	 * @return String
-	 */	
-	public static String enterPlayerNameText(int number)
-	{
-		return "Please enter the name of player " + number;
-	}
+
+	//####################################################################################
+	// Begin game texts
+	//####################################################################################
+
+	
 	
 	/**
 	 * The method welcomeText returns a string which contains the welcome text of the game.
@@ -104,7 +100,56 @@ public class GameText {
 	{	
 		return "Welcome to 'Rodatam' \n";
 	}
-		
+	
+	/**
+	 * The method PlayerNumberText returns a string which tells you player number.
+	 * @return String
+	 */
+	public static String playerNumberText()
+	{
+		return "Enter the number of players who wants to play.\n";
+	}
+	
+	/**
+
+	 * The method invalidPlayerNumberText returns a string which tells the player number is invalid.
+	 * @return String
+	 */
+	public static String invalidPlayerNumberText()
+
+	{
+		return "This is not a valid number of players, please try again with a number within 2-6 \n";
+	}
+	
+	/**
+	 * The method invalidInputText returns a String that tells you that the input was wrong.
+	 * @return String
+	 */
+	public static String invalidInputText()
+	{
+		return "This is not a valid input. Please try again \n";
+	}
+	
+	/**
+	 * The method enterPlayerNames returns a string Which asks the players to enter their names.
+	 * @param  The number of the player
+	 * @return String
+	 */	
+	public static String enterPlayerNameText(int number)
+	{
+		return "Please enter the name of player " + number+"\n";
+	}
+	
+	/**
+	 * The method playerNameTakenText returns a String which tells the name is taken.
+	 * @param playerName.
+	 * @return String
+	 */
+	public static String playerNameTakenText(String playerName)
+	{
+		return "This player name "+ playerName +" is already taken, try again \n";
+	}
+	
 	/**
 	 * The method gameRules returns a string which contains the game rules.
 	 * @return String
@@ -118,14 +163,14 @@ public class GameText {
 				  + "- When you lose all your money you are out of the game. \n"
 				  + "- The last remaining player has won the game.\n"
 				  + "- You start a turn by rolling the dice. You then move forward by the amount you rolled.\n"
-				  + "- There are 5 different types of fields."  
+				  + "- There are 5 different types of fields.\n"  
 				  + "- ";
 			
 		return gameRules;
 	}
 	
 	/**
-	 * The firstTurn method returns a string which contains which player has 
+	 * The method firstTurn returns a string which contains which player has 
 	 * been randomly selected to start the game. 
 	 * @param playerName The name of the player
 	 * @return String
@@ -135,6 +180,12 @@ public class GameText {
 		return "A player has been randomly selected to start the game. \n"; 
 	}
 	
+	//####################################################################################
+	// On going game texts
+	//####################################################################################
+
+	
+	
 	/**
 	 * The method turn returns a string which contains whose turn it is.
 	 * @param playerName The name of the player
@@ -143,16 +194,6 @@ public class GameText {
 	public static String turnText(String playerName)
 	{
 		return "It is " + playerName + "'s turn \n";
-	}
-	
-	/**
-	 * The method extraTurn returns a string which tell who has got an extra turn.
-	 * @param playerName The name of the player
-	 * @return String
-	 */
-	public static String extraTurnText(String playerName)
-	{
-		return playerName + " has gained an extra turn \n";
 	}
 	
 	/**
@@ -166,16 +207,12 @@ public class GameText {
 		return playerName + " has rolled a " + value[0] + " and a " + value[1] + "."+ "\n";
 	}
 	
-	/**
-	 * The method winnerText returns a String which contains which player has won the game
-	 * @param playerName The name of the player.
-	 * @return String
-	 */
-	public static String winnerText(String playerName)
-	{
-		return "Congratulations " + playerName + " has won the game! \n";
-	}
+	//####################################################################################
+	//Field buying texts
+	//####################################################################################
 
+	
+	
 	/**
 	 * The method buyfieldText returns a String which asks if you want to buy a field.
 	 * @param playerName The name of the player. 
@@ -185,38 +222,157 @@ public class GameText {
 	 */
 	public static String buyfieldText(String playerName, String fieldName, String price)
 	{
-		return "Do you " + playerName + " want to buy "+ fieldName +" for "+ price +" ? \n";
+		return "Do you, " + playerName + ", want to buy "+ fieldName +" for "+ price +"? \n";
 	}
 	
 	/**
-	 * The method cantBuyFieldText returns a String that tells you cant afford this field.
+	 * The method cantBuyFieldText returns a String that tells you that you can't afford this field.
 	 * @param playerName The name of the player.
 	 * @param fieldName of the mattering field.
 	 * @return String
 	 */
-	public static String cantBuyFieldText(String playerName, String fieldName)
+	public static String cantBuyFieldText(String fieldName)
 	{
-		return "You " + playerName + " can't afford to buy "+ fieldName +". \n";
+		return "You can't afford to buy "+ fieldName +". \n";
 	}
 	
+		
 	/**
-	 * The method invalidPlayerNumberText returns a string which tells the player number is invalid.
+	 * The method boughtFieldText returns a String which tells you that you bought the field.
+	 * @param plyerName.
+	 * @param fieldName.
 	 * @return String
 	 */
-	public static String invalidPlayerNumberText()
+	public static String boughtFieldText(String playerName, String fieldName)
 	{
-		return "This is not a valid number of players, please try again with a number within 2-6 \n";
+		return "Congratulation "+ playerName +" bought " + fieldName +" \n" ;
+	}	
+	
+	//####################################################################################
+	//Land on field texts
+	//####################################################################################
+
+	
+	
+	/**
+	 * The method refugeText returns a String which tells you, you landed on a refuge field.
+	 * @param plyerName The name of the player.
+	 * @param fieldName The name of the field.
+	 * @param amount The amount the player will receive on this field.
+	 * @return String
+	 */
+	public static String refugeText(String playerName, String fieldName, int amount)
+	{
+		return playerName +" landed on " + fieldName + " this is a Refuge field, and you will now recive "+ amount +"  \n" ;
 	}
 	
 	/**
-	 * The method buyfieldText returns a String which asks if you want to buy a field.
+	 * The method taxText returns a String which tells you, landed on a tax field.
+	 * @param plyerName The name of the player.
+	 * @param fieldName The name of the field.
+	 * @param tax The tax of the field.
+	 * @return String
+	 */
+	public static String taxText(String playerName, String fieldName, int tax)
+	{
+		return playerName +" landed on " + fieldName + " you will have to pay tax, you can choose to pay "+ tax +" or pay 10% of your fortune \n";
+	}
+		
+	/**
+	 * The method ownedFieldText returns a String which tells you that you landed on a owned field.
+	 * @param plyerName The name of the player.
+	 * @param fieldName The name of the field.
+	 * @param rent The rent of the field.
+	 * @return String
+	 */
+	public static String landOnFieldText(String playerName, String fieldName)
+	{
+		return playerName + " landed on "+fieldName+" \n";
+	}
+	
+	/**
+	 * The method fieldNotOwnedText returns a String which tells you, you landed on a owned field.
+	 * @param fieldType The type of the field.
+	 * @param fieldName The name of the field.
+	 * @return String
+	 */
+	public static String fieldNotOwnedText(String fieldType,String fieldName)
+	{
+		return fieldName+" is a "+fieldType+". \n";
+	}
+	
+	//####################################################################################
+	//Pay rent to owner texts
+	//####################################################################################
+
+	
+	
+	/**
+	 * The method ownedFieldText returns a String which tells you that you landed on a owned field, with a switchcase depending on what filed your on.
+	 * @param plyerName The name of the player.
+	 * @param fieldName The name of the field.
+	 * @param fieldOwner The owner of the field.
+	 * @param rent The rent of the field.
+	 * @return String
+	 */
+	public static String ownedFieldText(String playerName,String fieldType,String fieldOwner,int rent)
+	{
+		String out=fieldOwner+" owns this field. This field is a "+fieldType+"\n";
+		switch(fieldType){
+		case "Territory":
+			out+="You now have to pay "+rent+" to "+fieldOwner+".\n";
+			break;
+		case "Fleet":
+			out+="You now have to pay "+rent+" to "+fieldOwner+". Because of how many fleets they have.\n";
+			break;
+		case "Labor Camp":
+			out+="You now have to to roll the dice and pay a hundred times the amount you roll to "+fieldOwner+". You have to pay twice that if "+fieldOwner+" has two labor camps.\n";
+			break;
+		}
+		return out;		
+	}	
+	
+	/**
+	 * The method lostText returns a String which tells you that you lost.
+	 * @param playerName The name of the player.
+	 * @param rent the rent of the laborcamp .
+	 * @return String
+	 */
+	public static String ownedLaborCampAfterRoll(String fieldOwner,int rent){
+		return "You now have to pay "+ rent+" to "+fieldOwner+".\n";
+	}
+	
+	//####################################################################################
+	//End game Text
+	//####################################################################################
+
+	
+	
+	/**
+	 * The method lostText returns a String which tells you that you lost.
 	 * @param playerName The name of the player.
 	 * @return String
 	 */
-	public static String invalidInputText()
+	public static String lostText(String playerName)
 	{
-		return "This is not a valid input. Please try again \n";
+		return playerName + " lost and is out of this game, like the rest of the world #Trump \n";
+	}		
+	
+	/**
+	 * The method winnerText returns a String which contains which player has won the game
+	 * @param playerName The name of the player.
+	 * @return String
+	 */
+	public static String winnerText(String playerName)
+	{
+		return "Congratulations " + playerName + " has won the game! \n";
 	}
+	
+	//####################################################################################
+	//Misc. methods
+	//####################################################################################
+	
+	
 	
 	/**
 	 * The method getButtonText returns a String of the button text.
@@ -236,111 +392,10 @@ public class GameText {
 		case "int":
 			return "int";
 		case "ok":
-			return "ok";
+			return "OK";
 		}
-		return "";
-	
-	
+		return "BUTTON ERROR";
 	}
-	
-	/**
-	 * The method playerNameTakenText returns a String which tells the name is taken.
-	 * @param playerName.
-	 * @return String
-	 */
-	public static String playerNameTakenText(String playerName)
-	{
-		return "This player name "+ playerName +" is already taken, try again \n";
-	}	
-	
-	/**
-	 * The method boughtFieldText returns a String which tells you you bought that field.
-	 * @param plyerName.
-	 * @param fieldName.
-	 * @return String
-	 */
-	public static String boughtFieldText(String playerName, String fieldName)
-	{
-		return "Congratulation "+ playerName +"bought " + fieldName +" \n" ;
-	}	
-	
-	/**
-	 * The method refugeText returns a String which tells you, you landed on a refuge field.
-	 * @param plyerName,
-	 * @param fieldName.
-	 * @param int amount, the amount the player will recive on this field.
-	 * @return String
-	 */
-	public static String refugeText(String playerName, String fieldName, int amount)
-	{
-		return playerName +" landed on " + fieldName + " this is a Refuge field, and you will now recive "+ amount +"  \n" ;
-	}
-	
-	/**
-	 * The method taxText returns a String which tells you, landed on a tax field.
-	 * @param plyerName,
-	 * @param fieldName.
-	 * @param int tax.
-	 * @return String
-	 */
-	public static String taxText(String playerName, String fieldName, int tax)
-	{
-		return playerName +" landed on " + fieldName + " you will have to pay tax, you can choose to pay "+ tax +" or pay 10% of your fortune \n";
-	}
-	
-	/**
-	 * The method taxText returns a String which tells you, landed on a tax field.
-	 * @param plyerName,
-	 * @param fieldName.
-	 * @param int tax.
-	 * @return String
-	 */
-	public static String firstPlayerText()
-	{
-		return "Please type in the 1st player name: \n";
-	}
-	
-	/**
-	 * The method taxText returns a String which tells you, landed on a tax field.
-	 * @param plyerName,
-	 * @param fieldName.
-	 * @return String
-	 */
-	public static String fleetText(String playerName, String fieldName)
-	{
-		return playerName + "landed on "+fieldName+" \n";
-	}
-	
-	/**
-	 * The method taxText returns a String which tells you, landed on a tax field.
-	 * @param plyerName,
-	 * @param fieldName.
-	 * @param int tax.
-	 * @return String
-	 */
-	public static String ownedFieldText(String playerName,String fieldOwner,int rent)
-	{
-		return playerName + "landed on "+fieldOwner+"s field, you wil have you pay "+ rent +" in rent, for landing on "+fieldOwner+"s field. \n";
-	}	
-	
-	/**
-	 * The method lostText returns a String which tells you, you lot.
-	 * @param playerName,
-	 * @return String
-	 */
-	public static String lostText(String playerName)
-	{
-		return playerName + "lost and is out of this game, like the rest of the world #Trump \n";
-	}		
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }
