@@ -7,8 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import entity.Player;
-import entity.fields.*;
-import entity.Account;
+
 
 
 public class PlayerTest {
@@ -29,6 +28,9 @@ public class PlayerTest {
 	}
 
 	@Test
+	/**
+	 * Simple test to see if the player name is correctly read into the player class.
+	 */
 	public void testGetPlayerName() {
 		String expected = "Peter";
 		String actual = player.getPlayerName();
