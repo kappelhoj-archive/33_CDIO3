@@ -51,16 +51,35 @@ public class GameBoard {
 		}
 	}
 
+	/**
+	 * Method getField returns the field at the given position.
+	 * @param position The position to be set.
+	 * @return The field at position.
+	 */
 	public Field getField(int position) {
 		return fields[position - 1];
 	}
 
-	public void removeAllPlayerFields(String playerName) {
-		for (int i = 0; i < fields.length; i++) {
+	/**
+	 * Method removeAllPlayerFields removes ownership of all fields 
+	 * who is owned by the player with the given player name.
+	 * @param playerName The given name.
+	 */
+	public void removeAllPlayerFields(String playerName) 
+	{
+		for (int i = 0; i < fields.length; i++) 
+		{
 			if ((fields[i].getType() != "Refuge" && fields[i].getType() != "Tax"))
+			{
 				if (((Ownable) fields[i]).getOwner() != null)
+				{
 					if (((Ownable) fields[i]).getOwner().getPlayerName().equals(playerName))
+					{
 						((Ownable) fields[i]).removeOwner();
+					}
+				}
+					
+			}
 		} 
 	}
 
