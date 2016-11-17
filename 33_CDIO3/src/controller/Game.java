@@ -40,7 +40,7 @@ public class Game {
 		case "Territory":
 		case "Fleet":
 		case "Labor Camp":
-			if (((Ownable) field).getOwner() != null)
+			if (((Ownable) field).getOwner() != null&&((Ownable) field).getOwner().getPlayerName().equals(players[turn].getPlayerName()))
 				gui.landOnOwned(players[turn].getPlayerName(), players[turn].getPosition(), dice.getDiceValue(), type,
 						((Ownable) field).getOwner().getPlayerName(), field.getRent());
 			else
