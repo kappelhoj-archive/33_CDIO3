@@ -59,7 +59,10 @@ public class GameBoard {
 	}
 	
 	public void removeAllPlayerFields(String playerName){
-		fwewe
+		for (int i=0;i<fields.length;i++){
+			if(((Ownable)fields[i]).getOwner().getPlayerName().equals(playerName))
+				((Ownable)fields[i]).removeOwner();
+		}
 	}
 	
 }
