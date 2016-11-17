@@ -43,6 +43,15 @@ public class OwnableTest {
 		assertEquals(expectedBalance, actualBalance);
 	}
 	
+	@Test
+	public void testBuyFieldNoMoney() {
+		player1.changeAccountBalance(-30000);
+		territoryField.buyField(player1);
+		Player expectedOwner = null;
+		Player actualOwner = territoryField.getOwner();
+		assertEquals(expectedOwner, actualOwner);
+	}
+	
 	/*
 	 * Testing if a player loses the correct amount of money when he lands
 	 * on a different players field.
