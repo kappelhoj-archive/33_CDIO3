@@ -61,7 +61,7 @@ public class GameBoard {
 				if (((Ownable) fields[i]).getOwner() != null)
 					if (((Ownable) fields[i]).getOwner().getPlayerName().equals(playerName))
 						((Ownable) fields[i]).removeOwner();
-		} 
+		}
 	}
 
 }

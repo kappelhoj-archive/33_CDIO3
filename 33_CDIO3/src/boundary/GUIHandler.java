@@ -168,6 +168,9 @@ public class GUIHandler {
 	public void setOwnerOfField(String playerName, int position){
 		GUI.setOwner(position, playerName);
 	}
+	public void removeOwnerOfField(int position){
+		GUI.removeOwner(position);
+	}
 
 	/**
 	 * Gives a random value between -1 and 1. Used to make the dice rolls appear

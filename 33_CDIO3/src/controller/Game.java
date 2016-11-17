@@ -78,16 +78,17 @@ public class Game {
 			if (gameBoard.getField(i + 1).getType().equals("Territory")
 					|| gameBoard.getField(i + 1).getType().equals("Fleet")
 					|| gameBoard.getField(i + 1).getType().equals("Labor Camp"))
-				if (((Ownable) gameBoard.getField(i + 1)).getOwner().getPlayerName().equals(null))
+				if (((Ownable) gameBoard.getField(i + 1)).getOwner() != null)
 					updateFieldOwner(i + 1, (Ownable) gameBoard.getField(i + 1), true);
 		}
 	}
 
 	public void updateFieldOwner(int position, Ownable field, boolean reset) {
 		String name = field.getOwner().getPlayerName();
-		if (reset == true)
-			name = "";
-		gui.setOwnerOfField(name, position);
+		if (reset)
+			gui.removeOwnerOfField(position);
+		else
+			gui.setOwnerOfField(name, position);
 	}
 
 	public void playTurn() {
