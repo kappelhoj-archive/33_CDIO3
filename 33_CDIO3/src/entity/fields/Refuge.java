@@ -8,15 +8,6 @@ public class Refuge extends Field
 	private int bonus;
 
 	/**
-	 * Method getBonus returns the bonus that the refuge field gives.
-	 * @return Returns bonus.
-	 */
-	public int getBonus() 
-	{
-		return bonus;
-	}
-
-	/**
 	 * Object refuge constructor
 	 * @param fieldName The name of the refuge field
 	 * @param bonus The bonus that the refuge field gives.
@@ -25,6 +16,15 @@ public class Refuge extends Field
 	{
 		super(fieldName);
 		this.bonus = bonus;
+	}
+	
+	/**
+	 * Method getBonus returns the bonus that the refuge field gives.
+	 * @return Returns bonus.
+	 */
+	public int getBonus() 
+	{
+		return bonus;
 	}
 	
 	/**
@@ -38,6 +38,9 @@ public class Refuge extends Field
 		player.changePlayerFortune(bonus);  //Updates the players fortune.         
 	}
 	
+	/**
+	 * Method getRent() is not used. Added because field is field is abstract.
+	 */
 	@Override
 	public int getRent(){
 		return -1;
