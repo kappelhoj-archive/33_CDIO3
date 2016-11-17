@@ -1,4 +1,4 @@
-package test_GUI;
+package test.gui;
 
 import boundary.TUI;
 
