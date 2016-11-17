@@ -107,7 +107,7 @@ public class GameText {
 	 */
 	public static String playerNumberText()
 	{
-		return "Enter the number of player to play the game.\n";
+		return "Enter the number of players who wants to play.\n";
 	}
 	
 	/**
