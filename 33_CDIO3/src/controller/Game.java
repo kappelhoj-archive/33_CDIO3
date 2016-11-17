@@ -40,7 +40,8 @@ public class Game {
 		case "Territory":
 		case "Fleet":
 		case "Labor Camp":
-			if (((Ownable) field).getOwner() != null&&((Ownable) field).getOwner().getPlayerName().equals(players[turn].getPlayerName()))
+			if (((Ownable) field).getOwner() != null
+					&& ((Ownable) field).getOwner().getPlayerName().equals(players[turn].getPlayerName()))
 				gui.landOnOwned(players[turn].getPlayerName(), players[turn].getPosition(), dice.getDiceValue(), type,
 						((Ownable) field).getOwner().getPlayerName(), field.getRent());
 			else
@@ -54,11 +55,10 @@ public class Game {
 		}
 	}
 
-	
 	public void changeTurn() {
-		do{
+		do {
 			turn = (turn + 1) % players.length;
-		}while (players[turn].getPlayerHasLost());
+		} while (players[turn].getPlayerHasLost());
 		gui.showTurnStart(players[turn].getPlayerName());
 	}
 
@@ -78,31 +78,36 @@ public class Game {
 			if (gameBoard.getField(i + 1).getType().equals("Territory")
 					|| gameBoard.getField(i + 1).getType().equals("Fleet")
 					|| gameBoard.getField(i + 1).getType().equals("Labor Camp"))
-				updateFieldOwner(i + 1, (Ownable) gameBoard.getField(i + 1));
+				if (((Ownable) gameBoard.getField(i + 1)).getOwner().getPlayerName().equals(null))
+					updateFieldOwner(i + 1, (Ownable) gameBoard.getField(i + 1), true);
 		}
 	}
 
-	public void updateFieldOwner(int position, Ownable field) {
-
-		gui.setOwnerOfField(field.getOwner().getPlayerName(), position);
+	public void updateFieldOwner(int position, Ownable field, boolean reset) {
+		String name = field.getOwner().getPlayerName();
+		if (reset == true)
+			name = "";
+		gui.setOwnerOfField(name, position);
 	}
 
 	public void playTurn() {
 		movePlayer();
 		showLandText(gameBoard.getField(players[turn].getPosition()));
-		String message =GameLogic.landOnField(players[turn],gameBoard.getField(players[turn].getPosition()), this);
-		if(message.equals("Bought")){
-			gui.boughtField(players[turn].getPlayerName(), players[turn].getPosition(), players[turn].getAccountBalance());
-			updateFieldOwner(players[turn].getPosition(), (Ownable) gameBoard.getField(players[turn].getPosition()));	
-		}
-		else if(message.equals("Not bought"))
+		String message = GameLogic.landOnField(players[turn], gameBoard.getField(players[turn].getPosition()), this);
+		if (message.equals("Bought")) {
+			gui.boughtField(players[turn].getPlayerName(), players[turn].getPosition(),
+					players[turn].getAccountBalance());
+			updateFieldOwner(players[turn].getPosition(), (Ownable) gameBoard.getField(players[turn].getPosition()),
+					false);
+		} else if (message.equals("Not bought"))
 			gui.cantAffordField(players[turn].getPosition());
-		else if(message.equals("")){}
-		else{
-			gui.showLaborCampResult(players[turn].getPlayerName(),dice.getDiceValue() , ((Ownable)gameBoard.getField(players[turn].getPosition())).getOwner().getPlayerName(), Integer.parseInt(message));
+		else if (message.equals("")) {
+		} else {
+			gui.showLaborCampResult(players[turn].getPlayerName(), dice.getDiceValue(),
+					((Ownable) gameBoard.getField(players[turn].getPosition())).getOwner().getPlayerName(),
+					Integer.parseInt(message));
 		}
-			
-		
+
 		if (players[turn].getPlayerHasLost()) {
 			gameBoard.removeAllPlayerFields(players[turn].getPlayerName());
 			updateAllFieldOwners();
@@ -111,15 +116,16 @@ public class Game {
 		updatePlayerBalances();
 	}
 
-	public void updatePlayerBalances(){
-		for(int i=0;i<players.length;i++)
+	public void updatePlayerBalances() {
+		for (int i = 0; i < players.length; i++)
 			gui.changePlayerBalance(players[i].getPlayerName(), players[i].getAccountBalance());
 	}
+
 	public void runGame() {
 
 		while (true) {
 			changeTurn();
-			
+
 			playTurn();
 		}
 
