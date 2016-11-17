@@ -57,7 +57,7 @@ public class GameBoard {
 
 	public void removeAllPlayerFields(String playerName) {
 		for (int i = 0; i < fields.length; i++) {
-			if (((Ownable) fields[i]).getOwner() != null)
+			if (((Ownable) fields[i]).getOwner() != null&&(fields[i].getType()!="Refuge"||fields[i].getType()!="Tax"))
 				if (((Ownable) fields[i]).getOwner().getPlayerName().equals(playerName))
 					((Ownable) fields[i]).removeOwner();
 		}
