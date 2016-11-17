@@ -108,9 +108,13 @@ public class Game {
 			updateAllFieldOwners();
 			gui.loseGame(players[turn].getPlayerName());
 		}
-		gui.changePlayerBalance(players[turn].getPlayerName(), players[turn].getAccountBalance());
+		updatePlayerBalances();
 	}
 
+	public void updatePlayerBalances(){
+		for(int i=0;i<players.length;i++)
+			gui.changePlayerBalance(players[i].getPlayerName(), players[i].getAccountBalance());
+	}
 	public void runGame() {
 
 		while (true) {
