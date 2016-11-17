@@ -2,8 +2,8 @@ package controller;
 
 import boundary.GUIHandler;
 import boundary.TUI;
-import entity.DiceCup;
-import entity.Player;
+import entity.*;
+import entity.fields.*;
 
 public class Game {
 	int turn;
@@ -11,10 +11,13 @@ public class Game {
 	GUIHandler gui;
 	TUI tui;
 	DiceCup dice;
+	GameBoard gameBoard;
 
 	public Game() {
 		// Creates a DiceCup
 		dice = new DiceCup();
+		//Creates the game board
+		gameBoard=new GameBoard();
 		// Start the TUI
 		this.tui = new TUI();
 		// Ask for the player names
@@ -29,6 +32,26 @@ public class Game {
 		// Pick a random player to start.
 		turn = (int) (Math.random() * players.length);
 
+	}
+
+	public void showLandText(Field field) {
+		String type = field.getType();
+		switch (type) {
+		case "Territory":
+		case "Fleet":
+		case "Labor Camp":
+			if (((Ownable) field).getOwner() != null)
+				gui.landOnOwned(players[turn].getPlayerName(), players[turn].getPosition(), dice.getDiceValue(), type,
+						((Ownable) field).getOwner().getPlayerName(), field.getRent());
+			else
+				gui.landOnOwnable(players[turn].getPlayerName(), players[turn].getPosition(), dice.getDiceValue(),
+						type);
+			break;
+		case "Refuge":
+			gui.landOnRefuge(players[turn].getPlayerName(), players[turn].getPosition(), ((Refuge) field).getBonus(),
+					dice.getDiceValue());
+			break;
+		}
 	}
 
 	public void changeTurn() {
@@ -48,9 +71,10 @@ public class Game {
 
 	public void playTurn() {
 		movePlayer();
-		gui.landOnOwnable(players[turn].getPlayerName(), players[turn].getPosition(), dice.getDiceValue(), "Territory");
+		showLandText(gameBoard.getField(players[turn].getPosition()));
+		//GameLogic.landOnField(players[turn], gameBoard.getField(players[turn].getPosition()), this);
+
 	}
-	
 
 	public void runGame() {
 
@@ -60,22 +84,24 @@ public class Game {
 		}
 
 	}
-	
-	public boolean askForDecision(String question,int args){
-		boolean answer=false;
-		switch(question){
-		case "Tax": 
-			answer=gui.landOnTax(players[turn].getPlayerName(), players[turn].getPosition(), /*Constant tax*/args, players[turn].getPlayerFortune(), dice.getDiceValue());
+
+	public boolean askForDecision(String question, int args) {
+		boolean answer = false;
+		switch (question) {
+		case "Tax":
+			answer = gui.landOnTax(players[turn].getPlayerName(), players[turn].getPosition(),
+					/* Constant tax */args, players[turn].getPlayerFortune(), dice.getDiceValue());
 			break;
 		case "Buy":
-			answer=gui.askPlayerBuyField(players[turn].getPlayerName(),players[turn].getPosition());
+			answer = gui.askPlayerBuyField(players[turn].getPlayerName(), players[turn].getPosition());
 			break;
 		}
 		return answer;
 	}
-	public int askForDiceRoll(){
+
+	public int askForDiceRoll() {
 		dice.shakeCup();
-		return dice.getDiceValue()[0]+dice.getDiceValue()[1]; 	
+		return dice.getDiceValue()[0] + dice.getDiceValue()[1];
 	}
 
 }
