@@ -235,6 +235,7 @@ public class GameText {
 	{
 		return "You can't afford to buy "+ fieldName +". \n";
 	}
+	
 		
 	/**
 	 * The method boughtFieldText returns a String which tells you that you bought the field.

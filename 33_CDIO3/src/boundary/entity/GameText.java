@@ -194,9 +194,9 @@ public class GameText {
 	 * @param fieldName of the mattering field.
 	 * @return String
 	 */
-	public static String cantBuyFieldText(String playerName, String fieldName)
+	public static String cantBuyFieldText(String fieldName)
 	{
-		return "You " + playerName + " can't afford to buy "+ fieldName +". \n";
+		return "You can't afford to buy "+ fieldName +". \n";
 	}
 	
 	/**
