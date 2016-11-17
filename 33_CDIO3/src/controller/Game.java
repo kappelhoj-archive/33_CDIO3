@@ -75,11 +75,11 @@ public class Game {
 
 	public void updateAllFieldOwners() {
 		for (int i = 0; i < 21; i++) {
-			if (gameBoard.getField(i + 1).getType().equals("Territory")
-					|| gameBoard.getField(i + 1).getType().equals("Fleet")
-					|| gameBoard.getField(i + 1).getType().equals("Labor Camp"))
-				if (((Ownable) gameBoard.getField(i + 1)).getOwner() != null)
-					updateFieldOwner(i + 1, (Ownable) gameBoard.getField(i + 1), true);
+			if ((gameBoard.getField(i).getType() != "Refuge" && gameBoard.getField(i).getType() != "Tax"))
+				if (((Ownable) gameBoard.getField(i)).getOwner() != null)
+					if (((Ownable) gameBoard.getField(i)).getOwner().getPlayerName()
+							.equals(players[turn].getPlayerName()))
+						updateFieldOwner(players[turn].getPosition(), (Ownable) gameBoard.getField(i), true);
 		}
 	}
 
