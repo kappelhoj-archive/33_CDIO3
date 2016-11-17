@@ -355,7 +355,13 @@ public class GameText {
 	 */
 	public static String lostText(String playerName)
 	{
-		return playerName + " lost and is out of this game, like the rest of the world #Trump \n";
+		return playerName + " lost and is out of this game, like the rest of the world #Trump \n"+
+			 "    ____       ________           __ 			\n"+
+			 "   / __ \\___  / __/ __/__  ____ _/ /_		\n"+
+			 "  / / / / _ \\/ /_/ /_/ _ \\/ __ `/ __/		\n"+
+			 " / /_/ /  __/ __/ __/  __/ /_/ / /_		"+"	\n"+  
+			 "/_____/\\___/_/ /_/  \\___/\\__,_/\\__/	"+"	\n";  
+			                                      
 	}		
 	
 	/**
@@ -365,7 +371,13 @@ public class GameText {
 	 */
 	public static String winnerText(String playerName)
 	{
-		return "Congratulations " + playerName + " has won the game! \n";
+		return "Congratulations " + playerName + " has won the game! \n" +
+				"__  __           _       __            ______ 		\n" +
+				"\\ \\/ /___  __  _| |     / /___  ____  / / / / 	\n" +
+				" \\  / __ \\/ / / / | /| / / __ \\/ __ \\/ / / /  	\n" +
+				" / / /_/ / /_/ /| |/ |/ / /_/ / / / /_/_/_/  		\n" +
+				"/_/\\____/\\____/ |__/|__/\\____/_/ /_(_|_|_)  	\n" ;
+		
 	}
 	
 	//####################################################################################
