@@ -6,7 +6,7 @@ import entity.fields.*;
 public class GameBoard {
 
 	//Instance variables
-	public Field[] fields;
+	private Field[] fields;
 	
 	/**
 	 * Object gameBoard constructor.
@@ -52,5 +52,10 @@ public class GameBoard {
 		{
 			fields[17+j] = new Fleet("Fleet",4000);	
 		}
-	}	
+	}
+
+	public Field getField(int position) {
+		return fields[position-1];
+	}
+	
 }
