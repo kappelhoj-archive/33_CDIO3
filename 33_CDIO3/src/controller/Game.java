@@ -129,6 +129,12 @@ public class Game {
 			changeTurn();
 
 			playTurn();
+			
+			Player winner =lookForWinner();
+			if(winner!=null){
+				gui.endGame(winner.getPlayerName());
+				break;
+			}
 		}
 
 	}
@@ -150,6 +156,19 @@ public class Game {
 	public int askForDiceRoll() {
 		dice.shakeCup();
 		return dice.getDiceValue()[0] + dice.getDiceValue()[1];
+	}
+
+	public Player lookForWinner() {
+		Player winningPlayer = null;
+		for (int i = 0; i < players.length; i++) {
+			if (!players[turn].getPlayerHasLost())
+				if (winningPlayer == null)
+					winningPlayer = players[turn];
+				else
+					return null;
+
+		}
+		return winningPlayer;
 	}
 
 }
