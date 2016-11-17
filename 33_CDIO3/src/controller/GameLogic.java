@@ -5,10 +5,10 @@ import entity.fields.*;
 public class GameLogic 
 {
 	/**
-	 * 
-	 * @param player
-	 * @param field
-	 * @param game
+	 * Method landOnField Decides what to be done when a player lands on a field
+	 * @param player The player to land on the field.
+	 * @param field The field which the player has landed on.
+	 * @param game The game that is played.
 	 */
 	public static void landOnField(Player player, Field field, Game game)
 	{
