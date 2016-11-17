@@ -57,11 +57,11 @@ public class GameBoard {
 
 	public void removeAllPlayerFields(String playerName) {
 		for (int i = 0; i < fields.length; i++) {
-			if ((fields[i].getType() != "Refuge" || fields[i].getType() != "Tax"))
+			if ((fields[i].getType() != "Refuge" && fields[i].getType() != "Tax"))
 				if (((Ownable) fields[i]).getOwner() != null)
 					if (((Ownable) fields[i]).getOwner().getPlayerName().equals(playerName))
 						((Ownable) fields[i]).removeOwner();
-		}
+		} 
 	}
 
 }
