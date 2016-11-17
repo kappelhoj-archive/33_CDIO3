@@ -1,6 +1,7 @@
 package test.gui;
 
 import boundary.GUIHandler;
+import desktop_resources.GUI;
 import entity.DiceCup;
 
 public class GUITest {
@@ -40,7 +41,12 @@ public class GUITest {
 		//Lose and win game
 		gui.loseGame("Bo");
 		gui.endGame("Bo");
-		// More to come
+		
+		// Set field owned , set field not owned
+		gui.setOwnerOfField("Bo", 1);
+		gui.removeOwnerOfField(1);
+		gui.setOwnerOfField("Bo", 2);
+		gui.removeOwnerOfField(2);
 
 	}
 }
