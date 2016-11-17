@@ -48,4 +48,12 @@ public class Account {
 		}
 
 	}
+	
+	/**
+	 * OBS: This method is only used for testing.
+	 * Method setBalance sets the balance of the Account.
+	 */
+	public void setBalance(int value) {
+		balance = balance + value;
+	}
 }
