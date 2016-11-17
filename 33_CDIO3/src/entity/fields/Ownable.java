@@ -13,9 +13,9 @@ public abstract class Ownable extends Field
 	 * @param fieldName The name of the field.
 	 * @param price The price of the Ownable field.
 	 */
-	public Ownable(String fieldName, int price) 
+	public Ownable(String fieldType, int price) 
 	{
-		super(fieldName);
+		super(fieldType);
 		this.price = price;
 		this.owner = null;
 	}
@@ -63,7 +63,6 @@ public abstract class Ownable extends Field
 		{
 			player.changeAccountBalance(-price); //Subtracts the price of the field from the player account balance.
 			owner = player;                      //Sets the player to be the owner of the field.
-			player.changePlayerFortune(price);   //Adds the price of the field to the fortune of the player.
 			return true;
 		}
 		else
