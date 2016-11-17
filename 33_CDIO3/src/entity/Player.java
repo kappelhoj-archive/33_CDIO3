@@ -150,7 +150,7 @@ public class Player {
 
 	/**
 	 * Method getPosition returns the position of the player
-	 * @return Returns the position ofthe player
+	 * @return Returns the position of the player
 	 */
 	public int getPosition() 
 	{
