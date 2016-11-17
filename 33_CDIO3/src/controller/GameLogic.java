@@ -1,11 +1,21 @@
 package controller;
 import entity.Player;
-import entity.fields.Field;
+import entity.fields.*;
 
 public class GameLogic 
 {
-	public static void landOnField(Player player, Field field)
+	public static void landOnField(Player player, Field field, Game game)
 	{
+		if (field.getType().equals("Labor Camp"))
+		{
+			int diceSum = game.askForDiceRoll();
+			((LaborCamp)field).setDiceSum(diceSum);		
+		}
+		else if(field.getType().equals("Tax"))
+		{
+			boolean playerPayDecision = game.askForDecision("Tax");
+			player.setPayDecision(playerPayDecision);
+		}
 		field.landOnField(player);
 	}
 }
