@@ -63,8 +63,7 @@ public abstract class Ownable extends Field
 		{
 			player.changeAccountBalance(-price); //Subtracts the price of the field from the player account balance.
 			owner = player;                      //Sets the player to be the owner of the field.
-<<<<<<< HEAD
-=======
+
 			player.changePlayerFortune(price);   //Adds the price of the field to the fortune of the player.
 			if(this.getType().equals("Fleet"))
 			{
@@ -74,7 +73,7 @@ public abstract class Ownable extends Field
 			{
 				player.changeAmountOfLaborCamps();
 			}
->>>>>>> refs/heads/implement
+
 			return true;
 		}
 		else
