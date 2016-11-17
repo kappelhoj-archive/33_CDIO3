@@ -1,6 +1,6 @@
 package entity;
 
-import boundary.entity.GameText;
+
 import entity.fields.Field;
 import entity.fields.Fleet;
 import entity.fields.LaborCamp;
