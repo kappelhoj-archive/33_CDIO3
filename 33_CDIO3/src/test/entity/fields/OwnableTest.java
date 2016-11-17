@@ -11,17 +11,14 @@ import entity.fields.*;
 
 public class OwnableTest {
 	Territory territoryField;
-	LaborCamp laborCampField;
-	Fleet fleetField;
 	Player player1;
 	Player player2;
 	
 	@Before
 	public void setUp() throws Exception {
 		territoryField = new Territory("Territory", 3000, 700); // Cold Desert
-		laborCampField = new LaborCamp("Labor Camp", 2500); // The pit
-		fleetField = new Fleet("Fleet", 4000); // Second sail
-		
+//		laborCampField = new LaborCamp("Labor Camp", 2500); // The pit
+//		fleetField = new Fleet("Fleet", 4000); // Second sail
 		player1 = new Player("Morten");
 		player2 = new Player("Peter");
 	}
@@ -29,14 +26,12 @@ public class OwnableTest {
 	@After
 	public void tearDown() throws Exception {
 		territoryField = null;
-		laborCampField = null;
-		fleetField = null;
+		player1 = null;
+		player2 = null;
 	}
 	
 	/*
 	 * Testing if a player can buy a field and if his account balance changes.
-	 * In this test case, player1 with an account balance of 30000
-	 * buys the Territory field "Cold Desert" at a price of 3000.
 	 */
 	@Test
 	public void testBuyField() {
@@ -45,15 +40,15 @@ public class OwnableTest {
 		Player actualOwner = territoryField.getOwner();
 		assertEquals(expectedOwner, actualOwner);
 		
-		int expectedBalance = 27000;
+		int expectedBalance = 30000 - 3000;
 		int actualBalance = player1.getAccountBalance();
 		assertEquals(expectedBalance, actualBalance);
-		
-//		int expectedFortune = 30000;
-//		int actualFortune = player1.getPlayerFortune();
-//		assertEquals(expectedFortune, actualFortune);
 	}
 	
+	/*
+	 * Testing if a player loses the correct amount of money when he lands
+	 * on a different players field.
+	 */
 	@Test
 	public void testLandOnField() {
 		territoryField.buyField(player1);
@@ -66,6 +61,18 @@ public class OwnableTest {
 		int expectedPlayer2Balance = 30000 - 700;
 		int actualPlayer2Balance = player2.getAccountBalance();
 		assertEquals(expectedPlayer2Balance, actualPlayer2Balance);
+	}
+	/*
+	 * Testing if anything happens when a player lands on the field he have bought.
+	 */
+	@Test
+	public void testLandOnFieldOwner()
+	{
+		territoryField.buyField(player1);
+		territoryField.landOnField(player1);
+		int expectedBalance = 30000 - 3000;
+		int actualBalance = player1.getAccountBalance();
+		assertEquals(expectedBalance, actualBalance);
 	}
 
 	/*
