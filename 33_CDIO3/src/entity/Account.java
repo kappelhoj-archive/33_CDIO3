@@ -54,6 +54,6 @@ public class Account {
 	 * Method setBalance sets the balance of the Account.
 	 */
 	public void setBalance(int value) {
-		balance = balance + value;
+		balance = value;
 	}
 }
