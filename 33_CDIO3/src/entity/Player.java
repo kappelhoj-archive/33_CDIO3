@@ -40,7 +40,7 @@ public class Player {
 	 * Method getPlayerFortune returns the fortune of the player.
 	 * @return The fortune of the player.
 	 */
-	public double getPlayerFortune()
+	public int getPlayerFortune()
 	{
 		return fortune;
 	}
