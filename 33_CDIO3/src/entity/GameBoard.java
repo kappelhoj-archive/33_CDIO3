@@ -1,12 +1,7 @@
 package entity;
 
 
-import entity.fields.Field;
-import entity.fields.Fleet;
-import entity.fields.LaborCamp;
-import entity.fields.Refuge;
-import entity.fields.Tax;
-import entity.fields.Territory;
+import entity.fields.*;
 
 public class GameBoard {
 
