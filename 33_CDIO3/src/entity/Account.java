@@ -47,10 +47,12 @@ public class Account
 		{
 			if(balance + value > balance) //Checks if the balance underflows
 			{
+				return true;
 			}
 			else
 			{
 				balance = balance + value;
+				return true;
 			}
 		}
 
