@@ -165,4 +165,20 @@ public class Player {
 	{
 		this.position = position;
 	}
+
+	/**
+	 * Method change AmountOfFleets changes the amount of fleets the player has by one.
+	 */
+	public void changeAmountOfFleets()
+	{
+		amountOfFleets = amountOfFleets + 1;
+	}
+	
+	/**
+	 * Method changeAmountOfLaborCamps changes the amount of labor camps the player has by one.
+	 */
+	public void changeAmountOfLaborCamps()
+	{
+		amountOfLaborCamps = amountOfLaborCamps + 1;
+	}
 }

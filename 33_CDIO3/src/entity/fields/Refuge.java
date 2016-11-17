@@ -19,6 +19,15 @@ public class Refuge extends Field
 	}
 	
 	/**
+	 * Method getBonus returns the bonus that the refuge field gives.
+	 * @return Returns bonus.
+	 */
+	public int getBonus() 
+	{
+		return bonus;
+	}
+	
+	/**
 	 * Method landOnField decides what to be done when player lands on a refuge Field.
 	 * @param player The player to land on the field.
 	 */
@@ -26,8 +35,12 @@ public class Refuge extends Field
 	public void landOnField(Player player)
 	{
 		player.changeAccountBalance(bonus); //Gives the player a bonus to his balance.
+		player.changePlayerFortune(bonus);  //Updates the players fortune.         
 	}
 	
+	/**
+	 * Method getRent() is not used. Added because field is field is abstract.
+	 */
 	@Override
 	public int getRent(){
 		return -1;
