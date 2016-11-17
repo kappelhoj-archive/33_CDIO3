@@ -50,6 +50,7 @@ public class Game {
 		movePlayer();
 		gui.landOnOwnable(players[turn].getPlayerName(), players[turn].getPosition(), dice.getDiceValue(), "Territory");
 	}
+	
 
 	public void runGame() {
 
@@ -58,6 +59,21 @@ public class Game {
 			changeTurn();
 		}
 
+	}
+	
+	public boolean askForDecision(String question){
+		boolean answer=null;
+		switch(question){
+		case "Tax": 
+			break;
+		case "Buy":
+			break;
+		}
+		return answer;
+	}
+	public int askForDiceRoll(){
+		dice.shakeCup();
+		return dice.getDiceValue()[0]+dice.getDiceValue()[1]; 	
 	}
 
 }
