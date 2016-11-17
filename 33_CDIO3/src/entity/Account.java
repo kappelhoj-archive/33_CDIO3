@@ -36,11 +36,6 @@ public class Account
 		{
 			return true;
 		}
-		else if(balance < 0) 		  //Spørg om dette er nødvendigt? En spiller med negativ balance er jo 'død'.
-		{
-			balance = 0;
-			return false;
-		}
 		else 						  //Changes balance
 		{
 			balance = balance + value;
