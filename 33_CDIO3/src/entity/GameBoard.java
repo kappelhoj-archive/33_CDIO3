@@ -28,7 +28,7 @@ public class GameBoard {
 		
 		for(int i = 0 ; i < 11 ; i++)
 		{
-			fields[i] = new Territory("Territory",rent[i], price[i]);			
+			fields[i] = new Territory("Territory",price[i], rent[i]);			
 		}
 		
 		//Refuge fields created.
