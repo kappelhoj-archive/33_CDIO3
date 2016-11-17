@@ -7,7 +7,12 @@ public class Refuge extends Field
 	//Instance variables
 	private int bonus;
 
-	public int getBonus() {
+	/**
+	 * Method getBonus returns the bonus that the refuge field gives.
+	 * @return Returns bonus.
+	 */
+	public int getBonus() 
+	{
 		return bonus;
 	}
 
