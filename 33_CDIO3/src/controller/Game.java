@@ -61,12 +61,14 @@ public class Game {
 
 	}
 	
-	public boolean askForDecision(String question){
-		boolean answer=null;
+	public boolean askForDecision(String question,int[] args){
+		boolean answer=false;
 		switch(question){
 		case "Tax": 
+			answer=gui.landOnTax(players[turn].getPlayerName(), players[turn].getPosition(), args[0], args[1], dice.getDiceValue());
 			break;
 		case "Buy":
+			answer=gui.askPlayerBuyField(players[turn].getPlayerName(),players[turn].getPosition());
 			break;
 		}
 		return answer;
