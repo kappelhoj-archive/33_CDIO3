@@ -8,7 +8,7 @@ public class Refuge extends Field
 	private int bonus;
 
 	/**
-	 * Object refuge constructor
+	 * Object refuge constructor.
 	 * @param fieldName The name of the refuge field
 	 * @param bonus The bonus that the refuge field gives.
 	 */
@@ -19,7 +19,7 @@ public class Refuge extends Field
 	}
 	
 	/**
-	 * Method getBonus returns the bonus that the refuge field gives.
+	 * Method getBonus returns the bonus that the refuge field gives to the affected player.
 	 * @return Returns bonus.
 	 */
 	public int getBonus() 
@@ -28,7 +28,7 @@ public class Refuge extends Field
 	}
 	
 	/**
-	 * Method landOnField decides what to be done when player lands on a refuge Field.
+	 * Method landOnField decides what is to be done, when a player lands on a refuge Field.
 	 * @param player The player to land on the field.
 	 */
 	@Override
@@ -39,7 +39,7 @@ public class Refuge extends Field
 	}
 	
 	/**
-	 * Method getRent() is not used. Added because field is field is abstract.
+	 * Method getRent() is not used. Added because field is abstract.
 	 */
 	@Override
 	public int getRent(){
