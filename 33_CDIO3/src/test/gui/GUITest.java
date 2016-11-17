@@ -1,7 +1,6 @@
 package test.gui;
 
 import boundary.GUIHandler;
-import desktop_resources.GUI;
 import entity.DiceCup;
 
 public class GUITest {
