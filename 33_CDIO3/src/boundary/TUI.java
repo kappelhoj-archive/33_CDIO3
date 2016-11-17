@@ -2,7 +2,7 @@ package boundary;
 
 import java.util.Scanner;
 
-import boundary_entity.GameText;
+import boundary.entity.GameText;
 
 public class TUI {
 

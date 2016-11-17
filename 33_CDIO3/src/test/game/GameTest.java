@@ -1,4 +1,4 @@
-package test.Game;
+package test.game;
 
 import controller.Game;
 

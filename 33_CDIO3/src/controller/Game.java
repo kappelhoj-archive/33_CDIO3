@@ -50,6 +50,7 @@ public class Game {
 		movePlayer();
 		gui.landOnOwnable(players[turn].getPlayerName(), players[turn].getPosition(), dice.getDiceValue(), "Territory");
 	}
+	
 
 	public void runGame() {
 
@@ -58,6 +59,23 @@ public class Game {
 			changeTurn();
 		}
 
+	}
+	
+	public boolean askForDecision(String question,int[] args){
+		boolean answer=false;
+		switch(question){
+		case "Tax": 
+			answer=gui.landOnTax(players[turn].getPlayerName(), players[turn].getPosition(), args[0], args[1], dice.getDiceValue());
+			break;
+		case "Buy":
+			answer=gui.askPlayerBuyField(players[turn].getPlayerName(),players[turn].getPosition());
+			break;
+		}
+		return answer;
+	}
+	public int askForDiceRoll(){
+		dice.shakeCup();
+		return dice.getDiceValue()[0]+dice.getDiceValue()[1]; 	
 	}
 
 }
