@@ -66,11 +66,11 @@ public abstract class Ownable extends Field
 			player.changePlayerFortune(price);   //Adds the price of the field to the fortune of the player.
 			if(this.getType().equals("Fleet"))
 			{
-				player.getAmountOfFleets();
+				player.changeAmountOfFleets();
 			}
 			else if (this.getType().equals("Labor Camp"))
 			{
-				player.getAmountOfLaborCamps();
+				player.changeAmountOfLaborCamps();
 			}
 			return true;
 		}
