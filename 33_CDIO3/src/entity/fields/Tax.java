@@ -32,7 +32,7 @@ public class Tax extends Field
 		{
 			int rent = (int)(0.01 * taxRate * player.getPlayerFortune()); //The rent to be paid
 			player.changeAccountBalance(-rent);						  //Subtracts the rent from the balance of the player.
-			player.changePlayerFortune(-taxAmount);					  //Subtracts the rent from the fortune of the player.
+			player.changePlayerFortune(-rent);					      //Subtracts the rent from the fortune of the player.
 		}
 		else
 		{
