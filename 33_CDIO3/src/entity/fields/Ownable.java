@@ -84,4 +84,8 @@ public abstract class Ownable extends Field
 			player.payRent(getOwner(), this.getRent()); //player pays the owner of the field.
 		}
 	}
+	
+	public void removeOwner(){
+		owner=null;
+	}
 }
