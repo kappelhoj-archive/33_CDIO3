@@ -16,8 +16,13 @@ public abstract class Field
 	{
 		this.type = type;
 	}
-
-	public String getType(){
+	
+	/**
+	 * Method getType returns the type of the field.
+	 * @return Returns the field type.
+	 */
+	public String getType()
+	{
 		return type;
 	}
 	

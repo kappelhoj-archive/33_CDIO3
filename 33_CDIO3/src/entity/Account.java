@@ -32,14 +32,27 @@ public class Account
 	 */
 	public boolean changeBalance(int value) 
 	{
-		if(balance + value < balance) //Checks if the balance overflows
+		if(value >= 0)
 		{
+			if (balance + value < balance) //Checks if the balance overflows
+			{
+			}
+			else 						  //Changes balance
+			{
+				balance = balance + value;
+			}
 			return true;
 		}
-		else 						  //Changes balance
+		else
 		{
-			balance = balance + value;
-			return true;
+			if(balance + value > balance) //Checks if the balance underflows
+			{
+			}
+			else
+			{
+				balance = balance + value;
+			}
 		}
+
 	}
 }
