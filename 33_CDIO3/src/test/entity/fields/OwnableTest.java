@@ -17,8 +17,6 @@ public class OwnableTest {
 	@Before
 	public void setUp() throws Exception {
 		territoryField = new Territory("Territory", 3000, 700); // Cold Desert
-//		laborCampField = new LaborCamp("Labor Camp", 2500); // The pit
-//		fleetField = new Fleet("Fleet", 4000); // Second sail
 		player1 = new Player("Morten");
 		player2 = new Player("Peter");
 	}
