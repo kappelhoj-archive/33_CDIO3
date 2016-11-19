@@ -10,7 +10,7 @@ public class Tax extends Field
 	
 	/**
 	 * Object Tax constructor
-	 * @param fieldName The name of the Tax field
+	 * @param type The type of the field
 	 * @param taxAmount The fixed tax amount the player can choose to pay.
 	 * @param taxRate The tax rate the player can choose to pay. The taxRate is in percent
 	 */
