@@ -43,6 +43,9 @@ public class OwnableTest {
 		assertEquals(expectedBalance, actualBalance);
 	}
 	
+	/*
+	 * Testing if a field can be bought when the player does not have enough money.
+	 */
 	@Test
 	public void testBuyFieldNoMoney() {
 		player1.changeAccountBalance(-30000);
@@ -69,8 +72,9 @@ public class OwnableTest {
 		int actualPlayer2Balance = player2.getAccountBalance();
 		assertEquals(expectedPlayer2Balance, actualPlayer2Balance);
 	}
+	
 	/*
-	 * Testing if anything happens when a player lands on the field he have bought.
+	 * Testing if anything happens when a player lands on the field he owns.
 	 */
 	@Test
 	public void testLandOnFieldOwner()
