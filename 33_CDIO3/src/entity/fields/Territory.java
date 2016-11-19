@@ -11,9 +11,9 @@ public class Territory extends Ownable
 	 * @param price The price of the territory field
 	 * @param rent The rent it costs to land on the territory field if the field is owned.
 	 */
-	public Territory(String fieldName, int price, int rent)
+	public Territory(String type, int price, int rent)
 	{
-		super(fieldName, price);
+		super(type, price);
 		this.rent = rent;
 	}
 	
