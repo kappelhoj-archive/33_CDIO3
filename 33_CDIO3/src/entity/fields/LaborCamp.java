@@ -8,7 +8,7 @@ public class LaborCamp extends Ownable
 	
 	/**
 	 * Object LaborCamp constructor.
-	 * @param fieldName The name of the labor camp field.
+	 * @param type The type of the labor camp field.
 	 * @param price The price of the labor camp field.
 	 */
 	public LaborCamp(String type, int price) {
