@@ -9,12 +9,12 @@ public class Refuge extends Field
 
 	/**
 	 * Object refuge constructor.
-	 * @param fieldName The name of the refuge field
+	 * @param type The type of the field
 	 * @param bonus The bonus that the refuge field gives.
 	 */
-	public Refuge(String fieldName, int bonus)
+	public Refuge(String type, int bonus)
 	{
-		super(fieldName);
+		super(type);
 		this.bonus = bonus;
 	}
 	
