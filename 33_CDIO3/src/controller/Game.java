@@ -139,19 +139,6 @@ public class Game {
 
 	}
 
-	public boolean askForDecision(String question, int args) {
-		boolean answer = false;
-		switch (question) {
-		case "Tax":
-			answer = gui.landOnTax(players[turn].getPlayerName(), players[turn].getPosition(),
-					/* Constant tax */args, players[turn].getPlayerFortune(), dice.getDiceValue());
-			break;
-		case "Buy":
-			answer = gui.askPlayerBuyField(players[turn].getPlayerName(), players[turn].getPosition());
-			break;
-		}
-		return answer;
-	}
 
 	public int askForDiceRoll() {
 		dice.shakeCup();
