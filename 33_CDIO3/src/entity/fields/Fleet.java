@@ -13,9 +13,9 @@ public class Fleet extends Ownable
 	 * @param fieldName The name of the fleet field.
 	 * @param price The price of the fleet field.
 	 */
-	public Fleet(String fieldName, int price)
+	public Fleet(String type, int price)
 	{
-		super(fieldName, price);
+		super(type, price);
 	}
 
 	/**

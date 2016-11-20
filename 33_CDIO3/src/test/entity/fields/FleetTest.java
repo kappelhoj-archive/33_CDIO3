@@ -38,6 +38,7 @@ public class FleetTest {
 	}
 	
 	@Test
+	//Test to see if amount of Fleets owned by a player is correctly added up, so the rent on each Fleet-field rises.
 	public void testGetRent() {
 		fleetField1.buyField(player1);
 		fleetField2.buyField(player1);

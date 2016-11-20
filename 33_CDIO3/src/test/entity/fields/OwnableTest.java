@@ -29,7 +29,7 @@ public class OwnableTest {
 	}
 	
 	/*
-	 * Testing if a player can buy a field and if his account balance changes.
+	 * Test to see if a player can buy a field and if his account balance changes accordingly.
 	 */
 	@Test
 	public void testBuyField() {
@@ -42,7 +42,10 @@ public class OwnableTest {
 		int actualBalance = player1.getAccountBalance();
 		assertEquals(expectedBalance, actualBalance);
 	}
-	
+	/*
+	 * Test to see if the appropriate error-message is shown,
+	 * when the player attemts to buy a field, which he can not afford.
+	 */
 	@Test
 	public void testBuyFieldNoMoney() {
 		player1.changeAccountBalance(-30000);
@@ -53,8 +56,8 @@ public class OwnableTest {
 	}
 	
 	/*
-	 * Testing if a player loses the correct amount of money when he lands
-	 * on a different players field.
+	 * Tests to see if a player loses the correct amount of money when he lands
+	 * on a another players field.
 	 */
 	@Test
 	public void testLandOnField() {
@@ -70,7 +73,8 @@ public class OwnableTest {
 		assertEquals(expectedPlayer2Balance, actualPlayer2Balance);
 	}
 	/*
-	 * Testing if anything happens when a player lands on the field he have bought.
+	 * Tests if anything happens when a player lands on the field he have bought.
+	 * I.e. the player should not be demanded to pay rent for a field he owns himself.
 	 */
 	@Test
 	public void testLandOnFieldOwner()

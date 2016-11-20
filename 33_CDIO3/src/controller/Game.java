@@ -129,9 +129,9 @@ public class Game {
 			changeTurn();
 
 			playTurn();
-			
-			Player winner =lookForWinner();
-			if(winner!=null){
+
+			Player winner = lookForWinner();
+			if (winner != null) {
 				gui.endGame(winner.getPlayerName());
 				break;
 			}
@@ -161,9 +161,9 @@ public class Game {
 	public Player lookForWinner() {
 		Player winningPlayer = null;
 		for (int i = 0; i < players.length; i++) {
-			if (!players[turn].getPlayerHasLost())
+			if (!players[i].getPlayerHasLost())
 				if (winningPlayer == null)
-					winningPlayer = players[turn];
+					winningPlayer = players[i];
 				else
 					return null;
 
