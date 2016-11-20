@@ -94,9 +94,9 @@ public class Text {
 	{
 		switch(m)
 		{
-		case "yes":
+		case "Yes":
 			return "Yes";
-		case "no":
+		case "No":
 			return "No";
 		case "10%":
 			return "10%";
