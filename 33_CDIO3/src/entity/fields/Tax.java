@@ -50,6 +50,16 @@ public class Tax extends Field
 	}
 	
 	/**
+	 * Method getTaxRate returns taxRate to be paid by the player who lands on the tax field.
+	 * @return Returns the taxRate to be paid.
+	 */
+	public int getTaxRate()
+	{
+		return taxRate;
+	}
+	
+	
+	/**
 	 * Method getRent is not used.
 	 * The getRent has to be implemented because the super class has the abstract method getRent().
 	 */
