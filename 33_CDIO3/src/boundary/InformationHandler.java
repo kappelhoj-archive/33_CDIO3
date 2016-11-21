@@ -31,15 +31,15 @@ public class InformationHandler {
 	
 	private Car[] createCars() {
 		Car[] carArray = new Car[6];
-		carArray[0] = new Car.Builder().primaryColor(Color.BLUE).secondaryColor(Color.WHITE).typeUfo().patternFill()
+		carArray[0] = new Car.Builder().primaryColor(Color.BLUE).secondaryColor(Color.BLACK).typeUfo().patternFill()
 				.build();
-		carArray[1] = new Car.Builder().primaryColor(Color.RED).secondaryColor(Color.WHITE).typeUfo().patternFill()
+		carArray[1] = new Car.Builder().primaryColor(Color.RED).secondaryColor(Color.BLACK).typeUfo().patternFill()
 				.build();
-		carArray[2] = new Car.Builder().primaryColor(Color.GREEN).secondaryColor(Color.WHITE).typeTractor()
+		carArray[2] = new Car.Builder().primaryColor(Color.GREEN).secondaryColor(Color.BLACK).typeTractor()
 				.patternFill().build();
-		carArray[3] = new Car.Builder().primaryColor(Color.YELLOW).secondaryColor(Color.WHITE).typeTractor()
+		carArray[3] = new Car.Builder().primaryColor(Color.YELLOW).secondaryColor(Color.BLACK).typeTractor()
 				.patternFill().build();
-		carArray[4] = new Car.Builder().primaryColor(Color.BLACK).secondaryColor(Color.WHITE).typeRacecar()
+		carArray[4] = new Car.Builder().primaryColor(Color.BLACK).secondaryColor(Color.BLACK).typeRacecar()
 				.patternFill().build();
 		carArray[5] = new Car.Builder().primaryColor(Color.WHITE).secondaryColor(Color.BLACK).typeRacecar()
 				.patternFill().build();
@@ -51,4 +51,26 @@ public class InformationHandler {
 	public static void ShowInformation(String msg, String button) {
 		GUI.getUserButtonPressed(msg, button);
 	}
+	public static void changePlayerBalance(String playerName, int playerBalance) {
+		// Change the balance.
+		GUI.setBalance(playerName, playerBalance);
+
+	}
+	
+	public static void setOwnerOfField(String playerName, int position){
+		GUI.setOwner(position, playerName);
+	}
+	public static void removeOwnerOfField(int position){
+		GUI.removeOwner(position);
+	}
+	public static void movePlayer(String playerName, int position) {
+		// Remove all the cars of the player
+		GUI.removeAllCars(playerName);
+		// Place a new car on the new position.
+		GUI.setCar(position, playerName);
+	}
+	public static void showRoll(int[] currentDice) {
+		GUI.setDice(currentDice[0], currentDice[1]);
+	}
+
 }

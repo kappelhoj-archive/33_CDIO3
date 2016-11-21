@@ -36,14 +36,9 @@ public class GameText extends Text {
 	 * Argument 1, territory rent. input: int rent, String ownerName<br>
 	 * Argument 2, fleet rent. input: int rent, String ownerName<br>
 	 * Argument 3, labor camp rent start, String ownerName<br>
-	 * Argument 4, labor camp rent done, input: int rent, String ownerName<br>
 	 */
 	public static String[] rentText = { "%s owns this field.\n", "You now have to pay %d to %s.\n",
 			"You now have to pay %d to %s. Because of how many fleets they have.\n",
-			"You now have to to roll the dice and pay a hundred times the amount you roll to %s. You have to pay twice that if they have two labor camps.\n",
-			"You now have to pay %d to %s.\n"
-	};
-
-
+			"You now have to to roll the dice and pay a hundred times the amount you roll to %s. You have to pay twice that if they have two labor camps.\n", };
 
 }

@@ -1,14 +1,13 @@
 package controller;
 
-import boundary.GUIHandler;
-import boundary.TUI;
+import boundary.InformationHandler;
 import entity.*;
 import entity.fields.*;
+import entity.text.GameText;
 
 public class Game {
 	int turn;
 	Player[] players;
-	GUIHandler gui;
 	GameCreator GameStarter;
 	DiceCup dice;
 	GameBoard gameBoard;
@@ -23,7 +22,6 @@ public class Game {
 		// Ask for the player names
 		String[] playerNames = GameStarter.gameStart();
 		// Initialize the gui and players
-		this.gui = new GUIHandler(playerNames);
 		this.players = new Player[playerNames.length];
 
 		for (int i = 0; i < players.length; i++) {
@@ -36,30 +34,52 @@ public class Game {
 
 	public void showLandText(Field field) {
 		String type = field.getType();
-		switch (type) {
-		case "Territory":
-		case "Fleet":
-		case "Labor Camp":
+		String output = "";
+		output += String.format(GameText.turnInformation[1], players[turn].getPlayerName(), dice.getDiceValue()[0],
+				dice.getDiceValue()[1]);
+		output += String.format(GameText.standardFieldText[0], players[turn].getPlayerName(),
+				GameText.fieldTitles[players[turn].getPosition() - 1]);
+		output += String.format(GameText.standardFieldText[1], GameText.fieldTitles[players[turn].getPosition() - 1],
+				type);
+
+		if (type.equals("Territory") || type.equals("Fleet") || type.equals("Labor Camp")) {
 			if (((Ownable) field).getOwner() != null
-					&& ((Ownable) field).getOwner().getPlayerName().equals(players[turn].getPlayerName()))
-				gui.landOnOwned(players[turn].getPlayerName(), players[turn].getPosition(), dice.getDiceValue(), type,
-						((Ownable) field).getOwner().getPlayerName(), field.getRent());
-			else
-				gui.landOnOwnable(players[turn].getPlayerName(), players[turn].getPosition(), dice.getDiceValue(),
-						type);
-			break;
-		case "Refuge":
-			gui.landOnRefuge(players[turn].getPlayerName(), players[turn].getPosition(), ((Refuge) field).getBonus(),
-					dice.getDiceValue());
-			break;
+					&& !((Ownable) field).getOwner().getPlayerName().equals(players[turn].getPlayerName())) {
+				output += String.format(GameText.rentText[0], ((Ownable) field).getOwner().getPlayerName());
+
+				switch (type) {
+				case "Territory":
+					output += String.format(GameText.rentText[1], field.getRent(),
+							((Ownable) field).getOwner().getPlayerName());
+					break;
+				case "Fleet":
+					output += String.format(GameText.rentText[2], field.getRent(),
+							((Ownable) field).getOwner().getPlayerName());
+					break;
+				case "Labor Camp":
+					output += String.format(GameText.rentText[3], ((Ownable) field).getOwner().getPlayerName());
+					break;
+				default:
+					break;
+				}
+			}
 		}
+		switch (type) {
+		case "Refuge":
+			output += String.format(GameText.standardFieldText[2], ((Refuge) field).getBonus());
+			break;
+		default:
+			break;
+
+		}
+		stateInformationToGUI(output);
 	}
 
 	public void changeTurn() {
 		do {
 			turn = (turn + 1) % players.length;
 		} while (players[turn].getPlayerHasLost());
-		gui.showTurnStart(players[turn].getPlayerName());
+		stateInformationToGUI(String.format(GameText.turnInformation[0], players[turn].getPlayerName()));
 	}
 
 	public void movePlayer() {
@@ -71,6 +91,8 @@ public class Game {
 			int difference = 21 - players[turn].getPosition();
 			players[turn].setPosition(sum - difference);
 		}
+		InformationHandler.showRoll(dice.getDiceValue());
+		InformationHandler.movePlayer(players[turn].getPlayerName(), players[turn].getPosition());
 	}
 
 	public void updateAllFieldOwners() {
@@ -86,9 +108,9 @@ public class Game {
 	public void updateFieldOwner(int position, Ownable field, boolean reset) {
 		String name = field.getOwner().getPlayerName();
 		if (reset)
-			gui.removeOwnerOfField(position);
+			InformationHandler.removeOwnerOfField(position);
 		else
-			gui.setOwnerOfField(name, position);
+			InformationHandler.setOwnerOfField(name, position);
 	}
 
 	public void playTurn() {
@@ -96,31 +118,31 @@ public class Game {
 		showLandText(gameBoard.getField(players[turn].getPosition()));
 		String message = GameLogic.landOnField(players[turn], gameBoard.getField(players[turn].getPosition()), this);
 		if (message.equals("Bought")) {
-			gui.boughtField(players[turn].getPlayerName(), players[turn].getPosition(),
-					players[turn].getAccountBalance());
+			stateInformationToGUI(String.format(GameText.buyInfo[1], players[turn].getPlayerName(),
+					GameText.fieldTitles[players[turn].getPosition() - 1]));
 			updateFieldOwner(players[turn].getPosition(), (Ownable) gameBoard.getField(players[turn].getPosition()),
 					false);
 		} else if (message.equals("Not bought"))
-			gui.cantAffordField(players[turn].getPosition());
+			stateInformationToGUI(
+					String.format(GameText.buyInfo[0], GameText.fieldTitles[players[turn].getPosition() - 1]));
 		else if (message.equals("")) {
 		} else {
-			gui.showLaborCampResult(players[turn].getPlayerName(), dice.getDiceValue(),
-					((Ownable) gameBoard.getField(players[turn].getPosition())).getOwner().getPlayerName(),
-					Integer.parseInt(message));
+			stateInformationToGUI(String.format(GameText.rentText[1], Integer.parseInt(message),
+					((Ownable) gameBoard.getField(players[turn].getPosition())).getOwner().getPlayerName()));
 		}
 
 		if (players[turn].getPlayerHasLost()) {
 			updateAllFieldOwners();
 			gameBoard.removeAllPlayerFields(players[turn].getPlayerName());
 
-			gui.loseGame(players[turn].getPlayerName());
+			stateInformationToGUI(String.format(GameText.winLose[1], players[turn].getPlayerName()));
 		}
 		updatePlayerBalances();
 	}
 
 	public void updatePlayerBalances() {
 		for (int i = 0; i < players.length; i++)
-			gui.changePlayerBalance(players[i].getPlayerName(), players[i].getAccountBalance());
+			InformationHandler.changePlayerBalance(players[i].getPlayerName(), players[i].getAccountBalance());
 	}
 
 	public void runGame() {
@@ -132,13 +154,16 @@ public class Game {
 
 			Player winner = lookForWinner();
 			if (winner != null) {
-				gui.endGame(winner.getPlayerName());
+				stateInformationToGUI(String.format(GameText.winLose[0], winner.getPlayerName()));
 				break;
 			}
 		}
 
 	}
 
+	public void stateInformationToGUI(String msg) {
+		InformationHandler.ShowInformation(msg, GameText.getButtonText("ok"));
+	}
 
 	public int askForDiceRoll() {
 		dice.shakeCup();
