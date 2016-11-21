@@ -1,6 +1,7 @@
 package boundary;
 
 import java.awt.Color;
+import java.util.concurrent.TimeUnit;
 
 import entity.text.GameText;
 import desktop_codebehind.Car;
@@ -50,6 +51,12 @@ public class InformationHandler {
 	
 	public static void ShowInformation(String msg, String button) {
 		GUI.getUserButtonPressed(msg, button);
+//		try {
+//			TimeUnit.MICROSECONDS.sleep(200000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 	public static void changePlayerBalance(String playerName, int playerBalance) {
 		// Change the balance.
@@ -69,6 +76,11 @@ public class InformationHandler {
 		// Place a new car on the new position.
 		GUI.setCar(position, playerName);
 	}
+	public static void removePlayer(String playerName) {
+		// Remove all the cars of the player
+		GUI.removeAllCars(playerName);
+	}
+	
 	public static void showRoll(int[] currentDice) {
 		GUI.setDice(currentDice[0], currentDice[1]);
 	}
