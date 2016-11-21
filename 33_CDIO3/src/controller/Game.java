@@ -242,7 +242,7 @@ public class Game {
  * @param msg What the player is told.
  */
 	public void stateInformationToGUI(String msg) {
-		InformationHandler.ShowInformation(msg, GameText.getButtonText("ok"));
+		InformationHandler.showInformation(msg, GameText.getButtonText("ok"));
 	}
 /**
  * Method that makes the game reroll the dice.

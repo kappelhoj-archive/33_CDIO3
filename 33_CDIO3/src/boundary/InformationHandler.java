@@ -72,7 +72,7 @@ public class InformationHandler {
 	 * @param button
 	 *            What the button says.
 	 */
-	public static void ShowInformation(String msg, String button) {
+	public static void showInformation(String msg, String button) {
 		GUI.getUserButtonPressed(msg, button);
 		// everything below this point is for testing purposes.
 		// try {

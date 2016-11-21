@@ -24,15 +24,15 @@ public class GameCreator {
 	 */
 	public String[] gameStart() {
 		// Show a welcome text
-		InformationHandler.ShowInformation(InputText.information[0], InputText.getButtonText("ok"));
+		InformationHandler.showInformation(InputText.information[0], InputText.getButtonText("ok"));
 		// Receives the number of players and player names.
 		String[] playerNames = getPlayerNames(askNumberOfPlayers());
 		// Ads the player to the GUI
 		info.addPlayers(playerNames);
 		// Show the rules to the player
-		InformationHandler.ShowInformation(InputText.information[3], InputText.getButtonText("ok"));
+		InformationHandler.showInformation(InputText.information[3], InputText.getButtonText("ok"));
 		// Says that a random player is going to start.
-		InformationHandler.ShowInformation(InputText.information[4], InputText.getButtonText("ok"));
+		InformationHandler.showInformation(InputText.information[4], InputText.getButtonText("ok"));
 		// Returns the playernames to the caller.
 		return playerNames;
 
@@ -72,7 +72,7 @@ public class GameCreator {
 				playerNames[i] = InputHandler.AskForString(String.format(InputText.information[2], i + 1));
 				for (int j = 0; j < i; j++) {
 					if (playerNames[j].equals(playerNames[i])) {
-						InformationHandler.ShowInformation(String.format(InputText.errors[1], playerNames[i]),
+						InformationHandler.showInformation(String.format(InputText.errors[1], playerNames[i]),
 								InputText.getButtonText("ok"));
 						nameEqual = true;
 						break;
