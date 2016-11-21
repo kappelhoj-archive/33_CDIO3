@@ -236,6 +236,16 @@ public class GameText {
 		return "You can't afford to buy "+ fieldName +". \n";
 	}
 	
+	/**
+	 * The method wontBuyFieldText returns a String that tells you that you didn't want to buy the field.
+	 * @param playerName The name of the player.
+	 * @param fieldName of the mattering field.
+	 * @return String
+	 */
+	public static String wontBuyFieldText(String fieldName)
+	{
+		return "You decided not to buy "+ fieldName +" \n";
+	}
 		
 	/**
 	 * The method boughtFieldText returns a String which tells you that you bought the field.
