@@ -127,6 +127,8 @@ public class Game {
 					String.format(GameText.buyInfo[0], GameText.fieldTitles[players[turn].getPosition() - 1]));
 		else if (message.equals("")) {
 		} else {
+			stateInformationToGUI(String.format(GameText.turnInformation[1], players[turn].getPlayerName(),
+					dice.getDiceValue()[0], dice.getDiceValue()[1]));
 			stateInformationToGUI(String.format(GameText.rentText[1], Integer.parseInt(message),
 					((Ownable) gameBoard.getField(players[turn].getPosition())).getOwner().getPlayerName()));
 		}
