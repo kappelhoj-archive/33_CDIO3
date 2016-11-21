@@ -3,14 +3,14 @@ package entity.text;
 public class InputText extends Text {
 	/**
 	 * 
-	 * Argument 0 is a welcome text. Argument 1 ask for the number players that
-	 * <br>
-	 * are going to play Argument 2 ask for name of player number x. Needs: <br>
-	 * (int) Argument 3 says the rules of the game Argument 4 States that a <br>
-	 * random player has been chosen to start.
+	 * Argument 0 is a welcome text.<br>
+	 * Argument 1 ask for the number players that are going to play<br>
+	 * Argument 2 ask for name of player number x. Needs: (int) <br>
+	 * Argument 3 says the rules of the game<br>
+	 * Argument 4 States that a random player has been chosen to start.
 	 */
 	public static String[] information = { "Welcome to 'Rodatam' \n",
-			"Enter the number of players who wants to play.\n", "Please enter the name of player %d \n",
+			"Enter the number of players who wants to play between 2 and 6.\n", "Please enter the name of player %d \n",
 			gameRulesText(), "A player has been randomly selected to start the game. \n" };
 
 	/**
