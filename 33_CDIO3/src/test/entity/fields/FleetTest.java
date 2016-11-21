@@ -10,12 +10,8 @@ import entity.Player;
 import entity.fields.Fleet;
 
 public class FleetTest {
-	Fleet fleetField1;
-	Fleet fleetField2;
-	Fleet fleetField3;
-	Fleet fleetField4;
-	Player player1;
-	Player player2;
+	Fleet fleetField1, fleetField2, fleetField3, fleetField4;
+	Player player1, player2;
 
 	@Before
 	public void setUp() throws Exception {
@@ -44,10 +40,10 @@ public class FleetTest {
 	public void testGetRent() {
 		// Array with all the Fleet fields
 		Fleet[] fleetFields = {fleetField1, fleetField2, fleetField3, fleetField4};
-		// Array with the different Rent values
+		// Array with the different Fleet rent values
 		int[] expectedRents = {500, 1000, 2000, 4000};
 		
-		// Buy Fleet 1 to 4 fields and check if the Rent value is correct.
+		// Buy 1 to 4 Fleet fields and check if the Rent values are correct.
 		for(int i = 0; i < fleetFields.length; i++)
 		{
 			fleetFields[i].buyField(player1);
