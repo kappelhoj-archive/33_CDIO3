@@ -134,6 +134,7 @@ public class Game {
 		}
 
 		if (players[turn].getPlayerHasLost()) {
+			InformationHandler.removePlayer(players[turn].getPlayerName());
 			updateAllFieldOwners();
 			gameBoard.removeAllPlayerFields(players[turn].getPlayerName());
 
