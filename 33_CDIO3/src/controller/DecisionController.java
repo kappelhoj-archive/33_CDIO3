@@ -2,7 +2,7 @@ package controller;
 
 import boundary.DecisionHandler;
 import entity.Player;
-import entity.text.DecisionText;
+import text.DecisionText;
 
 public class DecisionController {
 

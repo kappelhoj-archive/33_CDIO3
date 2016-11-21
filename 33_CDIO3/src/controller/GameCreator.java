@@ -2,7 +2,7 @@ package controller;
 
 import boundary.InformationHandler;
 import boundary.InputHandler;
-import entity.text.InputText;
+import text.InputText;
 
 public class GameCreator {
 

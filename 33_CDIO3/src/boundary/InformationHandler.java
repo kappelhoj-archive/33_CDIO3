@@ -3,11 +3,11 @@ package boundary;
 import java.awt.Color;
 import java.util.concurrent.TimeUnit;
 
-import entity.text.GameText;
 import desktop_codebehind.Car;
 import desktop_fields.Field;
 import desktop_fields.Street;
 import desktop_resources.GUI;
+import text.GameText;
 
 public class InformationHandler {
 	// Array of fields in the GUI

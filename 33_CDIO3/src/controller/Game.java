@@ -3,7 +3,7 @@ package controller;
 import boundary.InformationHandler;
 import entity.*;
 import entity.fields.*;
-import entity.text.GameText;
+import text.GameText;
 
 public class Game {
 

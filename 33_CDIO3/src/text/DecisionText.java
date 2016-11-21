@@ -1,4 +1,4 @@
-package entity.text;
+package text;
 
 public class DecisionText extends Text {
 	/**
