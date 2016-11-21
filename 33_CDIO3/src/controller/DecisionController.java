@@ -6,7 +6,23 @@ import entity.text.DecisionText;
 
 public class DecisionController {
 
-	// Prepare a true false question for the user
+	/**
+	 * Method that prepares a question for the user based on different
+	 * parameters.
+	 * 
+	 * @param question
+	 *            A string variable that describes what type of question is
+	 *            asked.<br>
+	 *            Current options are:<br>
+	 *            "Tax"<br>
+	 *            "Buy"<br>
+	 * @param args
+	 *            A integer variable used in some of the question, leave it
+	 *            empty if not applicable
+	 * @param player
+	 *            The player object.
+	 * @return True or false answer to the question.
+	 */
 	public static boolean askForDecision(String question, int args, Player player) {
 		boolean answer = false;
 		switch (question) {

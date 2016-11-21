@@ -1,68 +1,79 @@
 package controller;
 
-
 import boundary.InformationHandler;
 import boundary.InputHandler;
 import entity.text.InputText;
 
 public class GameCreator {
+
 	InformationHandler info;
-	public GameCreator(){
-		info=new InformationHandler();
+
+	/**
+	 * Initialie the GUI
+	 */
+	public GameCreator() {
+		info = new InformationHandler();
 		info.startGame();
 	}
 
+	/**
+	 * Prints information to the user about how the games work, and ask for them
+	 * to input number of players and player names.
+	 * 
+	 * @return String playerNames
+	 */
 	public String[] gameStart() {
-		//Show a welcome text
+		// Show a welcome text
 		InformationHandler.ShowInformation(InputText.information[0], InputText.getButtonText("ok"));
-		//Receives the number of players and player names.
+		// Receives the number of players and player names.
 		String[] playerNames = getPlayerNames(askNumberOfPlayers());
-		//Ads the player to the GUI
+		// Ads the player to the GUI
 		info.addPlayers(playerNames);
-		//Show the rules to the player
+		// Show the rules to the player
 		InformationHandler.ShowInformation(InputText.information[3], InputText.getButtonText("ok"));
+		// Says that a random player is going to start.
 		InformationHandler.ShowInformation(InputText.information[4], InputText.getButtonText("ok"));
-		//Returns the playernames to the caller.
+		// Returns the playernames to the caller.
 		return playerNames;
 
 	}
-/**
- * Small method asking for the number of players wanting to play in this turn.
- * The method has a built in error-handler, which checks if the typed input actually of an integer-type,
- * and if the integer is correctly between 2 and 6.
- * @return
- */
-	private int askNumberOfPlayers() {
-		//Ask the players how many are playing
-		int numbPlayer = 0;
 
-		while (numbPlayer < 2 || numbPlayer > 6) {
-				numbPlayer = InputHandler.AskForInt(InputText.information[1],2, 6);
-		}
+	/**
+	 * Method that prompts the use to enter how many players are playing
+	 * 
+	 * @return The number of players that want to play.
+	 */
+	private int askNumberOfPlayers() {
+		// Ask the players how many are playing
+		int numbPlayer = 0;
+		numbPlayer = InputHandler.AskForInt(InputText.information[1], 2, 6);
 
 		return numbPlayer;
 	}
-/**
- * Method to create an array consisting of a list of names of the people playing.
- * The methods reads the typed in names, and adds them to the list.
- * If the name has already been added to the list, the method returns an error message, and asks for a new name.
- * @param numbPlayer
- * @return
- */
+
+	/**
+	 * Method that prompts the users to enter their playernames. It also
+	 * prevents them from typing the same names.
+	 * 
+	 * @param numbPlayer
+	 *            The number of players that want to play the game.
+	 * @return Player Names.
+	 */
 	private String[] getPlayerNames(int numbPlayer) {
 		String[] playerNames;
 		playerNames = new String[numbPlayer];
-		playerNames[0] = InputHandler.AskForString(String.format(InputText.information[2],1));
+		playerNames[0] = InputHandler.AskForString(String.format(InputText.information[2], 1));
 
 		for (int i = 1; i < numbPlayer; i++) {
 			boolean nameEqual = true;
 			playerNames[i] = null;
 
 			while (nameEqual) {
-				playerNames[i] = InputHandler.AskForString(String.format(InputText.information[2],i+1));
+				playerNames[i] = InputHandler.AskForString(String.format(InputText.information[2], i + 1));
 				for (int j = 0; j < i; j++) {
 					if (playerNames[j].equals(playerNames[i])) {
-						InformationHandler.ShowInformation(String.format(InputText.errors[1],playerNames[i]),InputText.getButtonText("ok"));
+						InformationHandler.ShowInformation(String.format(InputText.errors[1], playerNames[i]),
+								InputText.getButtonText("ok"));
 						nameEqual = true;
 						break;
 					} else {
@@ -73,6 +84,5 @@ public class GameCreator {
 		}
 		return playerNames;
 	}
-	
-	
+
 }
