@@ -9,7 +9,7 @@ public class Game {
 	int turn;
 	Player[] players;
 	GUIHandler gui;
-	TUI tui;
+	GameCreator GameStarter;
 	DiceCup dice;
 	GameBoard gameBoard;
 
@@ -19,9 +19,9 @@ public class Game {
 		// Creates the game board
 		gameBoard = new GameBoard();
 		// Start the TUI
-		this.tui = new TUI();
+		GameStarter = new GameCreator();
 		// Ask for the player names
-		String[] playerNames = tui.gameStart();
+		String[] playerNames = GameStarter.gameStart();
 		// Initialize the gui and players
 		this.gui = new GUIHandler(playerNames);
 		this.players = new Player[playerNames.length];
