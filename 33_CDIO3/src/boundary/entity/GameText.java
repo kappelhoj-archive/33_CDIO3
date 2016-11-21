@@ -81,10 +81,10 @@ public class GameText {
 /*(215)*/	"The pit is labor camp. Roll the dice and pay 100 times what you roll.",
 /*(216)*/	"If you land on the Goldmine you have to pay 2000 or 10% og your fortune to the owner.",
 /*(217)*/	"If you land on the Caravan you have to pay 4000 or 10% og your fortune to the owner.",
-/*(218)*/	"When you land on Second sail you have to pay between 500-400 in rent, dependent on how many fleets the owner has.",
-/*(219)*/	"When you land on Sea Grover you have to pay between 500-400 in rent, dependent on how many fleets the owner has.",
-/*(220)*/	"When you land on The Buccaneers you have to pay between 500-400 in rent, dependent on how many fleets the owner has.",
-/*(221)*/	"When you land on Privateer armade you have to pay between 500-400 in rent, dependent on how many fleets the owner has."};
+/*(218)*/	"When you land on Second sail you have to pay between 500-4000 in rent, dependent on how many fleets the owner has.",
+/*(219)*/	"When you land on Sea Grover you have to pay between 500-4000 in rent, dependent on how many fleets the owner has.",
+/*(220)*/	"When you land on The Buccaneers you have to pay between 500-4000 in rent, dependent on how many fleets the owner has.",
+/*(221)*/	"When you land on Privateer armade you have to pay between 500-4000 in rent, dependent on how many fleets the owner has."};
 
 	//####################################################################################
 	// Begin game texts
