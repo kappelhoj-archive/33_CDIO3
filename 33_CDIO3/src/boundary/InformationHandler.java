@@ -2,7 +2,7 @@ package boundary;
 
 import java.awt.Color;
 
-import boundary.entity.GameText;
+import entity.text.GameText;
 import desktop_codebehind.Car;
 import desktop_fields.Field;
 import desktop_fields.Street;
