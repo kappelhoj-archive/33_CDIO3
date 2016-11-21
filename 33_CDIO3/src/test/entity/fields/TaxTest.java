@@ -7,12 +7,6 @@ import org.junit.Before;
 import org.junit.Test;
 import entity.Player;
 
-
-/**
- * 
- * @author Mikkel
- *
- */
 public class TaxTest {
 	Tax taxField;
 	Player player;

@@ -74,31 +74,38 @@ public class OwnableTest {
 	}
 	
 	/*
-	 * Testing if anything happens when a player lands on the field he owns.
+	 * The test method testWhenOwnerLandsOnHisOwnField tests the method landOnField. 
+	 * When a player who lands on a field that he owns the rent shouldn't be subtracted from his balance.
 	 */
 	@Test
-	public void testLandOnFieldOwner()
+	public void testWhenOwnerLandsOnHisOwnField()
 	{
+		// player1 buys a field.
 		territoryField.buyField(player1);
+		int expectedBalance = 30000 - 3001;
+		// Later player1 lands on the field that he owns.
 		territoryField.landOnField(player1);
-		int expectedBalance = 30000 - 3000;
 		int actualBalance = player1.getAccountBalance();
-		assertEquals(expectedBalance, actualBalance);
+		assertEquals("Expected balance after the player landed on his own field is " + expectedBalance + " but was " + actualBalance +".",expectedBalance, actualBalance);
 	}
 
 	/*
-	 * Testing if the isFieldOwned method returns true if the field is owned,
-	 * and false if not.
+	 * The test method testIsFieldOwned tests the isFieldOwned method.
+	 * This test tests if the method isFieldOwned returns true if the field is owned and false otherwise.
 	 */
 	@Test
-	public void testIsFieldOwned() {
-		boolean expectedFieldOwner = false;
-		boolean actualFieldOwner = territoryField.isFieldOwned();
-		assertEquals(expectedFieldOwner, actualFieldOwner);
+	public void testIsFieldOwned() 
+	{
+		boolean expectedFieldOwner, actualFieldOwner;
+		//Tests the if branch of the method.
+		expectedFieldOwner = false;
+		actualFieldOwner = territoryField.isFieldOwned();
+		assertEquals("Assert 1: The expected field owner was " + expectedFieldOwner+ " But was "+ actualFieldOwner,expectedFieldOwner, actualFieldOwner);
 		
+		//Tests the else branch of the method.
 		territoryField.buyField(player1);
-		boolean expectedOwner = true;
-		boolean actualOwner = territoryField.isFieldOwned();
-		assertEquals(expectedOwner, actualOwner);
+		expectedFieldOwner = true;
+		actualFieldOwner = territoryField.isFieldOwned();
+		assertEquals("Assert2: The expected field owner was " + expectedFieldOwner + " But was "+ actualFieldOwner,expectedFieldOwner, actualFieldOwner);
 	}
 }
