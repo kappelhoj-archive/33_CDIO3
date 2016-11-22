@@ -45,10 +45,9 @@ public class GameLogic
 					{
 						msg = msg + "Bought";
 					}
-				}
-				else
-				{
-					msg = msg + "Not bought";
+					else{
+						msg = msg + "Not bought";
+					}
 				}
 			}
 			//If the field is owned
