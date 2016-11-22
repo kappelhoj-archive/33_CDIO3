@@ -75,12 +75,12 @@ public class InformationHandler {
 	public static void showInformation(String msg, String button) {
 		GUI.getUserButtonPressed(msg, button);
 		// everything below this point is for testing purposes.
-		// try {
-		// TimeUnit.MICROSECONDS.sleep(200000);
-		// } catch (InterruptedException e) {
-		// // TODO Auto-generated catch block
-		// e.printStackTrace();
-		// }
+//		 try {
+//		 TimeUnit.MICROSECONDS.sleep(200000);
+//		 } catch (InterruptedException e) {
+//		 // TODO Auto-generated catch block
+//		 e.printStackTrace();
+//		 }
 	}
 
 	/**
