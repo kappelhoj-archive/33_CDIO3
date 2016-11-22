@@ -45,6 +45,7 @@ public class GameLogic
 					{
 						msg = msg + "Bought";
 					}
+					//Prints a message that says the player cant afford the field.
 					else{
 						msg = msg + "Not bought";
 					}
