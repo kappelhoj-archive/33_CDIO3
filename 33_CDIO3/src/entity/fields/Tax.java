@@ -10,13 +10,13 @@ public class Tax extends Field
 	
 	/**
 	 * Object Tax constructor
-	 * @param fieldName The name of the Tax field
+	 * @param type The type of the field
 	 * @param taxAmount The fixed tax amount the player can choose to pay.
 	 * @param taxRate The tax rate the player can choose to pay. The taxRate is in percent
 	 */
-	public Tax (String fieldName, int taxAmount, int taxRate)
+	public Tax (String type, int taxAmount, int taxRate)
 	{	
-		super(fieldName);
+		super(type);
 		this.taxAmount = taxAmount;
 		this.taxRate = taxRate;
 	}
@@ -48,6 +48,16 @@ public class Tax extends Field
 	{
 		return taxAmount;
 	}
+	
+	/**
+	 * Method getTaxRate returns taxRate to be paid by the player who lands on the tax field.
+	 * @return Returns the taxRate to be paid.
+	 */
+	public int getTaxRate()
+	{
+		return taxRate;
+	}
+	
 	
 	/**
 	 * Method getRent is not used.

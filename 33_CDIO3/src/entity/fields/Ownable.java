@@ -10,12 +10,12 @@ public abstract class Ownable extends Field
 	
 	/**
 	 * Object Ownable constructor
-	 * @param fieldName The name of the field.
+	 * @param type The type of the field.
 	 * @param price The price of the Ownable field.
 	 */
-	public Ownable(String fieldType, int price) 
+	public Ownable(String type, int price) 
 	{
-		super(fieldType);
+		super(type);
 		this.price = price;
 		this.owner = null;
 	}
