@@ -16,7 +16,7 @@ public class FleetTest {
 	@Before
 	public void setUp() throws Exception 
 	{
-		//Creates four fleet fields and two players.
+		//Instantiates four fleet fields and two players.
 		fleet1 = new Fleet("Fleet", 4000);
 		fleet2 = new Fleet("Fleet", 4000);
 		fleet3 = new Fleet("Fleet", 4000);
@@ -38,11 +38,11 @@ public class FleetTest {
 	}
 	
 	/**
-	 * Method testGetRent tests if the getRent method returns the correct 
+	 * Method testGetRentFleet tests if the getRent method in the Fleet class returns the correct 
 	 * rent based on the amount of fleets owned by the player.
 	 */
 	@Test
-	public void testGetRent() 
+	public void testGetRentFleet() 
 	{
 		// Instantiates a fleet[] containing all the fleets.
 		Fleet[] fleetFields = {fleet1, fleet2, fleet3, fleet4};
@@ -65,6 +65,9 @@ public class FleetTest {
 	
 	/**
 	 * Method testLandOnFieldFleet tests if the correct things happens when a player lands on a fleet field.
+	 * (This method doesn't test the part of the the landOnField method that gives you the opportunity
+	 * to buy the field.)
+	 * In short the tested method is landOnField in the Fleet class.
 	 */
 	@Test
 	public void testLandOnFieldFleet() 
@@ -75,7 +78,7 @@ public class FleetTest {
 		// player2 lands on fleet2
 		fleet2.landOnField(player2);
 		
-		//Checks if the balance of player1 is updated correctly.
+		// Checks if the balance of player1 is updated correctly.
 		
 		// The expected balance of player1 is 30000 minus the two Fleet fields that he bought (2*4000) 
 		// plus the 1000 rent from player2.
@@ -86,7 +89,7 @@ public class FleetTest {
 		
 		//Checks if the balance of player2 is updated correctly.
 		
-		// The expected balance of player2 is 30000 minus the 1000 rent price.
+		// The expected balance of player2 is 30000 minus the 1000 rent.
 		int expectedPlayer2Balance = 30000 - 1000;
 		//The actual balance of player2
 		int actualPlayer2Balance = player2.getAccountBalance();
