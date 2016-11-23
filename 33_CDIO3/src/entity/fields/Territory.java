@@ -7,7 +7,7 @@ public class Territory extends Ownable
 	
 	/**
 	 * Object Territory constructor
-	 * @param fieldName The name of the territory field
+	 * @param type The type of the territory field
 	 * @param price The price of the territory field
 	 * @param rent The rent it costs to land on the territory field if the field is owned.
 	 */

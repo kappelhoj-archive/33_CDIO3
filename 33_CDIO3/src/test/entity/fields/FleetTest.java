@@ -10,12 +10,8 @@ import entity.Player;
 import entity.fields.Fleet;
 
 public class FleetTest {
-	Fleet fleetField1;
-	Fleet fleetField2;
-	Fleet fleetField3;
-	Fleet fleetField4;
-	Player player1;
-	Player player2;
+	Fleet fleetField1, fleetField2, fleetField3, fleetField4;
+	Player player1, player2;
 
 	@Before
 	public void setUp() throws Exception {
@@ -37,21 +33,48 @@ public class FleetTest {
 		player2 = null;
 	}
 	
+	/*
+	 * Testing all Rent values for how many Fleet fields are owned.
+	 */
 	@Test
 	//Test to see if amount of Fleets owned by a player is correctly added up, so the rent on each Fleet-field rises.
 	public void testGetRent() {
-		fleetField1.buyField(player1);
-		fleetField2.buyField(player1);
-		fleetField3.buyField(player1);
+		// Array with all the Fleet fields
+		Fleet[] fleetFields = {fleetField1, fleetField2, fleetField3, fleetField4};
+		// Array with the different Fleet rent values
+		int[] expectedRents = {500, 1000, 2000, 4000};
 		
-		int expectedRent = 2000;
-		int actualRent = fleetField1.getRent();
-		assertEquals(expectedRent, actualRent);
+		// Buy 1 to 4 Fleet fields and check if the Rent values are correct.
+		for(int i = 0; i < fleetFields.length; i++)
+		{
+			fleetFields[i].buyField(player1);
+			
+			int expectedRent = expectedRents[i];
+			int actualRent = fleetField1.getRent();
+			assertEquals("Owned Fleet fields: " + (i+1) + " Rent: " + expectedRents[i], expectedRent, actualRent);
+			//System.out.println("Owned Fleet fields: " + (i+1) + " Rent: " + expectedRents[i]);
+		}
 	}
-
+	
+	/*
+	 * Testing if landOnField for the Fleet field works as intended.
+	 */
 	@Test
 	public void testLandOnFieldFleet() {
-		fail("Not yet implemented");
+		fleetField1.buyField(player1);
+		fleetField2.buyField(player1);
+		
+		fleetField2.landOnField(player2);
+		
+		// The expected player1 balance is 30000 minus the two Fleet fields
+		// he bought (2*4000) plus the 1000 rent price from player2.
+		int expectedPlayer1Balance = 30000 - (2*4000) + 1000;
+		int actualPlayer1Balance = player1.getAccountBalance();
+		assertEquals(expectedPlayer1Balance, actualPlayer1Balance);
+		
+		// The expected player2 balance is 30000 minus the 1000 rent price.
+		int expectedPlayer2Balance = 30000 - 1000;
+		int actualPlayer2Balance = player2.getAccountBalance();
+		assertEquals(expectedPlayer2Balance, actualPlayer2Balance);
 	}
-
 }

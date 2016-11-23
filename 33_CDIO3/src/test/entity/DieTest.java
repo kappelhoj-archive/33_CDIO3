@@ -48,7 +48,7 @@ public class DieTest
 			case (4): four++;  break;
 			case (5): five++;  break;
 			case (6): six++;   break;
-			default: fail("The value of the die was higher than 6 or lower than 1.");
+			default: fail("The value of the die was higher than 6 or lower than 1. It was" + d1);
 			}
 		}
 		boolean fairOne   = FAILRATE > Math.abs(SJETTEDEL - one);
@@ -59,7 +59,13 @@ public class DieTest
 		boolean fairSix   = FAILRATE > Math.abs(SJETTEDEL - six);
 		
 		if (!(fairOne && fairTwo && fairThree && fairFour && fairFive && fairSix))
-			fail("The die was not fair.");
+			fail("The die was not fair.\n"
+					+ "The value of fairOne was" + fairOne + "\n" 
+					+ "The value of fairTwo was" + fairTwo + "\n"
+					+ "The value of fairThree was" + fairThree + "\n"
+					+ "The value of fairFour was" + fairFour + "\n"
+					+ "The value of fairFive was" + fairFive + "\n"
+					+ "The value of fairSix was" + fairSix);
 		
 		
 	}
@@ -79,7 +85,7 @@ public class DieTest
 		{
 			value = d1.rollDie();
 			if(value < MINIMUM_VALUE_DIE || value > MAXIMUM_VALUE_DIE)
-				fail("The value of the die was higher than 6 or lower than 1.");
+				fail("The value of the die was higher than 6 or lower than 1. It was:" + d1);
 		}
 	}
 	
