@@ -89,7 +89,7 @@ public class FleetTest {
 		
 		//Checks if the balance of player2 is updated correctly.
 		
-		// The expected balance of player2 is 30000 minus the 1000 rent.
+		// The expected balance of player2 is 30000 minus the rent (1000).
 		int expectedPlayer2Balance = 30000 - 1000;
 		//The actual balance of player2
 		int actualPlayer2Balance = player2.getAccountBalance();
