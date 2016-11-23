@@ -8,7 +8,7 @@ public class Player {
 	private boolean hasLost;         //Tells if the player has lost the game.
 	private int amountOfFleets;      //Amount of fleet fields the player owns.
 	private int amountOfLaborCamps;  //Amount of labor camp fields the player owns.
-	private int fortune;  	     //Sum of player's balance and the value of all the player's field.
+	private int propertyFortune;  	     //Sum of player's balance and the value of all the player's field.
 	private boolean payDecision;     //True if player chooses to pay 10 % of his fortune, false otherwise.
 	private int position;
 
@@ -23,7 +23,7 @@ public class Player {
 		hasLost = false;
 		amountOfFleets = 0;
 		amountOfLaborCamps = 0;
-		fortune = this.getAccountBalance();
+		propertyFortune = this.getAccountBalance();
 		position=0;
 	}
 	
@@ -42,7 +42,7 @@ public class Player {
 	 */
 	public int getPlayerFortune()
 	{
-		return fortune;
+		return propertyFortune+account.getBalance();
 	}
 		
 	/**
@@ -123,7 +123,7 @@ public class Player {
 	 */
 	public void changePlayerFortune(int value)
 	{
-		fortune = fortune + value;
+		propertyFortune = propertyFortune + value;
 	}
 	
 	/**
@@ -138,7 +138,6 @@ public class Player {
 			owner.changeAccountBalance(rent); //Adds the rent to the balance of the owner.
 			owner.changePlayerFortune(rent);  //Adds the rent to the fortune of the owner.
 			account.changeBalance(-rent);     //Subtracts the rent from the objects balance.
-			fortune = fortune - rent;         //Subtracts the rent from the objects fortune.
 		}
 		else
 		{
