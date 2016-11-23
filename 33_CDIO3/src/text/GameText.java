@@ -6,7 +6,7 @@ public class GameText extends Text {
 	 * Argument 1, tells what was rolled. Input: String PlayerName, int die1,
 	 * int die2.
 	 */
-	public static String[] turnInformation = { "It is %s's turn \n", "%s has rolled a %d and a %d.\n" };
+	public static String[] turnInformation = { "It is %s's turn. \n", "%s has rolled a %d and a %d.\n" };
 
 	/**
 	 * Argument 0, you cant buy this field, input: String FieldName<br>

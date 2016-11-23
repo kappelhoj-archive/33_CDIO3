@@ -32,10 +32,10 @@ public class InformationHandler {
 	}
 
 	/**
-	 * Add the players to the GUI
+	 * Add the players to the GUI.
 	 * 
 	 * @param players
-	 *            array of the playersnames.
+	 *            Array of the players names.
 	 */
 	public void addPlayers(String[] players) {
 		for (int i = 0; i < players.length; i++)
@@ -43,7 +43,7 @@ public class InformationHandler {
 	}
 
 	/**
-	 * Creates the possible cars for the players.
+	 * Create all the possible cars for the players.
 	 * 
 	 * @return Car[] of all the cars.
 	 */
@@ -68,7 +68,7 @@ public class InformationHandler {
 	 * Show information to the player with a confirmation button.
 	 * 
 	 * @param msg
-	 *            The message
+	 *            The message.
 	 * @param button
 	 *            What the button says.
 	 */
@@ -84,12 +84,12 @@ public class InformationHandler {
 	}
 
 	/**
-	 * Changes the balance of a given player.
+	 * Changes the balance of a designated player.
 	 * 
 	 * @param playerName
-	 *            name of the player
+	 *            Name of the player.
 	 * @param playerBalance
-	 *            the new balance
+	 *            The new balance.
 	 */
 	public static void changePlayerBalance(String playerName, int playerBalance) {
 		// Change the balance.
@@ -98,19 +98,19 @@ public class InformationHandler {
 	}
 
 	/**
-	 * Sets the owner of a field on the gui
+	 * Sets the owner of a field on the GUI.
 	 * 
 	 * @param playerName
-	 *            name of the player
+	 *            Name of the player.
 	 * @param position
-	 *            position of the field.
+	 *            Position of the field.
 	 */
 	public static void setOwnerOfField(String playerName, int position) {
 		GUI.setOwner(position, playerName);
 	}
 
 	/**
-	 * Removes the owner of a field at a given position
+	 * Removes the owner of a field at a given position.
 	 * 
 	 * @param position
 	 *            The position of the field.
@@ -120,12 +120,12 @@ public class InformationHandler {
 	}
 
 	/**
-	 * Moves the players car to a position
+	 * Moves the players car to a position.
 	 * 
 	 * @param playerName
-	 *            name of the player
+	 *            Name of the player to be moved.
 	 * @param position
-	 *            new position of the player.
+	 *            New position of the player.
 	 */
 	public static void movePlayer(String playerName, int position) {
 		// Remove all the cars of the player
@@ -135,10 +135,10 @@ public class InformationHandler {
 	}
 
 	/**
-	 * Remove all cars of a player
+	 * Remove all cars of a player.
 	 * 
 	 * @param playerName
-	 *            name of the player
+	 *            Name of the player.
 	 */
 	public static void removePlayer(String playerName) {
 		// Remove all the cars of the player
@@ -146,8 +146,8 @@ public class InformationHandler {
 	}
 
 	/**
-	 * Show the dice roll on the dice in the gui
-	 * @param currentDice int[] of the dice values.
+	 * Show the dice roll on the dice in the GUI.
+	 * @param CurrentDice int[] of the dice values.
 	 */
 	public static void showRoll(int[] currentDice) {
 		GUI.setDice(currentDice[0], currentDice[1]);
