@@ -35,7 +35,6 @@ public class Refuge extends Field
 	public void landOnField(Player player)
 	{
 		player.changeAccountBalance(bonus); //Gives the player a bonus to his balance.
-		player.changePlayerFortune(bonus);  //Updates the players fortune.         
 	}
 	
 	/**

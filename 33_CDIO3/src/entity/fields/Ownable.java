@@ -92,8 +92,6 @@ public abstract class Ownable extends Field
 		if (!getOwner().getPlayerName().equals(player.getPlayerName())) //Checks if the owner of the field and the player who landed on the field isn't the same
 		{
 			player.payRent(getOwner(), this.getRent());      //player pays the owner of the field.
-			player.changePlayerFortune(-(this.getRent()));   //Updates the players fortune.
-			getOwner().changePlayerFortune(this.getRent());  //Updates the owners fortune.
 		}
 	}
 	
