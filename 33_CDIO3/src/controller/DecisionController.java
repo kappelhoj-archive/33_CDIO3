@@ -32,7 +32,7 @@ public class DecisionController {
 					// Format the string
 					String.format(DecisionText.questions[1], DecisionText.fieldTitles[player.getPosition() - 1], args),
 					// Add the button text
-					DecisionText.getButtonText("10%") + " (" + player.getPlayerFortune() * 0.1 + ")", "" + args);
+					DecisionText.getButtonText("10%") + " (" + (int)(player.getPlayerFortune() * 0.1) + ")", "" + args);
 			break;
 		// Prepare a buy question
 		case "Buy":
