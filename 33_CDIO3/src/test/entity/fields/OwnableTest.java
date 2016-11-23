@@ -79,7 +79,7 @@ public class OwnableTest {
 	 */
 	@Test
 	public void testWhenOwnerLandsOnHisOwnField()
-	{
+	{ 
 		// player1 buys a field.
 		territoryField.buyField(player1);
 		int expectedBalance = 30000 - 3001;

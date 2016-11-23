@@ -1,29 +1,32 @@
 package controller;
 
-import boundary.GUIHandler;
-import boundary.TUI;
+import boundary.InformationHandler;
 import entity.*;
 import entity.fields.*;
+import text.GameText;
 
 public class Game {
+
 	int turn;
 	Player[] players;
-	GUIHandler gui;
-	TUI tui;
+	GameCreator gameStarter;
 	DiceCup dice;
 	GameBoard gameBoard;
 
+	/**
+	 * Initialize all the class variables and activate the gameStarter to ask
+	 * for player names.
+	 */
 	public Game() {
 		// Creates a DiceCup
 		dice = new DiceCup();
 		// Creates the game board
 		gameBoard = new GameBoard();
 		// Start the TUI
-		this.tui = new TUI();
+		gameStarter = new GameCreator();
 		// Ask for the player names
-		String[] playerNames = tui.gameStart();
+		String[] playerNames = gameStarter.gameStart();
 		// Initialize the gui and players
-		this.gui = new GUIHandler(playerNames);
 		this.players = new Player[playerNames.length];
 
 		for (int i = 0; i < players.length; i++) {
@@ -31,48 +34,112 @@ public class Game {
 		}
 		// Pick a random player to start.
 		turn = (int) (Math.random() * players.length);
+		// Deletes the gameStarter since it is unused.
+		gameStarter = null;
 
 	}
 
+	/**
+	 * Prints a text that will be shown to the player dependent on what field he
+	 * lands on.
+	 * 
+	 * @param field
+	 *            The field the player landed on.
+	 */
 	public void showLandText(Field field) {
+		// Get the field type.
 		String type = field.getType();
-		switch (type) {
-		case "Territory":
-		case "Fleet":
-		case "Labor Camp":
+
+		// Initialze the output string
+		String output = "";
+
+		// Adds the dice roll to output
+		output += String.format(GameText.turnInformation[1], players[turn].getPlayerName(), dice.getDiceValue()[0],
+				dice.getDiceValue()[1]);
+
+		// Tells the player where he landed
+		output += String.format(GameText.standardFieldText[0], players[turn].getPlayerName(),
+				GameText.fieldTitles[players[turn].getPosition() - 1]);
+
+		// Tell the player what type of field that is.
+		output += String.format(GameText.standardFieldText[1], GameText.fieldTitles[players[turn].getPosition() - 1],
+				type);
+
+		// Check if the field is of the ownable types
+		if (type.equals("Territory") || type.equals("Fleet") || type.equals("Labor Camp")) {
+			// Check if the field is owned
 			if (((Ownable) field).getOwner() != null
-					&& ((Ownable) field).getOwner().getPlayerName().equals(players[turn].getPlayerName()))
-				gui.landOnOwned(players[turn].getPlayerName(), players[turn].getPosition(), dice.getDiceValue(), type,
-						((Ownable) field).getOwner().getPlayerName(), field.getRent());
-			else
-				gui.landOnOwnable(players[turn].getPlayerName(), players[turn].getPosition(), dice.getDiceValue(),
-						type);
-			break;
-		case "Refuge":
-			gui.landOnRefuge(players[turn].getPlayerName(), players[turn].getPosition(), ((Refuge) field).getBonus(),
-					dice.getDiceValue());
-			break;
+					&& !((Ownable) field).getOwner().getPlayerName().equals(players[turn].getPlayerName())) {
+				// Tells the player who owns the field
+				output += String.format(GameText.rentText[0], ((Ownable) field).getOwner().getPlayerName());
+
+				// Tell the player what he has to pay to the owner depending on
+				// the field
+				switch (type) {
+				case "Territory":
+					output += String.format(GameText.rentText[1], field.getRent(),
+							((Ownable) field).getOwner().getPlayerName());
+					break;
+				case "Fleet":
+					output += String.format(GameText.rentText[2], field.getRent(),
+							((Ownable) field).getOwner().getPlayerName());
+					break;
+				case "Labor Camp":
+					output += String.format(GameText.rentText[3], ((Ownable) field).getOwner().getPlayerName());
+					break;
+				default:
+					break;
+				}
+			}
 		}
+		// Tells the plyer what he get for landing on a refuge field.
+		switch (type) {
+		case "Refuge":
+			output += String.format(GameText.standardFieldText[2], ((Refuge) field).getBonus());
+			break;
+		default:
+			break;
+
+		}
+		// Prints the output to the GUI
+		stateInformationToGUI(output);
 	}
 
+	/**
+	 * Changes the turn to the next player in the array that hasn't lost.
+	 */
 	public void changeTurn() {
 		do {
 			turn = (turn + 1) % players.length;
 		} while (players[turn].getPlayerHasLost());
-		gui.showTurnStart(players[turn].getPlayerName());
+		// Print whos turn it is.
+		stateInformationToGUI(String.format(GameText.turnInformation[0], players[turn].getPlayerName()));
 	}
 
+	/**
+	 * Moves the player to his new position.
+	 */
 	public void movePlayer() {
+		// Roll the dice
 		dice.shakeCup();
 		int sum = dice.getDiceValue()[0] + dice.getDiceValue()[1];
+		// Move the player to his position and if he passes field 21 move him to
+		// 1 and continue counting.
 		if (players[turn].getPosition() + sum <= 21) {
 			players[turn].setPosition(players[turn].getPosition() + sum);
 		} else {
 			int difference = 21 - players[turn].getPosition();
 			players[turn].setPosition(sum - difference);
 		}
+		// Update the die on the GUI
+		InformationHandler.showRoll(dice.getDiceValue());
+		// Update the player car on the GUI
+		InformationHandler.movePlayer(players[turn].getPlayerName(), players[turn].getPosition());
 	}
 
+	/**
+	 * Removes the ownership of the player whos turn it is.
+	 */
 	public void updateAllFieldOwners() {
 		for (int i = 1; i < 22; i++) {
 			if (!gameBoard.getField(i).getType().equals("Refuge") && !gameBoard.getField(i).getType().equals("Tax"))
@@ -83,87 +150,118 @@ public class Game {
 		}
 	}
 
+	/**
+	 * Update the owner of the field.
+	 * 
+	 * @param position
+	 *            The position of the field on the board
+	 * @param field
+	 *            The field i question.
+	 * @param reset
+	 *            Boolean determining if the owner has to be deleted from the
+	 *            field.
+	 */
 	public void updateFieldOwner(int position, Ownable field, boolean reset) {
 		String name = field.getOwner().getPlayerName();
 		if (reset)
-			gui.removeOwnerOfField(position);
+			InformationHandler.removeOwnerOfField(position);
 		else
-			gui.setOwnerOfField(name, position);
+			InformationHandler.setOwnerOfField(name, position);
 	}
 
+	/**
+	 * Method that plays a turn for one player
+	 */
 	public void playTurn() {
+		// Roll the dice and move player
 		movePlayer();
+		// Show the player what happended
 		showLandText(gameBoard.getField(players[turn].getPosition()));
+		// Tell gamelogic to handle the landing.
 		String message = GameLogic.landOnField(players[turn], gameBoard.getField(players[turn].getPosition()), this);
+		// Do what the gameLogic tells game to do.
 		if (message.equals("Bought")) {
-			gui.boughtField(players[turn].getPlayerName(), players[turn].getPosition(),
-					players[turn].getAccountBalance());
+			stateInformationToGUI(String.format(GameText.buyInfo[1], players[turn].getPlayerName(),
+					GameText.fieldTitles[players[turn].getPosition() - 1]));
 			updateFieldOwner(players[turn].getPosition(), (Ownable) gameBoard.getField(players[turn].getPosition()),
 					false);
 		} else if (message.equals("Not bought"))
-			gui.cantAffordField(players[turn].getPosition());
+			stateInformationToGUI(
+					String.format(GameText.buyInfo[0], GameText.fieldTitles[players[turn].getPosition() - 1]));
 		else if (message.equals("")) {
 		} else {
-			gui.showLaborCampResult(players[turn].getPlayerName(), dice.getDiceValue(),
-					((Ownable) gameBoard.getField(players[turn].getPosition())).getOwner().getPlayerName(),
-					Integer.parseInt(message));
+			stateInformationToGUI(String.format(GameText.turnInformation[1], players[turn].getPlayerName(),
+					dice.getDiceValue()[0], dice.getDiceValue()[1]));
+			stateInformationToGUI(String.format(GameText.rentText[1], Integer.parseInt(message),
+					((Ownable) gameBoard.getField(players[turn].getPosition())).getOwner().getPlayerName()));
 		}
-
+		// If the player has lost, make sure he loses all his property.
 		if (players[turn].getPlayerHasLost()) {
+			InformationHandler.removePlayer(players[turn].getPlayerName());
 			updateAllFieldOwners();
 			gameBoard.removeAllPlayerFields(players[turn].getPlayerName());
-
-			gui.loseGame(players[turn].getPlayerName());
+			// Changes the players balance to -1
+			players[turn].changeAccountBalance(-players[turn].getAccountBalance() - 1);
+			// Tell the player he lost.
+			stateInformationToGUI(String.format(GameText.winLose[1], players[turn].getPlayerName()));
 		}
+		// Update the balance of the players.
 		updatePlayerBalances();
 	}
 
+	/**
+	 * Change the balance of all players.
+	 */
 	public void updatePlayerBalances() {
 		for (int i = 0; i < players.length; i++)
-			gui.changePlayerBalance(players[i].getPlayerName(), players[i].getAccountBalance());
+			InformationHandler.changePlayerBalance(players[i].getPlayerName(), players[i].getAccountBalance());
 	}
 
+	/**
+	 * Run the game.
+	 */
 	public void runGame() {
-
+		// As long as no one has won, change who's turn it is and play that
+		// turn.
 		while (true) {
 			changeTurn();
 
 			playTurn();
-			
-			Player winner =lookForWinner();
-			if(winner!=null){
-				gui.endGame(winner.getPlayerName());
+			// Check if someone has won
+			Player winner = lookForWinner();
+			// If someone won tell them they won and break the loop.
+			if (winner != null) {
+				stateInformationToGUI(String.format(GameText.winLose[0], winner.getPlayerName()));
 				break;
 			}
 		}
 
 	}
-
-	public boolean askForDecision(String question, int args) {
-		boolean answer = false;
-		switch (question) {
-		case "Tax":
-			answer = gui.landOnTax(players[turn].getPlayerName(), players[turn].getPosition(),
-					/* Constant tax */args, players[turn].getPlayerFortune(), dice.getDiceValue());
-			break;
-		case "Buy":
-			answer = gui.askPlayerBuyField(players[turn].getPlayerName(), players[turn].getPosition());
-			break;
-		}
-		return answer;
+/**
+ * Prompts the InformationHandler to change the GUI
+ * @param msg What the player is told.
+ */
+	public void stateInformationToGUI(String msg) {
+		InformationHandler.showInformation(msg, GameText.getButtonText("ok"));
 	}
-
+/**
+ * Method that makes the game reroll the dice.
+ * @return
+ */
 	public int askForDiceRoll() {
 		dice.shakeCup();
 		return dice.getDiceValue()[0] + dice.getDiceValue()[1];
 	}
-
+/**
+ * Method that checks if all players except one has lost the game.
+ * @return Player winner
+ */
 	public Player lookForWinner() {
 		Player winningPlayer = null;
 		for (int i = 0; i < players.length; i++) {
-			if (!players[turn].getPlayerHasLost())
+			if (!players[i].getPlayerHasLost())
 				if (winningPlayer == null)
-					winningPlayer = players[turn];
+					winningPlayer = players[i];
 				else
 					return null;
 

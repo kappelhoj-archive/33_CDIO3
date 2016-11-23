@@ -37,6 +37,7 @@ public class FleetTest {
 	 * Testing all Rent values for how many Fleet fields are owned.
 	 */
 	@Test
+	//Test to see if amount of Fleets owned by a player is correctly added up, so the rent on each Fleet-field rises.
 	public void testGetRent() {
 		// Array with all the Fleet fields
 		Fleet[] fleetFields = {fleetField1, fleetField2, fleetField3, fleetField4};

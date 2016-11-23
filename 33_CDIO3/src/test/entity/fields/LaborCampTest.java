@@ -33,7 +33,7 @@ public class LaborCampTest {
 	
 	/*
 	 * Tests if the Labor Camp field's rent is equal to 100 multiplied by 
-	 * the player's dice roll and times the amount of Labor camps owned
+	 * the players dice roll and times the amount of Labor camps owned
 	 * by the owner.
 	 */
 	@Test
@@ -48,7 +48,7 @@ public class LaborCampTest {
 	}
 
 	/*
-	 * Testing if player2 pays the rent equal to his dice roll multiplied
+	 * Test to see if player2 pays the rent equal to his dice roll multiplied
 	 * by 100 to the owner of the Labor Camp field.
 	 */
 	@Test

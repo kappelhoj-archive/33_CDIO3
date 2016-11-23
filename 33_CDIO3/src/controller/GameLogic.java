@@ -21,7 +21,7 @@ public class GameLogic
 			//If the given field is a tax field, ask the given player if he wants to pay 10% or a specific amount.
 			if (field.getType().equals("Tax"))
 			{
-				boolean playerPayDecision = game.askForDecision("Tax", ((Tax)field).getTaxAmount());
+				boolean playerPayDecision = DecisionController.askForDecision("Tax", ((Tax)field).getTaxAmount(),player);
 				player.setPayDecision(playerPayDecision);
 			}
 			field.landOnField(player);
@@ -33,7 +33,7 @@ public class GameLogic
 			if (!((Ownable)field).isFieldOwned())
 			{
 				//Ask the given player if he wants to buy the field that is not owned.
-				boolean buyField = game.askForDecision("Buy", 0);
+				boolean buyField = DecisionController.askForDecision("Buy", 0,player);
 				
 				//Checks if the player wants to buy the field.
 				if(buyField)
@@ -45,10 +45,10 @@ public class GameLogic
 					{
 						msg = msg + "Bought";
 					}
-				}
-				else
-				{
-					msg = msg + "Not bought";
+					//Prints a message that says the player cant afford the field.
+					else{
+						msg = msg + "Not bought";
+					}
 				}
 			}
 			//If the field is owned
