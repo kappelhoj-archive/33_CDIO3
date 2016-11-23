@@ -23,7 +23,7 @@ public class Player {
 		hasLost = false;
 		amountOfFleets = 0;
 		amountOfLaborCamps = 0;
-		propertyFortune = this.getAccountBalance();
+		propertyFortune = 0;
 		position=0;
 	}
 	
@@ -136,13 +136,11 @@ public class Player {
 		if(account.getBalance() > rent)       //Checks if the player has enough money to pay the rent.
 		{
 			owner.changeAccountBalance(rent); //Adds the rent to the balance of the owner.
-			owner.changePlayerFortune(rent);  //Adds the rent to the fortune of the owner.
 			account.changeBalance(-rent);     //Subtracts the rent from the objects balance.
 		}
 		else
 		{
 			owner.changeAccountBalance(account.getBalance()); //Adds the object's balance to the balance of the owner.
-			owner.changePlayerFortune(account.getBalance());  //Adds the object's balance to the balance of the owner.
 			setPlayerHasLost(true);                           //Sets the object's hasLost condition to true.
 		}
 	}
