@@ -11,38 +11,43 @@ import entity.Player;
 public class RefugeTest {
 
 	Refuge refuge;
-	Refuge refuge2;
 	Player player;
 
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() throws Exception 
+	{
+		//Instantiates a Refuge field and one player.
 		refuge = new Refuge ("Walled City", 5000);
-		refuge2 = new Refuge ("Monestary", 500);
 		player = new Player ("Peter");
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown() throws Exception 
+	{
+		//Resets the objects.
 		refuge = null;
-		refuge2 = null;
+		player = null;
 	}
 
-	@Test
+	
 	/**
-	 * Simple test to see if the players fund is given the correct values from the Refuge class.
-	 * First is added the 5000 gold from the "Walled City"-field, and then the 500 gold from
-	 * the "Monestary"-field.
+	 * Method testLandOnFieldRefuge tests if the correct things happens when a player lands on a refuge field.
+	 * In short the tested method is landOnField in the Refuge class.
 	 */
-	public void testLandOnField() { 
-		player.changeAccountBalance(refuge.getBonus());
-		int expected = 35000;
-		int actual = player.getAccountBalance();
-		assertEquals(expected, actual);
+	@Test
+	public void testLandOnField() 
+	{ 
+		// player lands on refuge field.
+		refuge.landOnField(player);
+		
+		//Checks if the balance of player is updated correctly.
+		
+		//The expected balance of player is 30000 + the bonus received from the refuge field (5000).
+		int expectedPlayerBalance = 30000 + 5000;
+		//The actual balance of player
+		int actualPlayerBalance = player.getAccountBalance();
+		assertEquals("The balance of player was expected to be " + expectedPlayerBalance + " but was " + actualPlayerBalance, expectedPlayerBalance, actualPlayerBalance);
 
-		player.changeAccountBalance(refuge2.getBonus());
-		int expected2 = 35500;							//The new value with an added 500 gold.
-		int actual2 = player.getAccountBalance();		//We use the same balance as before to verify that the balance from before is correctly added.
-		assertEquals(expected2, actual2);
 	}
 }

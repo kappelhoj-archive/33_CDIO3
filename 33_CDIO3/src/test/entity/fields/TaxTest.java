@@ -20,6 +20,7 @@ public class TaxTest {
 	@Before
 	public void setUp() throws Exception 
 	{
+		//Instantiates a Tax field and one player.
 		taxField = new Tax("Tax", 2000, 10);
 		player = new Player("Bob");
 	}
@@ -27,6 +28,7 @@ public class TaxTest {
 	@After
 	public void tearDown() throws Exception 
 	{
+		// Resets the object.
 		taxField = null;
 		player = null;
 	}
