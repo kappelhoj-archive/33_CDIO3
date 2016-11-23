@@ -61,17 +61,25 @@ public class GameCreator {
 	 */
 	private String[] getPlayerNames(int numbPlayer) {
 		String[] playerNames;
-		playerNames = new String[numbPlayer];
-		playerNames[0] = InputHandler.AskForString(String.format(InputText.information[2], 1));
+		do {
+			playerNames = new String[numbPlayer];
+			playerNames[0] = InputHandler.AskForString(String.format(InputText.information[2], 1));
+
+		} while (playerNames[0].equals(""));
 
 		for (int i = 1; i < numbPlayer; i++) {
 			boolean nameEqual = true;
 			playerNames[i] = null;
 
 			while (nameEqual) {
-				playerNames[i] = InputHandler.AskForString(String.format(InputText.information[2], i + 1));
+				do {
+					playerNames[i] = InputHandler.AskForString(String.format(InputText.information[2], i + 1));
+
+				} while (playerNames[i].equals(""));
+
+				System.out.println("a" + playerNames[i] + "a");
 				for (int j = 0; j < i; j++) {
-					if (playerNames[j].equals(playerNames[i])) {
+					if (playerNames[j].equals(playerNames[i]) || playerNames[i].equals("")) {
 						InformationHandler.showInformation(String.format(InputText.errors[1], playerNames[i]),
 								InputText.getButtonText("ok"));
 						nameEqual = true;
