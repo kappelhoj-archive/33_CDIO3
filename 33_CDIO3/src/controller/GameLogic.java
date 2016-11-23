@@ -15,7 +15,7 @@ public class GameLogic
 		boolean notOwnableFields = field.getType().equals("Refuge") || field.getType().equals("Tax");
 		String msg = "";
 		
-		//Checks if the given field is a Refue/Tax field. (a.k.a. is not a ownable field)
+		//Checks if the given field is a Refuge/Tax field. (a.k.a. is not a ownable field)
 		if(notOwnableFields)
 		{
 			//If the given field is a tax field, ask the given player if he wants to pay 10% or a specific amount.
