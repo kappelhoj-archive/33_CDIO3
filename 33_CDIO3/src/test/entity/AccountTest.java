@@ -20,84 +20,86 @@ public class AccountTest {
 	public void tearDown() throws Exception {
 		account = null;
 	}
-	
-	/*
-	 * Testing getBalance method
-	 */
-	@Test
-	public void testGetBalance() {
-		int expected = 30000;
-		int actual = account.getBalance();
-		assertEquals(expected, actual);
-	}
-	
-	/*
-	 * Testing if the changeBalance method subtracts correctly from
-	 * balance when a player has to pay another player.
-	 * In this test case, player1 owns 3 Fleet fields, and player2
-	 * lands on any of player1's Fleet fields and therefore has to pay 2000
-	 * to player1. 
-	 */
-	@Test
-	public void testChangeBalanceSubtraction() {
-		int value = -2000;
-		account.changeBalance(value);
 		
-		int expectedBalance = 28000;
-		int actualBalance = account.getBalance();
-		assertEquals(expectedBalance, actualBalance);
-	}
-	
-	/*
-	 * Testing if the changeBalance method adds correctly to balance when
-	 * a player receives money.
-	 * In this test case, the player lands on "Walled City" field and receives
-	 * 5000 money. 
+	/**
+	 * Method test_ChangeBalanceElseSubtraction tests the else branch of the changeBalance method
+	 * under the condition that the change is a negative value.
+	 * The tested method should return the balance - value, where the value is a negative number.
 	 */
 	@Test
-	public void testChangeBalanceAddition()
+	public void test_ChangeBalanceElseSubtraction() 
 	{
-		int value = 5000;
-		account.changeBalance(value);
+		//Changes the balance with minus 2000.
+		account.changeBalance(-2000);
 		
-		int expectedBalance = 35000;
+		//The expected balance after the call to changeBalance(-2000)
+		int expectedBalance = 28000;
+		//The actualBalance
 		int actualBalance = account.getBalance();
+		
 		assertEquals(expectedBalance, actualBalance);
 	}
 	
-	/*
-	 * Testing if the changeBalance method operates correctly when
-	 * the balance overflows.
-	 * In this test cast the player's account balance is the maximum integer
-	 * value and he then lands on "Walled City" field and receives 5000 money.
+	/**
+	 * Method test_ChangeBalanceElseAddition tests the else branch of the changeBalance method
+	 * under the condition that the change is a positive value.
+	 * The tested method should return the balance + value, where the value is positive number.
+	 */
+	@Test
+	public void test_ChangeBalanceAddition()
+	{
+		//Changes the balance with plus 2000.
+		account.changeBalance(2000);
+		
+		//The expected balance after the call to changeBalance(2000)
+		int expectedBalance = 32000;
+		//The actualBalance
+		int actualBalance = account.getBalance();
+		
+		assertEquals(expectedBalance, actualBalance);
+	}
+	
+	/**
+	 * Method test_changeBalanceOverflow tests the if branch of the changeBalance method
+	 * under the condition that the balance is the value of Integer.MAX_VALUE.
+	 * The tested method should return the balance as it was before 
+	 * the value was added to the balance
 	 */
 	@Test
 	public void testChangeBalanceOverflow()
 	{
-		int value = 5000;
+		//Sets the account balance to the value of Integer.MAX_VALUE
 		account.setBalance(Integer.MAX_VALUE);
+		//Adds 2000 to the balance.
+		account.changeBalance(2000);
 		
-		account.changeBalance(value);
+		//The expected account balance is Integer.MAX_VALUE
 		int expectedBalance = Integer.MAX_VALUE;
+		//The actual account balance
 		int actualBalance = account.getBalance();
+		
 		assertEquals(expectedBalance, actualBalance);
 	}
 	
-	/*
-	 * Testing if the changeBalance method operates correctly when the
-	 * balance underflows.
-	 * In this test case the player's account balance is the minimum integer
-	 * value and he then has to pay 2000 money.
+	/**
+	 * Method test_changeBalanceUnderflow tests the if branch of the changeBalance method
+	 * under the condition that the balance is the value of Integer.MIN_VALUE.
+	 * The tested method should return the balance as it was before 
+	 * the value was added to the balance
 	 */
 	@Test
 	public void testChangeBalanceUnderflow()
 	{
-		int value = -2000;
+		//Sets the account balance to the value of Integer.MAX_VALUE
 		account.setBalance(Integer.MIN_VALUE);
-		
-		account.changeBalance(value);
+		//Subtracts 2000 to the balance.
+		account.changeBalance(-2000);
+
+		//The expected account balance is Integer.MAX_VALUE
 		int expectedBalance = Integer.MIN_VALUE;
+		//The actual account balance
 		int actualBalance = account.getBalance();
+
 		assertEquals(expectedBalance, actualBalance);
 	}
 }
