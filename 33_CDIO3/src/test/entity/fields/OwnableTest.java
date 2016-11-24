@@ -8,7 +8,7 @@ import org.junit.Test;
 import entity.fields.*;
 import entity.Player;
 
-public class OwnableTest2 
+public class OwnableTest 
 {
 	Player player;
 	Territory territory;
