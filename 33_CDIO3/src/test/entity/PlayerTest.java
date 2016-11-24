@@ -9,7 +9,7 @@ import org.junit.Test;
 import entity.Player;
 import entity.fields.Fleet;
 
-public class PlayerTest2 
+public class PlayerTest 
 {
 	Player player, owner;
 	Fleet fleet1, fleet2;
