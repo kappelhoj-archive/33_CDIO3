@@ -133,15 +133,20 @@ public class Player {
 	 */
 	public void payRent(Player owner, int rent)
 	{
-		if(account.getBalance() > rent)       //Checks if the player has enough money to pay the rent.
+		//Checks if the player has enough money to pay the rent.
+		if(account.getBalance() > rent)       
 		{
-			owner.changeAccountBalance(rent); //Adds the rent to the balance of the owner.
-			account.changeBalance(-rent);     //Subtracts the rent from the objects balance.
+			//Adds the rent to the balance of the owner.
+			owner.changeAccountBalance(rent); 
+			//Subtracts the rent from the objects balance.
+			account.changeBalance(-rent);     
 		}
 		else
 		{
-			owner.changeAccountBalance(account.getBalance()); //Adds the object's balance to the balance of the owner.
-			setPlayerHasLost(true);                           //Sets the object's hasLost condition to true.
+			//Adds the object's balance to the balance of the owner.
+			owner.changeAccountBalance(account.getBalance()); 
+			//Sets the object's hasLost condition to true.
+			setPlayerHasLost(true);                           
 		}
 	}
 
