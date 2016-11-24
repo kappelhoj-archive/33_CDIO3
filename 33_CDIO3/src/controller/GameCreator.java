@@ -75,7 +75,6 @@ public class GameCreator {
 				do {
 					playerNames[i] = InputHandler.AskForString(String.format(InputText.information[2], i + 1));
 				} while (playerNames[i].equals(""));
-				System.out.println("a" + playerNames[i] + "a");
 				for (int j = 0; j < i; j++) {
 					if (playerNames[j].equals(playerNames[i]) || playerNames[i].equals("")) {		//Another check to see if one the other players enter an empty string.
 						InformationHandler.showInformation(String.format(InputText.errors[1], playerNames[i]),
