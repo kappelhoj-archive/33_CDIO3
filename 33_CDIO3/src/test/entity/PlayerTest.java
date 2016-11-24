@@ -10,7 +10,8 @@ import entity.Player;
 
 
 
-public class PlayerTest {
+public class PlayerTest 
+{
 
 	Player player;
 	Player player2;
