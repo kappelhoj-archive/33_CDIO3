@@ -32,6 +32,7 @@ public class RefugeTest {
 
 	
 	/**
+	 * Test-id: U012
 	 * Method testLandOnFieldRefuge tests if the correct things happens when a player lands on a refuge field.
 	 * In short the tested method is landOnField in the Refuge class.
 	 */

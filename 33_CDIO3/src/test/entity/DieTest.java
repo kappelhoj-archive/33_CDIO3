@@ -26,7 +26,7 @@ public class DieTest
 	}
 	
 	/**
-	 * Test ID: UD01.
+	 * Test-id: U022.
 	 * Tests if the method rollDie gives the probability of a fair die with 6 sides.
 	 */
 	@Test
@@ -71,7 +71,7 @@ public class DieTest
 	}
 	
 	/**
-	 * Test ID UD02.
+	 * Test-id: U023.
 	 * Tests if the method rollDie only show facevalues between 1 and 6 of the die. Both inclusive.
 	 * In short, checks if the die is an 6-side die
 	 */
@@ -90,7 +90,7 @@ public class DieTest
 	}
 	
 	/**
-	 * Test ID: UD03.
+	 * Test-id: U024.
 	 * Tests if the method getValue returns the correct face value of the die.
 	 */
 	@Test
@@ -103,7 +103,7 @@ public class DieTest
 	}
 	
 	/**
-	 * Test ID UD04.
+	 * Test-id: U025
 	 * Tests if the method toString creates the correct string representation of a die-object.
 	 */
 	@Test
@@ -116,7 +116,7 @@ public class DieTest
 	}
 
 	/**
-	 * Test ID UD05
+	 * Test-id: U026
 	 * Tests if the constructor that constructs a die with n sides, works properly.
 	 */
 	@Test

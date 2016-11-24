@@ -32,6 +32,7 @@ public class TerritoryTest
 	}
 
 	/**
+	 * Test-id: U015
 	 * Method testGetRentTerritory tests if the getRent method in the Territory class returns the correct 
 	 * rent.
 	 */
@@ -50,6 +51,7 @@ public class TerritoryTest
 
 	
 	/**
+	 * Test-id: U016
 	 * Method testLandOnFieldTerritory tests if the correct things happens when a player lands on a territory field.
 	 * (This method doesn't test the part of the the landOnField method that gives you the opportunity
 	 * to buy the field.)

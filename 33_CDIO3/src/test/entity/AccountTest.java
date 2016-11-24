@@ -24,6 +24,7 @@ public class AccountTest {
 	}
 		
 	/**
+	 * Test-id: U027
 	 * Method test_ChangeBalanceElseSubtraction tests the else branch of the changeBalance method
 	 * under the condition that the change is a negative value.
 	 * The tested method should return the balance - value, where the value is a negative number.
@@ -43,6 +44,7 @@ public class AccountTest {
 	}
 	
 	/**
+	 * Test-id: U028
 	 * Method test_ChangeBalanceElseAddition tests the else branch of the changeBalance method
 	 * under the condition that the change is a positive value.
 	 * The tested method should return the balance + value, where the value is positive number.
@@ -62,6 +64,7 @@ public class AccountTest {
 	}
 	
 	/**
+	 * Test-id: U029
 	 * Method test_changeBalanceOverflow tests the if branch of the changeBalance method
 	 * under the condition that the balance is the value of Integer.MAX_VALUE.
 	 * The tested method should return the balance as it was before 
@@ -84,6 +87,7 @@ public class AccountTest {
 	}
 	
 	/**
+	 * Test-id: U030
 	 * Method test_changeBalanceUnderflow tests the if branch of the changeBalance method
 	 * under the condition that the balance is the value of Integer.MIN_VALUE.
 	 * The tested method should return the balance as it was before 

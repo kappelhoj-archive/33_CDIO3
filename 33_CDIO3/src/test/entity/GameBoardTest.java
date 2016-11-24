@@ -33,6 +33,7 @@ public class GameBoardTest
 	}
 
 	/**
+	 * Test-id: U021
 	 * Method test_RemoveAllPlayerFields tests the method removeAllPlayerFields.
 	 * The tested method should remove the player with the given name as a owner from all fields.
 	 */

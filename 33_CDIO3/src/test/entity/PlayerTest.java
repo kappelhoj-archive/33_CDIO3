@@ -33,6 +33,7 @@ public class PlayerTest
 	}
 
 	/**
+	 * Test-id: U017
 	 * Method test_getPlayerFortuneNoFields tests the method getPlayerFortune under 
 	 * the condition that the player owns no field.
 	 * The method should return the account balance of the player when no fields is own.
@@ -50,6 +51,7 @@ public class PlayerTest
 	}
 
 	/**
+	 * Test-id: U018
 	 * Method test_getPlayerFortuneNoFields tests the method getPlayerFortune under 
 	 * the condition that the player owns two fields.
 	 * The method should return the account balance plus the propertyFortune which 
@@ -76,6 +78,7 @@ public class PlayerTest
 	}
 	
 	/**
+	 * Test-id: U019
 	 * Method test_payRentIF tests the if branch of the method payRent.
 	 * The tested method should  <br>
 	 * - Change the balance of the owner with rent <br>
@@ -98,6 +101,7 @@ public class PlayerTest
 	}
 	
 	/**
+	 * Test-id: U020
 	 * Method test_payRentElse tests the else branch of the method payRent.
 	 * The tested method should <br>
 	 * - Change the balance of the owner with the balance of the player <br>

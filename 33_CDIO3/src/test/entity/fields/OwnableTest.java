@@ -35,6 +35,7 @@ public class OwnableTest
 	}
 
 	/**
+	 * Test-id: U005
 	 * Method test_isFieldOwnedIF tests the if branch of the isFieldOwned method.
 	 * The tested method should return false, if the field is not owned.
 	 */
@@ -50,6 +51,7 @@ public class OwnableTest
 	}
 	
 	/**
+	 * Test-id: U006
 	 * Method test_isFieldOwnedElse tests the else branch of the isFieldOwned method.
 	 * The tested method should return true, if the field is owned.
 	 */
@@ -68,6 +70,7 @@ public class OwnableTest
 	}
 	
 	/**
+	 * Test-id: U007
 	 * Method test_buyFieldNoMoney tests the else branch of the buyField method.
 	 * The tested method should return false, if the field is not bought.
 	 */
@@ -87,6 +90,7 @@ public class OwnableTest
 	}
 	
 	/**
+	 * Test-id: U008
 	 * Method test_buyFieldTerritory tests the if branch of the buyField method
 	 * when a territory is bought.
 	 * The tested method should <br>
@@ -118,6 +122,7 @@ public class OwnableTest
 	}
 
 	/**
+	 * Test-id: U009
 	 * Method test_buyFieldLaborCamp tests the if branch of the buyField method
 	 * when a LaborCamp is bought.
 	 * The tested method should <br>
@@ -150,6 +155,7 @@ public class OwnableTest
 	}
 	
 	/**
+	 * Test-id: U010
 	 * Method test_buyFieldFleet tests the if branch of the buyField method
 	 * when a Fleet is bought.
 	 * The tested method should <br>
@@ -182,6 +188,7 @@ public class OwnableTest
 	}
 	
 	/**
+	 * Test-id: U011
 	 * Method test_landOnOwnField tests the landOnField method. 
 	 * The tested method should do nothing when a player lands on his own field.
 	 * OBS The if branch of the method landOnField is tested on 

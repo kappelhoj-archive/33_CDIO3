@@ -38,6 +38,7 @@ public class FleetTest {
 	}
 	
 	/**
+	 * Test-id: U001
 	 * Method testGetRentFleet tests if the getRent method in the Fleet class returns the correct 
 	 * rent based on the amount of fleets owned by the player.
 	 */
@@ -64,6 +65,7 @@ public class FleetTest {
 	}
 	
 	/**
+	 * Test-id: U002
 	 * Method testLandOnFieldFleet tests if the correct things happens when a player lands on a fleet field.
 	 * (This method doesn't test the part of the the landOnField method that gives you the opportunity
 	 * to buy the field.)

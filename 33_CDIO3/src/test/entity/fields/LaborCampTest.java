@@ -37,6 +37,7 @@ public class LaborCampTest {
 	
 	
 	/**
+	 * Test-id: U003
 	 * Method testGetRentLC tests if the getRent method in the Labor Camp class returns the correct
 	 * rent based on the amount of Labor camps owned by the player and the sum of the dice.
 	 */
@@ -75,6 +76,7 @@ public class LaborCampTest {
 
 	
 	/**
+	 * Test-id: U004
 	 * Method testLandOnFieldLC tests if the correct things happens when a player lands on a Labor camp field.
 	 * (This method doesn't test the part of the the landOnField method that gives you the opportunity
 	 * to buy the field.)

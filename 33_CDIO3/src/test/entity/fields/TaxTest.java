@@ -34,6 +34,7 @@ public class TaxTest {
 	}
 	
 	/*
+	 * Test-id: U013
 	 * Test method testLandOnField_TaxRate tests if the player pays the correct taxRate 
 	 * when the player chooses to pay taxRate instead of taxAmount when he lands on a taxField.
 	 * The test also tests that the player fortune is updated correctly.
@@ -58,6 +59,7 @@ public class TaxTest {
 	}
 	
 	/*
+	 * Test-id: U014
 	 * Test method testLandOnField_TaxAmount tests if the player pay the correct taxAmount
 	 * when the player chooses to pay taxAmount instead of taxRate when he lands on a taxField.
 	 * The test also tests that the player fortune is updated correctly.
