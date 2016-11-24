@@ -6,7 +6,7 @@ public class GameText extends Text {
 	 * Argument 1, tells what was rolled. Input: String PlayerName, int die1,
 	 * int die2.
 	 */
-	public static String[] turnInformation = { "It is %s's turn \n", "%s has rolled a %d and a %d.\n" };
+	public static String[] turnInformation = { "It is %s's turn. \n", "%s has rolled a %d and a %d.\n" };
 
 	/**
 	 * Argument 0, you cant buy this field, input: String FieldName<br>
@@ -20,7 +20,7 @@ public class GameText extends Text {
 	 * Argument 1, player has lost, input: String playerName.
 	 */
 	public static String[] winLose = { "Congratulations %s has won the game! \n",
-			"%s lost and is out of this game, like the rest of the world #Trump \n" };
+			"%s lost and is out of this game. \n" };
 	/**
 	 * Argument 0, player landed on field, input: String playerName, String
 	 * fieldName.<br>

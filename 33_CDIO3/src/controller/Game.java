@@ -92,7 +92,7 @@ public class Game {
 				}
 			}
 		}
-		// Tells the plyer what he get for landing on a refuge field.
+		// Tells the player what he get for landing on a refuge field.
 		switch (type) {
 		case "Refuge":
 			output += String.format(GameText.standardFieldText[2], ((Refuge) field).getBonus());

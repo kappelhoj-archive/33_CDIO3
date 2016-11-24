@@ -9,7 +9,7 @@ public class GameCreator {
 	InformationHandler info;
 
 	/**
-	 * Initialie the GUI
+	 * Initialize the GUI
 	 */
 	public GameCreator() {
 		info = new InformationHandler();
@@ -17,8 +17,8 @@ public class GameCreator {
 	}
 
 	/**
-	 * Prints information to the user about how the games work, and ask for them
-	 * to input number of players and player names.
+	 * Prints information to the user about how the game work, and ask for them
+	 * to input the number of players and player names.
 	 * 
 	 * @return String playerNames
 	 */
@@ -39,7 +39,7 @@ public class GameCreator {
 	}
 
 	/**
-	 * Method that prompts the use to enter how many players are playing
+	 * Method that prompts the user to enter how many players will be playing.
 	 * 
 	 * @return The number of players that want to play.
 	 */
@@ -61,11 +61,11 @@ public class GameCreator {
 	 */
 	private String[] getPlayerNames(int numbPlayer) {
 		String[] playerNames;
-		do {
+		do {		//Small do-while loop to check if the first player has entered an empty name, i.e. an empty string.
 			playerNames = new String[numbPlayer];
 			playerNames[0] = InputHandler.AskForString(String.format(InputText.information[2], 1));
-
 		} while (playerNames[0].equals(""));
+
 
 		for (int i = 1; i < numbPlayer; i++) {
 			boolean nameEqual = true;
@@ -74,12 +74,9 @@ public class GameCreator {
 			while (nameEqual) {
 				do {
 					playerNames[i] = InputHandler.AskForString(String.format(InputText.information[2], i + 1));
-
 				} while (playerNames[i].equals(""));
-
-				System.out.println("a" + playerNames[i] + "a");
 				for (int j = 0; j < i; j++) {
-					if (playerNames[j].equals(playerNames[i]) || playerNames[i].equals("")) {
+					if (playerNames[j].equals(playerNames[i]) || playerNames[i].equals("")) {		//Another check to see if one the other players enter an empty string.
 						InformationHandler.showInformation(String.format(InputText.errors[1], playerNames[i]),
 								InputText.getButtonText("ok"));
 						nameEqual = true;

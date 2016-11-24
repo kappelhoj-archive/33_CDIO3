@@ -45,7 +45,7 @@ public class PlayerTest {
 	public void testChangePlayerFortune() {
 		int value = 5000;
 		
-		player.changePlayerFortune(value);
+		player.changePropertyFortune(value);
 		
 		int expected = 35000;
 		int actual = player.getPlayerFortune();
