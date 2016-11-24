@@ -20,12 +20,12 @@ public class InformationHandler {
 	 * player.
 	 */
 	public void startGame() {
-		// Creates 11 fields
+		// Creates 21 fields
 		for (int i = 0; i < 21; i++)
 			fields[i] = new Street.Builder().setTitle(GameText.fieldTitles[i]).setSubText(GameText.fieldSubText[i])
 					.setDescription(GameText.fieldShortDescription[i]).build();
 
-		// Create the board and add the 11 fields.
+		// Create the board and add the 21 fields.
 		GUI.create(fields);
 		// Creates cars for the 6 players.
 		cars = createCars();
@@ -57,7 +57,7 @@ public class InformationHandler {
 				.patternFill().build();
 		carArray[3] = new Car.Builder().primaryColor(Color.YELLOW).secondaryColor(Color.BLACK).typeTractor()
 				.patternFill().build();
-		carArray[4] = new Car.Builder().primaryColor(Color.BLACK).secondaryColor(Color.BLACK).typeRacecar()
+		carArray[4] = new Car.Builder().primaryColor(Color.PINK).secondaryColor(Color.BLACK).typeRacecar()
 				.patternFill().build();
 		carArray[5] = new Car.Builder().primaryColor(Color.WHITE).secondaryColor(Color.BLACK).typeRacecar()
 				.patternFill().build();
