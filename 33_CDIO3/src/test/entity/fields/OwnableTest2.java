@@ -17,6 +17,7 @@ public class OwnableTest2
 	@Before
 	public void setUp() throws Exception 
 	{
+		//Instantiates the objects.
 		player = new Player("Susanne");
 		territory = new Territory("Territory",5000,500);
 		laborCamp = new LaborCamp("Labor Camp",5000);
@@ -26,6 +27,7 @@ public class OwnableTest2
 	@After
 	public void tearDown() throws Exception 
 	{
+		//Resets the objects.
 		player = null;
 		territory = null;
 		laborCamp = null;
@@ -96,16 +98,23 @@ public class OwnableTest2
 	@Test
 	public void test_buyFieldTerritory()
 	{
-		// Expected values when a player buys/has bought a field. The player starts with 30000
-		// and the price of the field is 5000.
+		// Expected values when a player buys/has bought a territory field. The player starts with 30000
+		// and the price of the territory is 5000.
 		boolean expectedBoolean = true;
 		Player expectedOwner   = player;
 		int expectedPropertyFortune = 5000;
 		int expectedAccountBalance = 25000;
 		
+		// The actual values
 		boolean actualBoolean = territory.buyField(player);
 		Player actualOwner = territory.getOwner();
-		int actualPropertyFortune = player.getPlayerFortune();
+		int actualPropertyFortune = player.getPlayerFortune() - player.getAccountBalance();
+		int actualAccountBalance = player.getAccountBalance();
+		
+		assertEquals("The expected value is " + expectedBoolean + " but was " + actualBoolean, expectedBoolean, actualBoolean);
+		assertEquals("The expected value is " + expectedOwner + " but was " + actualOwner, expectedOwner, actualOwner);
+		assertEquals("The expected value is " + expectedPropertyFortune + " but was " + actualPropertyFortune, expectedPropertyFortune, actualPropertyFortune);
+		assertEquals("The expected value is " + expectedAccountBalance + " but was " + actualAccountBalance, expectedAccountBalance, actualAccountBalance);
 	}
 
 	/**
@@ -121,7 +130,23 @@ public class OwnableTest2
 	@Test
 	public void test_buyFieldLaborCamp()
 	{
+		// Expected values when a player buys/has bought a Labor Camp field. The player starts with 30000
+		// and the price of the Labor camp field is 5000.
+		boolean expectedBoolean = true;
+		Player expectedOwner   = player;
+		int expectedPropertyFortune = 5000;
+		int expectedAccountBalance = 25000;				
 		
+		// The actual values
+		boolean actualBoolean = laborCamp.buyField(player);
+		Player actualOwner = laborCamp.getOwner();
+		int actualPropertyFortune = player.getPlayerFortune() - player.getAccountBalance();
+		int actualAccountBalance = player.getAccountBalance();
+				
+		assertEquals("The expected value is " + expectedBoolean + " but was " + actualBoolean, expectedBoolean, actualBoolean);
+		assertEquals("The expected value is " + expectedOwner + " but was " + actualOwner, expectedOwner, actualOwner);
+		assertEquals("The expected value is " + expectedPropertyFortune + " but was " + actualPropertyFortune, expectedPropertyFortune, actualPropertyFortune);
+		assertEquals("The expected value is " + expectedAccountBalance + " but was " + actualAccountBalance, expectedAccountBalance, actualAccountBalance);
 	}
 	
 	/**
@@ -137,19 +162,46 @@ public class OwnableTest2
 	@Test
 	public void test_buyFieldFleet()
 	{
-		
+		// Expected values when a player buys/has bought a fleet field. The player starts with 30000
+		// and the price of the fleet is 5000.
+		boolean expectedBoolean = true;
+		Player expectedOwner   = player;
+		int expectedPropertyFortune = 5000;
+		int expectedAccountBalance = 25000;
+
+		// The actual values
+		boolean actualBoolean = fleet.buyField(player);
+		Player actualOwner = fleet.getOwner();
+		int actualPropertyFortune = player.getPlayerFortune() - player.getAccountBalance();
+		int actualAccountBalance = player.getAccountBalance();
+
+		assertEquals("The expected value is " + expectedBoolean + " but was " + actualBoolean, expectedBoolean, actualBoolean);
+		assertEquals("The expected value is " + expectedOwner + " but was " + actualOwner, expectedOwner, actualOwner);
+		assertEquals("The expected value is " + expectedPropertyFortune + " but was " + actualPropertyFortune, expectedPropertyFortune, actualPropertyFortune);
+		assertEquals("The expected value is " + expectedAccountBalance + " but was " + actualAccountBalance, expectedAccountBalance, actualAccountBalance);
 	}
 	
 	/**
-	 * Method test_landOnOwnField tests that nothing happens when player land on his own field 
+	 * Method test_landOnOwnField tests the landOnField method. 
 	 * The tested method should do nothing when a player lands on his own field.
 	 * OBS The if branch of the method landOnField is tested on 
 	 * every type of field in their own test file.
 	 */
 	@Test
 	public void test_landOnOwnField()
-	{
+	{	
+		//player buys the territory field
+		territory.buyField(player);
+		//Expected balance after the player has landed on his own field.
+		int expectedBalance = player.getAccountBalance();
 		
+		//player lands on his own field
+		territory.landOnField(player);
+		
+		//Actual balance after the player has landed on his own field.
+		int actualBalance = player.getAccountBalance();
+		
+		assertEquals("The expected balance is " + expectedBalance + " but was " + actualBalance, expectedBalance, actualBalance);
 	}
 	
 }
