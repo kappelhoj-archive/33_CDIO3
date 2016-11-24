@@ -72,32 +72,50 @@ public class OwnableTest2
 	@Test
 	public void test_buyFieldNoMoney()
 	{
+		//Changes the account balance from 30000 to 1000.
+		player.changeAccountBalance(-29000);
 		
+		// The value expected from buyField is false, because the player cannot afford
+		// the territory.
+		boolean expected = false;
+		// The actual value returned by buyField.
+		boolean actual = territory.buyField(player);
+		
+		assertEquals("The expected value is " + expected + " but was " + actual,expected,actual);
 	}
 	
 	/**
 	 * Method test_buyFieldTerritory tests the if branch of the buyField method
 	 * when a territory is bought.
-	 * The tested method should 
-	 * - return true
-	 * - change the owner of the territory to the player who bought the territory.
-	 * - change the fortune (propertyFortune) of the player who bought the territory.
+	 * The tested method should <br>
+	 * - return true <br>
+	 * - change the owner of the territory to the player who bought the territory. <br>
+	 * - change the fortune (propertyFortune) of the player who bought the territory. <br>
 	 * - change the account balance of the player who bought the territory.
 	 */
 	@Test
 	public void test_buyFieldTerritory()
 	{
+		// Expected values when a player buys/has bought a field. The player starts with 30000
+		// and the price of the field is 5000.
+		boolean expectedBoolean = true;
+		Player expectedOwner   = player;
+		int expectedPropertyFortune = 5000;
+		int expectedAccountBalance = 25000;
 		
+		boolean actualBoolean = territory.buyField(player);
+		Player actualOwner = territory.getOwner();
+		int actualPropertyFortune = player.getPlayerFortune();
 	}
 
 	/**
 	 * Method test_buyFieldLaborCamp tests the if branch of the buyField method
 	 * when a LaborCamp is bought.
-	 * The tested method should 
-	 * - return true
-	 * - change the owner of the LaborCamp to the player who bought the LaborCamp.
-	 * - change the fortune (propertyFortune) of the player who bought the LaborCamp.
-	 * - change the account balance of the player who bought the LaborCamp.
+	 * The tested method should <br>
+	 * - return true <br>
+	 * - change the owner of the LaborCamp to the player who bought the LaborCamp. <br>
+	 * - change the fortune (propertyFortune) of the player who bought the LaborCamp. <br>
+	 * - change the account balance of the player who bought the LaborCamp. <br>
 	 * - increase the amount of labor camps the buyer has by one.
 	 */
 	@Test
@@ -109,12 +127,12 @@ public class OwnableTest2
 	/**
 	 * Method test_buyFieldFleet tests the if branch of the buyField method
 	 * when a Fleet is bought.
-	 * The tested method should 
-	 * - return true
-	 * - change the owner of the Fleet to the player who bought the Fleet.
-	 * - change the fortune (propertyFortune) of the player who bought the Fleet.
-	 * - change the account balance of the player who bought the Fleet.
-	 * - increase the amount of fleets the buyer has by one.
+	 * The tested method should <br>
+	 * - return true <br>
+	 * - change the owner of the Fleet to the player who bought the Fleet. <br>
+	 * - change the fortune (propertyFortune) of the player who bought the Fleet. <br>
+	 * - change the account balance of the player who bought the Fleet. <br>
+	 * - increase the amount of fleets the buyer has by one. 
 	 */
 	@Test
 	public void test_buyFieldFleet()
@@ -123,8 +141,7 @@ public class OwnableTest2
 	}
 	
 	/**
-	 * Method test_landOnOwnField tests the the "else" branch of the LandOnField method when
-	 * a player lands on one of his own fields.
+	 * Method test_landOnOwnField tests that nothing happens when player land on his own field 
 	 * The tested method should do nothing when a player lands on his own field.
 	 * OBS The if branch of the method landOnField is tested on 
 	 * every type of field in their own test file.

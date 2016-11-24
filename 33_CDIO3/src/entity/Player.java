@@ -42,7 +42,7 @@ public class Player {
 	 */
 	public int getPlayerFortune()
 	{
-		return propertyFortune+account.getBalance();
+		return propertyFortune + account.getBalance();
 	}
 		
 	/**
@@ -121,7 +121,7 @@ public class Player {
 	 * Method changePlayerFortune changes the fortune of the player with the parameter value.
 	 * @param value The value the fortune should be changed with.
 	 */
-	public void changePlayerFortune(int value)
+	public void changePropertyFortune(int value)
 	{
 		propertyFortune = propertyFortune + value;
 	}
