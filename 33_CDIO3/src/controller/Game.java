@@ -22,7 +22,7 @@ public class Game {
 		dice = new DiceCup();
 		// Creates the game board
 		gameBoard = new GameBoard();
-		// Start the TUI
+		// Start the GUi
 		gameStarter = new GameCreator();
 		// Ask for the player names
 		String[] playerNames = gameStarter.gameStart();
@@ -177,8 +177,10 @@ public class Game {
 		movePlayer();
 		// Show the player what happended
 		showLandText(gameBoard.getField(players[turn].getPosition()));
+		
 		// Tell gamelogic to handle the landing.
 		String message = GameLogic.landOnField(players[turn], gameBoard.getField(players[turn].getPosition()), this);
+		
 		// Do what the gameLogic tells game to do.
 		if (message.equals("Bought")) {
 			stateInformationToGUI(String.format(GameText.buyInfo[1], players[turn].getPlayerName(),

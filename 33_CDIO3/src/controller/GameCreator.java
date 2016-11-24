@@ -61,8 +61,8 @@ public class GameCreator {
 	 */
 	private String[] getPlayerNames(int numbPlayer) {
 		String[] playerNames;
+		playerNames = new String[numbPlayer];
 		do {		//Small do-while loop to check if the first player has entered an empty name, i.e. an empty string.
-			playerNames = new String[numbPlayer];
 			playerNames[0] = InputHandler.AskForString(String.format(InputText.information[2], 1));
 		} while (playerNames[0].equals(""));
 
@@ -75,6 +75,7 @@ public class GameCreator {
 				do {
 					playerNames[i] = InputHandler.AskForString(String.format(InputText.information[2], i + 1));
 				} while (playerNames[i].equals(""));
+				
 				for (int j = 0; j < i; j++) {
 					if (playerNames[j].equals(playerNames[i]) || playerNames[i].equals("")) {		//Another check to see if one the other players enter an empty string.
 						InformationHandler.showInformation(String.format(InputText.errors[1], playerNames[i]),
