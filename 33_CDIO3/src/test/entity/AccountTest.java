@@ -12,12 +12,14 @@ public class AccountTest {
 	Account account;
 	
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() throws Exception 
+	{
 		account = new Account(30000);
 	}
 
 	@After
-	public void tearDown() throws Exception {
+	public void tearDown() throws Exception 
+	{
 		account = null;
 	}
 		
@@ -66,7 +68,7 @@ public class AccountTest {
 	 * the value was added to the balance
 	 */
 	@Test
-	public void testChangeBalanceOverflow()
+	public void test_ChangeBalanceOverflow()
 	{
 		//Sets the account balance to the value of Integer.MAX_VALUE
 		account.setBalance(Integer.MAX_VALUE);
@@ -88,7 +90,7 @@ public class AccountTest {
 	 * the value was added to the balance
 	 */
 	@Test
-	public void testChangeBalanceUnderflow()
+	public void test_ChangeBalanceUnderflow()
 	{
 		//Sets the account balance to the value of Integer.MAX_VALUE
 		account.setBalance(Integer.MIN_VALUE);
