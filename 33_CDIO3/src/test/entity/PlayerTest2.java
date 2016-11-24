@@ -1,4 +1,4 @@
-package entity;
+package test.entity;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import entity.Player;
 import entity.fields.Fleet;
 
 public class PlayerTest2 
