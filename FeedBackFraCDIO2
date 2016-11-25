@@ -1,0 +1,11 @@
+# Ronni CDIO2
+* Abstract skal bare skrives som blær.
+* Domæne model er hvis du tager spillet og beskrivelser hvad der er i det.
+* BCE er en uddybelse af domøne modellen.
+* GUI_Handler i stedet for GUI Controller
+* Sekvens diagram bør være metode kald for pilene.
+* Sekvens diagrammer kan både være analyse og design.
+* Klasse diagram bør have analyse og design udgaver.
+* Refference til bilag.
+* Acceptance test er en beskrivelse af hvordan vi har udført testen.
+* Der savnes beskrivelser af de valg vi har taget.
