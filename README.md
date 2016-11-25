@@ -10,7 +10,7 @@ s165238, Mikkel Lund, Mikkel257
 
 ![s144265](./groupPictures/s144265.png)
 
-s144265, Arvid Langso, ArvidLangsoe
+s144265, Arvid Langsø, ArvidLangsoe
 
 ![s143233](./groupPictures/s143233.png)
 
